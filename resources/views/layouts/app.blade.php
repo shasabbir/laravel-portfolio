@@ -1,42 +1,43 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'Portfolio')</title>
+    <meta charset="utf-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    />
+
+    <title>@yield('title', 'Scientist Site')</title>
+
+    {{-- Optional: match the Next.js fonts you mentioned --}}
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Literata:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    {{-- Tailwind / app assets (make sure Vite is set up in Laravel 12) --}}
     @vite(['resources/css/app.css','resources/js/app.js'])
+
+    {{-- PAGE-LEVEL EXTRA STYLES --}}
+    @stack('styles')
 </head>
-<body class="min-h-screen bg-background text-foreground">
-    @include('partials.header')
-    <main class="min-h-[70vh]">
-        @yield('content')
-    </main>
-    @include('partials.footer')
-        <script>
-            // Simple mobile menu toggler
-            document.addEventListener('DOMContentLoaded', function () {
-                const btn = document.querySelector('[data-mobile-toggle]');
-                const sheet = document.querySelector('[data-mobile-sheet]');
-                const overlay = document.querySelector('[data-mobile-overlay]');
-                function toggle(open){
-                    if(!sheet||!overlay) return;
-                    const isOpen = open ?? !sheet.classList.contains('translate-x-0');
-                    if(isOpen){
-                        sheet.classList.remove('-translate-x-full');
-                        sheet.classList.add('translate-x-0');
-                        overlay.classList.remove('hidden');
-                    } else {
-                        sheet.classList.add('-translate-x-full');
-                        sheet.classList.remove('translate-x-0');
-                        overlay.classList.add('hidden');
-                    }
-                }
-                if(btn){ btn.addEventListener('click', ()=>toggle()); }
-                if(overlay){ overlay.addEventListener('click', ()=>toggle(false)); }
-                document.querySelectorAll('[data-mobile-close]')?.forEach(el=>{
-                    el.addEventListener('click', ()=>toggle(false));
-                });
-            });
-        </script>
+
+<body class="min-h-screen bg-background antialiased font-body text-foreground">
+    <div class="relative flex min-h-dvh flex-col bg-background">
+        {{-- Header --}}
+        @include('partials.header')
+
+        {{-- Main page content --}}
+        <main class="flex-1">
+            @yield('content')
+        </main>
+
+        {{-- Footer --}}
+        @include('partials.footer')
+    </div>
+
+    {{-- PAGE-LEVEL EXTRA SCRIPTS --}}
+    @stack('scripts')
 </body>
 </html>

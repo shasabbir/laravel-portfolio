@@ -99,29 +99,43 @@
   </div>
 
   <div class="mt-16 rounded-lg border bg-card/50">
-    <div class="p-6">
-      <h3 class="flex items-center gap-2 font-headline text-2xl text-primary">
-        {!! file_get_contents(resource_path('svg/milestone.svg')) !!}
-        <span>Career Aspirations</span>
-      </h3>
-      <p class="text-sm text-muted-foreground">A timeline of key milestones and achievements.</p>
+   <div class="p-6">
+  <h3 class="flex items-center gap-2 font-headline text-2xl text-primary">
+    <img
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGvY5s6TtmCRniS3Fi793twnKkFC-DtxFQyFcoTn52m2y6DuC1_sG45n4BZENyb9JjALI&usqp=CAU"
+      alt="Career Icon"
+      class="h-8 w-8 object-contain"
+    />
+    <div class="flex flex-col gap-2">
+      <span>Career Aspirations</span>
+      <p class="text-sm text-muted-foreground">
+    A timeline of key milestones and achievements.
+  </p>
     </div>
+  </h3>
+
+  
+</div>
+
     <div class="p-6 pt-0">
-      <div class="relative border-l-2 border-primary pl-6">
+      <div class="relative border-l-2 border-primary pl-6 ml-5">
         <div class="mb-8 ml-4">
-          <div class="absolute -left-[11px] mt-1.5 h-5 w-5 rounded-full border-4 border-primary bg-background ring-4 ring-primary/20"></div>
+          <div class="absolute -left-[11px] mt-1.5 h-5 w-5 rounded-full border-4 border-[#D4AF37] ring-4 ring-[#D4AF37]/30 bg-white"></div>
+
           <p class="text-sm font-semibold text-primary">Present</p>
           <h4 class="text-lg font-semibold">Seeking New Opportunities</h4>
           <p class="text-muted-foreground">Looking to apply my skills in a challenging research role to make a significant impact in the field of life sciences.</p>
         </div>
         <div class="mb-8 ml-4">
-          <div class="absolute -left-[11px] mt-1.5 h-5 w-5 rounded-full border-4 border-primary bg-background ring-4 ring-primary/20"></div>
+          <div class="absolute -left-[11px] mt-1.5 h-5 w-5 rounded-full border-4 border-amber-400 ring-4 ring-amber-400/30 bg-white"></div>
+
           <p class="text-sm font-semibold text-primary">Graduate Studies</p>
           <h4 class="text-lg font-semibold">Distinguished Life Sciences Graduate</h4>
           <p class="text-muted-foreground">Completed rigorous academic and practical training, graduating with distinction.</p>
         </div>
         <div class="ml-4">
-          <div class="absolute -left-[11px] mt-1.5 h-5 w-5 rounded-full border-4 border-primary bg-background ring-4 ring-primary/20"></div>
+          <div class="absolute -left-[11px] mt-1.5 h-5 w-5 rounded-full border-4 border-amber-400 ring-4 ring-amber-400/30 bg-white"></div>
+
           <p class="text-sm font-semibold text-primary">Foundation</p>
           <h4 class="text-lg font-semibold">Developed Strong Research Background</h4>
           <p class="text-muted-foreground">Built a solid foundation in Alzheimer's Disease, drug design, cell culture, and NGS.</p>
