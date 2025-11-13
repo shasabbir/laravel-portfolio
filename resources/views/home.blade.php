@@ -54,6 +54,9 @@
             {{-- RIGHT VISUAL --}}
             <div class="relative flex items-center justify-center reveal delay-200 z-10">
 
+                {{-- FULL COLOR BACKGROUND ON RIGHT SIDE --}}
+                <div class="absolute inset-0 -z-20" style="background: radial-gradient(circle at center, #60a5fa 0%, #93c5fd 20%, #dbeafe 40%, #f0f9ff 60%, #ffffff 85%, white 100%);"></div>
+
                 {{-- WRAPPER so we can layer: pulsing shadow UNDER + avatar ABOVE --}}
                 <div class="avatar-wrapper relative flex items-center justify-center">
 
@@ -279,8 +282,8 @@
 @push('styles')
     <style>
         /* ============================================
-       HERO TEAL BACKGROUND GLOW (right side cloud)
-       ============================================ */
+                   HERO TEAL BACKGROUND GLOW (right side cloud)
+                   ============================================ */
         .hero-spotlight {
             width: 42rem;
             height: 42rem;
@@ -297,10 +300,10 @@
         }
 
         /* ============================================
-       OVAL SHADOW UNDER AVATAR
-       - teal ellipse under the profile picture
-       - slowly breathes (opacity / blur)
-       ============================================ */
+                   OVAL SHADOW UNDER AVATAR
+                   - teal ellipse under the profile picture
+                   - slowly breathes (opacity / blur)
+                   ============================================ */
         .avatar-shadow {
             width: 22rem;
             height: 10rem;
@@ -320,8 +323,8 @@
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            width: 28rem;
-            height: 28rem;
+            width: 35rem;
+            height: 35rem;
             border-radius: 9999px;
             z-index: -5;
             /* sits behind avatar but above the hero background */
@@ -331,17 +334,23 @@
         .avatar-bg-anim .rot {
             position: absolute;
             inset: 0;
-            background: conic-gradient(from 0deg, rgba(6, 78, 94, 0.48), rgba(14, 165, 233, 0.35), rgba(56, 189, 248, 0.22), rgba(6, 78, 94, 0.48));
-            filter: blur(40px) saturate(1.05);
-            opacity: 0.85;
+            background: radial-gradient(circle at center,
+                    rgba(135, 206, 250, 0.5) 0%,
+                    rgba(100, 180, 240, 0.35) 20%,
+                    rgba(75, 150, 220, 0.22) 40%,
+                    rgba(59, 130, 246, 0.15) 60%,
+                    rgba(45, 110, 220, 0.08) 80%,
+                    rgba(30, 90, 200, 0) 100%);
+            filter: blur(60px) saturate(1.15);
+            opacity: 0.8;
             transform-origin: 50% 50%;
-            animation: avatarRotate 14s linear infinite, avatarPulse 6s ease-in-out infinite;
+            animation: avatarPulse 6s ease-in-out infinite;
         }
 
         @media (min-width: 768px) {
             .avatar-bg-anim {
-                width: 42rem;
-                height: 42rem;
+                width: 50rem;
+                height: 50rem;
             }
         }
 
@@ -355,13 +364,13 @@
 
             0%,
             100% {
-                opacity: 0.85;
-                filter: blur(40px) saturate(1.05);
+                opacity: 0.8;
+                filter: blur(60px) saturate(1.15);
             }
 
             50% {
-                opacity: 0.7;
-                filter: blur(36px) saturate(1.1);
+                opacity: 0.55;
+                filter: blur(55px) saturate(1.25);
             }
         }
 
@@ -383,8 +392,8 @@
         }
 
         /* ============================================
-       AVATAR FLOAT (subtle up/down animation)
-       ============================================ */
+                   AVATAR FLOAT (subtle up/down animation)
+                   ============================================ */
         .avatar-float {
             animation: floatY 4s ease-in-out infinite;
             will-change: transform;
@@ -403,9 +412,9 @@
         }
 
         /* ============================================
-       AVATAR DROP SHADOW
-       clean, natural depth under the circle itself
-       ============================================ */
+                   AVATAR DROP SHADOW
+                   clean, natural depth under the circle itself
+                   ============================================ */
         .shadow-avatar {
             box-shadow:
                 0 25px 40px rgba(0, 0, 0, 0.25),
@@ -414,8 +423,8 @@
         }
 
         /* ============================================
-       HERO BACKGROUND GLOW PULSE (for hero-spotlight)
-       ============================================ */
+                   HERO BACKGROUND GLOW PULSE (for hero-spotlight)
+                   ============================================ */
         @keyframes glowPulse {
 
             0%,
@@ -431,8 +440,8 @@
         }
 
         /* ============================================
-       Scroll Reveal Animations
-       ============================================ */
+                   Scroll Reveal Animations
+                   ============================================ */
         .reveal {
             opacity: 0;
             transform: translateY(32px) scale(.98);
