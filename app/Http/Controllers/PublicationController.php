@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Publication;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 
 class PublicationController extends Controller
 {
@@ -29,9 +30,15 @@ class PublicationController extends Controller
             'publication_type' => ['required', 'string', 'in:Journal,Conference,Preprint'],
             'doi' => ['nullable', 'string'],
             'url' => ['nullable', 'string'],
-            'pdf' => ['nullable', 'string'],
+            'pdf' => ['nullable', 'file', 'mimes:pdf', 'max:10240'],
             'abstract' => ['nullable', 'string'],
         ]);
+
+        // Handle PDF file upload
+        if ($request->hasFile('pdf')) {
+            $pdfPath = $request->file('pdf')->store('publications', 'public');
+            $data['pdf'] = \Storage::disk('public')->url($pdfPath);
+        }
 
         $publication = Publication::create($data);
         return Redirect::route('publications.index')->with('status', 'Publication created');
@@ -52,9 +59,15 @@ class PublicationController extends Controller
             'publication_type' => ['required', 'string', 'in:Journal,Conference,Preprint'],
             'doi' => ['nullable', 'string'],
             'url' => ['nullable', 'string'],
-            'pdf' => ['nullable', 'string'],
+            'pdf' => ['nullable', 'file', 'mimes:pdf', 'max:10240'],
             'abstract' => ['nullable', 'string'],
         ]);
+
+        // Handle PDF file upload
+        if ($request->hasFile('pdf')) {
+            $pdfPath = $request->file('pdf')->store('publications', 'public');
+            $data['pdf'] = \Storage::disk('public')->url($pdfPath);
+        }
 
         $publication->update($data);
         return Redirect::route('publications.index')->with('status', 'Publication updated');

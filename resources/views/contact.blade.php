@@ -3,27 +3,26 @@
 @section('title', 'Contact')
 
 @section('content')
-<section class="relative bg-blue-50/60 dark:bg-slate-800/80" id="contact">
+<section class="relative" id="contact">
     {{-- soft radial highlight for style --}}
-    <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,.15),transparent_60%)] dark:bg-[radial-gradient(circle_at_20%_20%,rgba(37,99,235,.2),transparent_60%)]"></div>
+    <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,.15),transparent_60%)]"></div>
 
     <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
         {{-- header --}}
-       
 
         {{-- content card --}}
-        <div class="mx-auto w-full max-w-6xl rounded-2xl border border-gray-200 bg-white/80 p-6 shadow-xl backdrop-blur-sm dark:border-slate-700 dark:bg-slate-900/80 md:p-10 lg:p-12 animate-[fadeIn_0.5s_ease-out]">
+        <div class="mx-auto w-full max-w-6xl rounded-2xl border border-gray-200 bg-white p-6 shadow-xl backdrop-blur-sm md:p-10 lg:p-12 animate-[fadeIn_0.5s_ease-out]">
             <div class="grid gap-10 md:grid-cols-2 md:gap-12">
                 <!-- LEFT SIDE INFO -->
                 <div class="h-full">
-                    <p class="text-base leading-relaxed text-gray-600 dark:text-slate-400 mb-10">
+                    <p class="text-base leading-relaxed text-black mb-10">
                         Whether you have a question, a proposal, or just want to say hi —
                         drop a message. Let me know what you're building or researching.
                     </p>
 
                     <ul class="space-y-8">
                         <li class="flex">
-                            <div class="flex h-12 w-12 flex-none items-center justify-center rounded-lg bg-blue-900 text-gray-50 ">
+                            <div class="flex h-12 w-12 flex-none items-center justify-center rounded-lg bg-blue-900 text-gray-50">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -34,15 +33,14 @@
                                 </svg>
                             </div>
                             <div class="ml-4 py-3">
-                              
-                                <p class="mt-1 text-sm text-gray-600 dark:text-slate-400">
+                                <p class="mt-1 text-sm text-black">
                                     Dhaka, Bangladesh
                                 </p>
                             </div>
                         </li>
 
                         <li class="flex">
-                            <div class="flex h-12 w-12 flex-none items-center justify-center rounded-lg bg-blue-900 text-gray-50 ">
+                            <div class="flex h-12 w-12 flex-none items-center justify-center rounded-lg bg-blue-900 text-gray-50">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round">
@@ -54,18 +52,17 @@
                                 </svg>
                             </div>
                             <div class="ml-4 py-3">
-                                
-                                <p class="mt-1 text-sm text-gray-600 dark:text-slate-400">
+                                <p class="mt-1 text-sm text-black">
                                     Mobile: +1 (123) 456-7890
                                 </p>
-                                <p class="text-sm text-gray-600 dark:text-slate-400">
+                                <p class="text-sm text-black">
                                     Email: hello@example.com
                                 </p>
                             </div>
                         </li>
 
                         <li class="flex">
-                            <div class="flex h-12 w-12 flex-none items-center justify-center rounded-lg bg-blue-900 text-gray-50 ">
+                            <div class="flex h-12 w-12 flex-none items-center justify-center rounded-lg bg-blue-900 text-gray-50">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round">
@@ -74,43 +71,42 @@
                                 </svg>
                             </div>
                             <div class="ml-4 py-3">
-                              
-                                <p class="mt-1 text-sm text-gray-600 dark:text-slate-400">
+                                <p class="mt-1 text-sm text-black">
                                     Mon – Fri: 09:00 – 17:00
                                 </p>
-                                <p class="text-sm text-gray-600 dark:text-slate-400">
+                                <p class="text-sm text-black">
                                     Weekends: Flexible for urgent requests
                                 </p>
                             </div>
                         </li>
                     </ul>
 
-                     <div class="mt-10">
-        <div class="overflow-hidden rounded-xl border border-gray-200 shadow-sm dark:border-slate-700">
-            <iframe
-                class="w-full h-64 sm:h-72 md:h-64 lg:h-72"
-                style="border:0;"
-                loading="lazy"
-                allowfullscreen
-                referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.9025903274237!2d90.399452!3d23.750904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b2c2dc2b9f%3A0xXXXXXXXXXXXXXXX!2sDhaka%2C%20Bangladesh!5e0!3m2!1sen!2sbd!4v0000000000000">
-            </iframe>
-        </div>
-        <p class="mt-3 text-xs text-gray-500 dark:text-slate-500">
-            Approximate location
-        </p>
-    </div>
+                    <div class="mt-10">
+                        <div class="overflow-hidden rounded-xl border border-gray-200 shadow-sm">
+                            <iframe
+                                class="w-full h-64 sm:h-72 md:h-64 lg:h-72"
+                                style="border:0;"
+                                loading="lazy"
+                                allowfullscreen
+                                referrerpolicy="no-referrer-when-downgrade"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.9025903274237!2d90.399452!3d23.750904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b2c2dc2b9f%3A0xXXXXXXXXXXXXXXX!2sDhaka%2C%20Bangladesh!5e0!3m2!1sen!2sbd!4v0000000000000">
+                            </iframe>
+                        </div>
+                        <p class="mt-3 text-xs text-black">
+                            Approximate location
+                        </p>
+                    </div>
                 </div>
 
                 <!-- RIGHT SIDE FORM -->
-                <div class="rounded-xl border border-gray-200 bg-white p-6 shadow-lg dark:border-slate-700 dark:bg-slate-800 md:p-8 lg:p-10">
-                    <h2 class="mb-6 text-2xl font-bold text-black dark:text-white">
+                <div class="rounded-xl border border-gray-200 bg-white p-6 shadow-lg md:p-8 lg:p-10">
+                    <h2 class="mb-6 text-2xl font-bold text-black">
                         Send a Message
                     </h2>
 
                     {{-- success flash message --}}
                     @if(session('status'))
-                        <div class="mb-6 rounded-md border border-green-300 bg-green-50 px-4 py-3 text-sm font-medium text-green-700 dark:border-green-600/40 dark:bg-green-900/30 dark:text-green-300">
+                        <div class="mb-6 rounded-md border border-green-300 bg-green-50 px-4 py-3 text-sm font-medium text-green-700">
                             {{ session('status') }}
                         </div>
                     @endif
@@ -122,7 +118,7 @@
                             <!-- Name -->
                             <div class="flex flex-col">
                                 <label for="name"
-                                       class="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-700 dark:text-slate-300">
+                                       class="mb-3 text-xs font-semibold uppercase tracking-wider text-black">
                                     Name
                                 </label>
                                 <input
@@ -132,7 +128,7 @@
                                     autocomplete="given-name"
                                     placeholder="Your name"
                                     value="{{ old('name') }}"
-                                    class="w-full rounded-lg border border-gray-300 bg-white py-3 px-3 text-sm text-black shadow-sm outline-none ring-0 transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-gray-100 dark:focus:border-blue-400 dark:focus:ring-blue-400/40"
+                                    class="w-full rounded-lg border border-gray-300 bg-white py-3 px-3 text-sm text-black shadow-sm outline-none ring-0 transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
                                 />
                                 @error('name')
                                     <p class="mt-1 text-xs font-medium text-rose-600">{{ $message }}</p>
@@ -142,7 +138,7 @@
                             <!-- Email -->
                             <div class="flex flex-col">
                                 <label for="email"
-                                       class="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-700 dark:text-slate-300">
+                                       class="mb-3 text-xs font-semibold uppercase tracking-wider text-black">
                                     Email
                                 </label>
                                 <input
@@ -152,7 +148,7 @@
                                     autocomplete="email"
                                     placeholder="your@email.com"
                                     value="{{ old('email') }}"
-                                    class="w-full rounded-lg border border-gray-300 bg-white py-3 px-3 text-sm text-black shadow-sm outline-none ring-0 transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-gray-100 dark:focus:border-blue-400 dark:focus:ring-blue-400/40"
+                                    class="w-full rounded-lg border border-gray-300 bg-white py-3 px-3 text-sm text-black shadow-sm outline-none ring-0 transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
                                 />
                                 @error('email')
                                     <p class="mt-1 text-xs font-medium text-rose-600">{{ $message }}</p>
@@ -163,7 +159,7 @@
                         <!-- Message -->
                         <div class="flex flex-col">
                             <label for="message"
-                                   class="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-700 dark:text-slate-300">
+                                   class="mb-3 text-xs font-semibold uppercase tracking-wider text-black">
                                 Message
                             </label>
                             <textarea
@@ -171,7 +167,7 @@
                                 name="message"
                                 rows="6"
                                 placeholder="Write your message..."
-                                class="w-full rounded-lg border border-gray-300 bg-white py-3 px-3 text-sm text-black shadow-sm outline-none ring-0 transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-gray-100 dark:focus:border-blue-400 dark:focus:ring-blue-400/40"
+                                class="w-full rounded-lg border border-gray-300 bg-white py-3 px-3 text-sm text-black shadow-sm outline-none ring-0 transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
                             >{{ old('message') }}</textarea>
                             @error('message')
                                 <p class="mt-1 text-xs font-medium text-rose-600">{{ $message }}</p>
@@ -182,7 +178,7 @@
                         <div class="pt-2 text-center">
                             <button
                                 type="submit"
-                                class="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-lg bg-blue-600 px-6 py-3 text-base font-semibold text-white shadow-md ring-0 transition hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-800"
+                                class="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-lg bg-blue-600 px-6 py-3 text-base font-semibold text-white shadow-md ring-0 transition hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-white"
                             >
                                 <span class="relative z-10">Send Message</span>
                                 <span
@@ -191,7 +187,7 @@
                             </button>
                         </div>
 
-                        <p class="text-center text-[11px] leading-relaxed text-gray-500 dark:text-slate-500">
+                        <p class="text-center text-[11px] leading-relaxed text-black">
                             By submitting, you agree to be contacted back regarding your inquiry.
                         </p>
                     </form>

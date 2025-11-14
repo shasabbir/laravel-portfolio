@@ -28,3 +28,13 @@ Route::delete('/publications/{publication}', [PublicationController::class, 'des
 Route::view('/about', 'about')->name('about');
 Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+
+use App\Models\Publication;
+//use Illuminate\Support\Facades\Route;
+
+Route::get('/publications', function () {
+    // 5 per page, newest year first
+    $publications = Publication::orderByDesc('year')->paginate(5);
+
+    return view('publications.index', compact('publications'));
+})->name('publications.index');
