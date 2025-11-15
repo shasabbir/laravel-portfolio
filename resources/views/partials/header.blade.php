@@ -53,8 +53,10 @@
       @endforeach
     </nav>
 
-    {{-- Right side icons --}}
+    {{-- Right side icons + GIF --}}
     <div class="flex items-center justify-end space-x-2">
+   
+
       <div class="hidden gap-2 md:flex">
         <a href="https://orcid.org/" target="_blank" aria-label="ORCID"
            class="inline-flex h-9 w-9 items-center justify-center rounded hover:bg-secondary"
@@ -92,6 +94,17 @@
             <path d="M2 4a18 18 0 0118 18h-3A15 15 0 002 7V4z" />
           </svg>
         </a>
+
+           {{-- Small GIF badge (desktop only) --}}
+      <div class="hidden items-center md:flex">
+        <div class="relative inline-flex h-9 w-14 items-center justify-center overflow-hidden rounded-full b bg-white/80  backdrop-blur">
+          <img
+            src="{{ asset('svg/Welcome.gif') }}"
+            alt="Welcome animation"
+            class="h-10 w-14 object-contain"
+          />
+        </div>
+      </div>
       </div>
 
       {{-- Mobile burger --}}

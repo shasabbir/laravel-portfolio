@@ -5,84 +5,100 @@
 @section('content')
 <div class="home-page relative">
 
-    {{-- ================= HERO ================= --}}
-    <section id="hero" class="relative w-full overflow-hidden bg-background py-20 md:py-32">
+ {{-- ================= HERO ================= --}}
+<section id="hero" class="relative w-full overflow-hidden bg-background py-20 md:py-32">
 
-        {{-- FULLSCREEN BACKGROUND VIDEO --}}
-        <div class="hero-video-wrapper pointer-events-none absolute inset-0 -z-20">
-            <video class="hero-video h-full w-full object-cover"
-                src="https://media.istockphoto.com/id/1494372561/video/soft-background-animation-abstract-blurred-and-beautiful-clean-and-shiny-motion-design-the.mp4?s=mp4-640x640-is&k=20&c=o8TfyL_c12J3qKRK3RPjTRDrSxJ0bvnt9a5wjH45SdU="
-                autoplay muted loop playsinline></video>
+    {{-- FULLSCREEN BACKGROUND VIDEO --}}
+    <div class="hero-video-wrapper pointer-events-none absolute inset-0 -z-20">
+        <video class="hero-video h-full w-full object-cover"
+            src="https://media.istockphoto.com/id/1494372561/video/soft-background-animation-abstract-blurred-and-beautiful-clean-and-shiny-motion-design-the.mp4?s=mp4-640x640-is&k=20&c=o8TfyL_c12J3qKRK3RPjTRDrSxJ0bvnt9a5wjH45SdU="
+            autoplay muted loop playsinline></video>
 
-            {{-- OVERLAY ON TOP OF VIDEO TO MAKE TEXT READABLE + SOFT SPOT GRADIENT --}}
-            <div class="hero-video-overlay absolute inset-0"></div>
+        {{-- OVERLAY ON TOP OF VIDEO TO MAKE TEXT READABLE --}}
+        <div class="hero-video-overlay absolute inset-0"></div>
+    </div>
+
+    {{-- LARGE BACKGROUND TEAL GRADIENT ON THE RIGHT --}}
+    <div class="hero-spotlight pointer-events-none absolute right-[-8rem] top-[-6rem] -z-10 hidden md:block"></div>
+
+    <div
+        class="container relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 text-center md:grid-cols-2 md:px-6 md:text-left">
+
+        {{-- LEFT CONTENT --}}
+        <div class="z-10 reveal delay-0">
+            <h1 class="font-headline text-5xl font-bold tracking-tight text-foreground md:text-6xl lg:text-6xl">
+                GAZI SALAH UDDIN NUHASH
+            </h1>
+
+            <p
+                class="mt-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-2xl font-semibold text-transparent">
+                Life Sciences Researcher
+            </p>
+
+            <p class="mx-auto mt-6 max-w-prose text-lg leading-relaxed text-muted-foreground md:mx-0">
+                Driven, ambitious and self-motivated researcher with a strong background in Alzheimer's Disease,
+                drug design and discovery, and next-generation sequencing.
+            </p>
+
+            <div class="mt-8 flex justify-center gap-4 md:justify-start">
+                <a href="{{ route('publications.index') }}"
+                    class="inline-flex items-center gap-2 rounded bg-primary px-5 py-3 text-base font-semibold text-primary-foreground shadow transition hover:opacity-90">
+                    View Publications
+                </a>
+                <a href="{{ route('contact.show') }}"
+                    class="inline-flex items-center gap-2 rounded border border-border px-5 py-3 text-base font-semibold transition hover:bg-accent/10">
+                    Get in Touch
+                </a>
+            </div>
         </div>
 
-        {{-- LARGE BACKGROUND TEAL GRADIENT ON THE RIGHT --}}
-        <div class="hero-spotlight pointer-events-none absolute right-[-8rem] top-[-6rem] -z-10 hidden md:block"></div>
+{{-- RIGHT VISUAL --}}
+<div class="relative z-10 flex items-center justify-center reveal delay-200">
 
+    {{-- SOFT, ALMOST-WHITE ANIMATED BACKGROUND (glow behind image) --}}
+    <div
+        class="pointer-events-none absolute left-1/2 top-1/2 -z-10 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center">
         <div
-            class="container relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 text-center md:grid-cols-2 md:px-6 md:text-left">
+            class="relative h-72 w-72 rounded-full md:h-80 md:w-80 overflow-hidden bg-white/90 shadow-[0_24px_70px_rgba(15,23,42,0.14)]">
+            <video
+                class="h-full w-full object-cover opacity-35 mix-blend-screen"
+                src="https://cdnl.iconscout.com/lottie/premium/preview-watermark/background-animation-gif-download-7501792.mp4"
+                autoplay
+                muted
+                loop
+                playsinline>
+            </video>
 
-            {{-- LEFT CONTENT --}}
-            <div class="z-10 reveal delay-0">
-                <h1 class="font-headline text-5xl font-bold tracking-tight text-foreground md:text-6xl lg:text-6xl">
-                    GAZI SALAH UDDIN NUHASH
-                </h1>
-
-                <p
-                    class="mt-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-2xl font-semibold text-transparent">
-                    Life Sciences Researcher
-                </p>
-
-                <p class="mx-auto mt-6 max-w-prose text-lg leading-relaxed text-muted-foreground md:mx-0">
-                    Driven, ambitious and self-motivated researcher with a strong background in Alzheimer's Disease,
-                    drug design and discovery, and next-generation sequencing.
-                </p>
-
-                <div class="mt-8 flex justify-center gap-4 md:justify-start">
-                    <a href="{{ route('publications.index') }}"
-                        class="inline-flex items-center gap-2 rounded bg-primary px-5 py-3 text-base font-semibold text-primary-foreground shadow transition hover:opacity-90">
-                        View Publications
-                    </a>
-                    <a href="{{ route('contact.show') }}"
-                        class="inline-flex items-center gap-2 rounded border border-border px-5 py-3 text-base font-semibold transition hover:bg-accent/10">
-                        Get in Touch
-                    </a>
-                </div>
-            </div>
-
-            {{-- RIGHT VISUAL --}}
-            <div class="relative z-10 flex items-center justify-center reveal delay-200">
-
-                {{-- FULL COLOR BACKGROUND ON RIGHT SIDE (kept) --}}
-                <div class="absolute inset-0 -z-20"
-                    style="background: radial-gradient(circle at center, #60a5fa 0%, #93c5fd 20%, #dbeafe 40%, #f0f9ff 60%, #ffffff 85%, white 100%);">
-                </div>
-
-                {{-- WRAPPER so we can layer: pulsing shadow UNDER + avatar ABOVE --}}
-                <div class="avatar-wrapper relative flex items-center justify-center">
-
-                    {{-- BACKGROUND ANIMATION (rotating soft gradient behind the avatar) --}}
-                    <div class="avatar-bg-anim">
-                        <div class="rot"></div>
-                    </div>
-
-                    {{-- SOFT OVAL SHADOW UNDER THE IMAGE (animated color/opacity) --}}
-                    <div class="avatar-shadow pointer-events-none absolute left-1/2 top-[70%] -z-10 -translate-x-1/2">
-                    </div>
-
-                    {{-- ACTUAL AVATAR (floating up/down) --}}
-                    <div
-                        class="absolute inset-0 -z-10 animate-spin-slowavatar-float relative h-64 w-64 overflow-hidden rounded-full border-[4px] border-white bg-white/5 shadow-avatar md:h-full md:w-80">
-                        <img src="{{ asset('images/nuhash.jpg') }}" alt="GAZI SALAH UDDIN NUHASH"
-                            class="h-full w-full object-cover" />
-                    </div>
-
-                </div>
+            {{-- very soft white/blue gradient so border is not obvious --}}
+            <div class="pointer-events-none absolute inset-0 rounded-full"
+                style="background: radial-gradient(circle at 50% 45%,
+                          rgba(255,255,255,0.98) 0%,
+                          rgba(239,246,255,0.96) 35%,
+                          rgba(226,239,255,0.90) 60%,
+                          rgba(255,255,255,0.85) 80%,
+                          rgba(255,255,255,0) 100%);">
             </div>
         </div>
-    </section>
+    </div>
+
+    {{-- AVATAR + SHADOW (now wider/larger) --}}
+    <div class="avatar-wrapper relative flex items-center justify-center">
+
+        {{-- SOFT OVAL SHADOW UNDER THE IMAGE --}}
+        <div class="avatar-shadow pointer-events-none absolute left-1/2 top-[72%] -z-10 -translate-x-1/2"></div>
+
+        {{-- ACTUAL AVATAR (bigger circle) --}}
+        <div
+            class="avatar-float relative h-64 w-64 overflow-hidden rounded-full border-[4px] border-white bg-white/60 shadow-avatar md:h-72 md:w-72">
+            <img src="{{ asset('images/nuhash.jpg') }}" alt="GAZI SALAH UDDIN NUHASH"
+                 class="h-full w-full object-cover" />
+        </div>
+    </div>
+</div>
+
+    </div>
+</section>
+
 
 
 {{-- ================= 3 INFO CARDS ================= --}}
@@ -175,26 +191,56 @@
 
         <div class="grid md:grid-cols-2">
 
-            {{-- LEFT TEXT CONTENT --}}
-            <div class="mx-0 flex items-center justify-center p-8 md:mx-20 md:p-16">
-                <div class="max-w-md text-center md:text-left reveal delay-0">
-                    <h2 class="font-headline text-3xl font-bold md:text-4xl">A Passion for Discovery</h2>
-                    <p class="mt-4 text-lg leading-relaxed">
-                        Academically distinguished life sciences graduate with exceptional leadership abilities,
-                        adept at public speaking, teamwork, and effective communication. Looking to pursue further
-                        opportunities and make a difference within my field and harness my potential.
-                    </p>
-                    <a href="{{ route('about') }}"
-                        class="mt-8 inline-flex items-center gap-2 rounded border border-border bg-background px-5 py-3 text-base font-semibold transition hover:bg-accent/10">
-                        Learn More About Me
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M5 12h14"></path>
-                            <path d="M12 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
-                </div>
-            </div>
+           {{-- LEFT TEXT CONTENT --}}
+<div class="mx-0 flex items-center justify-center pt-8 md:mx-10 ">
+    <div class="max-w-xl text-center md:text-left reveal delay-0">
+        <h2 class="font-headline text-3xl font-bold md:text-4xl">A Passion for Discovery</h2>
+
+        <p class="mt-4 text-lg leading-relaxed">
+            Academically distinguished life sciences graduate with exceptional leadership abilities,
+            adept at public speaking, teamwork, and effective communication. Looking to pursue further
+            opportunities and make a difference within my field and harness my potential.
+        </p>
+
+
+<div class="mt-6 flex  items-center  gap-6">
+
+        <a href="{{ route('about') }}"
+           class="mt-8 inline-flex items-center gap-2 rounded border border-border bg-background px-5 py-3 text-base font-semibold transition hover:bg-accent/10">
+            Learn More About Me
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+            </svg>
+       
+        </a>
+          {{-- SCIENTIST GIF UNDER THE TEXT --}}
+       <div class="relative inline-flex items-center justify-center">
+    {{-- soft glow behind --}}
+    <div
+        class="pointer-events-none absolute inset-0 -z-10 h-24 w-24 rounded-full bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.35),transparent_60%)] blur-2xl opacity-80">
+    </div>
+
+    {{-- circular chip --}}
+    <div
+        class="relative flex h-60 w-60 items-center justify-center rounded-full  bg-white/70  backdrop-blur">
+        <img
+            src="{{ asset('svg/Robot-Bot.gif') }}"
+            alt="Scientist animation"
+            class="h-40 w-40 object-contain"
+        />
+    </div>
+</div>
+
+</div>
+       
+    
+        
+      
+    </div>
+</div>
+
 
             {{-- RIGHT VIDEO --}}
             <div class="relative min-h-[300px] w-full md:min-h-0">
