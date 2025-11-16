@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Mail\ContactSubmissionMail;
 use App\Models\ContactSubmission;
+use Illuminate\Mail\Mailables\Address;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 
 class ContactController extends Controller
@@ -21,7 +24,14 @@ class ContactController extends Controller
             'message' => ['required','string','min:10'],
         ]);
 
-        ContactSubmission::create($data);
+        $submission = ContactSubmission::create($data);
+
+        $recipient = new Address(
+            config('mail.contact.address'),
+            config('mail.contact.name')
+        );
+
+        Mail::to($recipient)->send(new ContactSubmissionMail($submission));
 
         return Redirect::route('contact.show')->with('status','Message sent!');
     }
