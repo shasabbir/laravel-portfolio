@@ -10,7 +10,7 @@
     <img src="{{ $blog->image_url ?: $fallbackImage }}" alt="{{ $blog->title }}" class="mb-6 h-64 w-full rounded object-cover md:h-96" />
     <h1 class="font-headline mb-2 text-4xl font-bold">{{ $blog->title }}</h1>
     <div class="mb-6 flex items-center gap-3 text-sm text-muted-foreground">
-      <img src="{{ $authorImage }}" class="h-8 w-8 rounded-full" alt="{{ $blog->author_name }}" />
+      <img src="/storage/images/nuhash.jpg" class="h-8 w-8 rounded-full" alt="{{ $blog->author_name }}" />
       <span>{{ $blog->author_name }}</span>
       <span>•</span>
       <time datetime="{{ $blog->date?->toDateString() }}">{{ optional($blog->date)->format('M d, Y') }}</time>
