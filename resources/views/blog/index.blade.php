@@ -6,6 +6,8 @@
     <div class="container mx-auto px-4 py-10 md:px-6">
         @php
             $featured = $blogs->first();
+            $fallbackImage = asset('images/nuhash.jpg');
+            $authorImage = asset('images/nuhash.jpg');
         @endphp
 
         {{-- Page header --}}
@@ -52,20 +54,13 @@
                             class="relative block w-full overflow-hidden rounded-t-2xl bg-muted/40"
                         >
                             <div class="aspect-[4/3] md:aspect-[16/9] w-full">
-                                @if ($featured->image_url)
-                                    <img
-                                        src="{{ $featured->image_url }}"
-                                        alt="{{ $featured->title }}"
-                                        loading="lazy"
-                                        decoding="async"
-                                        class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                    />
-                                @else
-                                    <div
-                                        class="flex h-full w-full items-center justify-center bg-gradient-to-br from-primary/20 via-accent/20 to-secondary/30 text-xs text-muted-foreground">
-                                        No image provided
-                                    </div>
-                                @endif
+                                <img
+                                    src="{{ $featured->image_url ?: $fallbackImage }}"
+                                    alt="{{ $featured->title }}"
+                                    loading="lazy"
+                                    decoding="async"
+                                    class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                />
                             </div>
 
                             {{-- soft gradient on bottom for future overlays (title, etc.) --}}
@@ -101,15 +96,13 @@
                             <div class="flex flex-col gap-4 border-t border-border/70 pt-4 text-sm md:flex-row md:items-center md:justify-between">
                                 {{-- Author / date --}}
                                 <div class="flex items-center gap-3">
-                                    @if ($featured->author_avatar)
-                                        <img
-                                            src="{{ $featured->author_avatar }}"
-                                            class="h-10 w-10 rounded-full ring-2 ring-background/90 ring-offset-2 ring-offset-card"
-                                            alt="{{ $featured->author_name }}"
-                                            loading="lazy"
-                                            decoding="async"
-                                        />
-                                    @endif
+                                    <img
+                                        src="{{ $authorImage }}"
+                                        class="h-10 w-10 rounded-full ring-2 ring-background/90 ring-offset-2 ring-offset-card"
+                                        alt="{{ $featured->author_name }}"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
 
                                     <div>
                                         <p class="text-sm font-medium text-foreground">
@@ -165,19 +158,13 @@
             >
                 {{-- Thumbnail image, like your screenshot --}}
                 <div class="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl bg-muted/60">
-                    @if ($sidePost->image_url)
-                        <img
-                            src="{{ $sidePost->image_url }}"
-                            alt="{{ $sidePost->title }}"
-                            loading="lazy"
-                            decoding="async"
-                            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                    @else
-                        <div class="flex h-full w-full items-center justify-center text-[10px] text-muted-foreground">
-                            No image
-                        </div>
-                    @endif
+                    <img
+                        src="{{ $sidePost->image_url ?: $fallbackImage }}"
+                        alt="{{ $sidePost->title }}"
+                        loading="lazy"
+                        decoding="async"
+                        class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
                 </div>
 
                 {{-- Text content --}}
