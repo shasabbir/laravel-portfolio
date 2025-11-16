@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Redirect;
 
 class BlogController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+
     public function index()
     {
         $blogs = Blog::query()->orderByDesc('date')->paginate(10);
@@ -61,8 +66,8 @@ class BlogController extends Controller
             'slug' => $slug,
             'tags' => $tags,
             'date' => now(),
-            'author_name' => 'GAZI SALAH UDDIN NUHASH',
-            'author_avatar' => 'https://i.postimg.cc/50FkXX3x/nuhash.jpg',
+            'author_name' => auth()->user()?->name ?? 'GAZI SALAH UDDIN NUHASH',
+            'author_avatar' => auth()->user()?->email ? 'https://www.gravatar.com/avatar/' . md5(strtolower(trim(auth()->user()->email))) . '?s=200&d=identicon' : 'https://i.postimg.cc/50FkXX3x/nuhash.jpg',
         ]);
 
         return Redirect::route('blog.show', $blog)->with('status', 'Blog created');

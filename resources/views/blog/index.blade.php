@@ -24,17 +24,19 @@
                 </p>
             </div>
 
-            <div class="flex justify-start md:justify-end">
-                <a href="{{ route('blog.create') }}"
-                   class="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition hover:-translate-y-0.5 hover:shadow-xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"
-                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 5v14" />
-                        <path d="M5 12h14" />
-                    </svg>
-                    New Post
-                </a>
-            </div>
+            @auth
+                <div class="flex justify-start md:justify-end">
+                    <a href="{{ route('blog.create') }}"
+                       class="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition hover:-translate-y-0.5 hover:shadow-xl">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 5v14" />
+                            <path d="M5 12h14" />
+                        </svg>
+                        New Post
+                    </a>
+                </div>
+            @endauth
         </section>
 
         @if ($featured && $blogs->count() > 0)
@@ -120,22 +122,24 @@
                                 </div>
 
                                 {{-- Actions --}}
-                                <div class="flex items-center gap-2">
-                                    <a href="{{ route('blog.edit', $featured) }}"
-                                       class="rounded-full border border-border/80 px-4 py-1.5 text-xs font-medium text-foreground transition hover:bg-accent/40">
-                                        Edit
-                                    </a>
+                                @auth
+                                    <div class="flex items-center gap-2">
+                                        <a href="{{ route('blog.edit', $featured) }}"
+                                           class="rounded-full border border-border/80 px-4 py-1.5 text-xs font-medium text-foreground transition hover:bg-accent/40">
+                                            Edit
+                                        </a>
 
-                                    <form method="POST" action="{{ route('blog.destroy', $featured) }}"
-                                          onsubmit="return confirm('Delete this post?');">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button
-                                            class="rounded-full border border-destructive/80 px-4 py-1.5 text-xs font-semibold text-destructive transition hover:bg-destructive/10">
-                                            Delete
-                                        </button>
-                                    </form>
-                                </div>
+                                        <form method="POST" action="{{ route('blog.destroy', $featured) }}"
+                                              onsubmit="return confirm('Delete this post?');">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button
+                                                class="rounded-full border border-destructive/80 px-4 py-1.5 text-xs font-semibold text-destructive transition hover:bg-destructive/10">
+                                                Delete
+                                            </button>
+                                        </form>
+                                    </div>
+                                @endauth
                             </div>
                         </div>
                     </article>

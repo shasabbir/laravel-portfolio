@@ -4,8 +4,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AuthController;
 
 Route::view('/', 'home')->name('home');
+
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [AuthController::class, 'login'])->name('login.perform');
+});
+
+Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
 
 // Blog routes
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
@@ -29,12 +37,4 @@ Route::view('/about', 'about')->name('about');
 Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
-use App\Models\Publication;
-//use Illuminate\Support\Facades\Route;
 
-Route::get('/publications', function () {
-    // 5 per page, newest year first
-    $publications = Publication::orderByDesc('year')->paginate(5);
-
-    return view('publications.index', compact('publications'));
-})->name('publications.index');

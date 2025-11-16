@@ -107,6 +107,24 @@
       </div>
       </div>
 
+      @auth
+        <div class="hidden items-center gap-3 md:flex">
+          <span class="text-sm font-medium text-foreground">Hi, {{ auth()->user()->name }}!</span>
+          <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit" class="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-sm font-semibold text-foreground transition hover:bg-accent/40">
+              Log out
+            </button>
+          </form>
+        </div>
+      @endauth
+
+      @guest
+        <a href="{{ route('login') }}" class="hidden md:inline-flex items-center rounded-full border border-primary px-3 py-1.5 text-sm font-semibold text-primary transition hover:bg-primary/10">
+          Log in
+        </a>
+      @endguest
+
       {{-- Mobile burger --}}
       <div class="md:hidden">
         <button
@@ -183,6 +201,24 @@
           </svg>
         </a>
       </div>
+
+      @auth
+        <div class="mt-4 flex flex-col gap-3 border-t pt-4">
+          <span class="text-sm font-medium text-foreground">Signed in as {{ auth()->user()->name }}</span>
+          <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit" class="inline-flex items-center justify-center rounded-full border border-border px-4 py-2 text-sm font-semibold text-foreground transition hover:bg-accent/40">
+              Log out
+            </button>
+          </form>
+        </div>
+      @else
+        <div class="mt-4 border-t pt-4">
+          <a href="{{ route('login') }}" class="inline-flex w-full items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90">
+            Log in
+          </a>
+        </div>
+      @endauth
     </nav>
   </aside>
 </header>

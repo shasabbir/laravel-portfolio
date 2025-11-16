@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Storage;
 
 class PublicationController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index']);
+    }
+
     public function index()
     {
         $publications = Publication::query()->orderByDesc('year')->paginate(20);
