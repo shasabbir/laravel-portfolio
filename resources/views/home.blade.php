@@ -90,7 +90,7 @@
         {{-- ACTUAL AVATAR (bigger circle) --}}
         <div
             class="avatar-float relative h-64 w-64 overflow-hidden rounded-full border-[4px] border-white bg-white/60 shadow-avatar md:h-72 md:w-72">
-            <img src="/storage/images/nuhash.jpg" alt="GAZI SALAH UDDIN NUHASH"
+            <img src="./images/Nuhashvai.jpg" alt="GAZI SALAH UDDIN NUHASH"
                  class="h-full w-full object-cover" />
         </div>
     </div>
@@ -196,7 +196,7 @@
     <div class="max-w-xl text-center md:text-left reveal delay-0">
         <h2 class="font-headline text-3xl font-bold md:text-4xl">A Passion for Discovery</h2>
 
-        <p class="mt-4 text-lg leading-relaxed">
+        <p class="px-4 md:px-0  mt-4 text-lg leading-relaxed">
             Academically distinguished life sciences graduate with exceptional leadership abilities,
             adept at public speaking, teamwork, and effective communication. Looking to pursue further
             opportunities and make a difference within my field and harness my potential.
@@ -206,7 +206,7 @@
 <div class="mt-6 flex  items-center  gap-6">
 
         <a href="{{ route('about') }}"
-           class="mt-8 inline-flex items-center gap-2 rounded border border-border bg-background px-5 py-3 text-base font-semibold transition hover:bg-accent/10">
+           class="mt-8 inline-flex items-center gap-2 rounded border border-border bg-background ml-5 md:ml-0 px-5 py-3 text-base font-semibold transition hover:bg-accent/10">
             Learn More About Me
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -219,12 +219,12 @@
        <div class="relative inline-flex items-center justify-center">
     {{-- soft glow behind --}}
     <div
-        class="pointer-events-none absolute inset-0 -z-10 h-24 w-24 rounded-full bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.35),transparent_60%)] blur-2xl opacity-80">
+        class="pointer-events-none absolute inset-0 -z-10 md:h-24 md:w-24 rounded-full bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.35),transparent_60%)] blur-2xl opacity-80">
     </div>
 
     {{-- circular chip --}}
     <div
-        class="relative flex h-60 w-60 items-center justify-center rounded-full  bg-white/70  backdrop-blur">
+        class="relative flex md:h-60 md:w-60 items-center justify-center rounded-full  bg-white/70  backdrop-blur">
         <img
             src="{{ asset('svg/Robot-Bot.gif') }}"
             alt="Scientist animation"
@@ -319,7 +319,7 @@
     </section>
 
     {{-- ================= ISTAART MEMBERSHIP (NEW SECTION) ================= --}}
-    <section id="membership" class="relative overflow-hidden bg-background py-16">
+    <section id="membership" class="relative overflow-hidden bg-background md:py-16">
         {{-- Soft animated background blobs --}}
         <div class="absolute inset-0 -z-10 opacity-60">
             <div
@@ -512,10 +512,76 @@
 
 </div> {{-- /.home-page --}}
 @endsection
-
 @push('styles')
 <style>
-    /* ===================== GLOBAL SOFT SPOT GRADIENTS ===================== */
+    /* ===================== GLOBAL TYPOGRAPHY (WORD-LIKE) ===================== */
+
+    :root {
+        /* Base browser font size (16px is the real-world standard) */
+        font-size: 16px;
+    }
+
+    .home-page {
+        /* Word-style sans-serif font stack */
+        font-family: "Calibri", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: #0f172a;
+    }
+
+    /* BODY TEXT — same size for all sections */
+    .home-page p,
+    .home-page li {
+        font-size: 0.95rem; /* ~15px on mobile */
+        line-height: 1.7;
+    }
+
+    @media (min-width: 768px) {
+        .home-page p,
+        .home-page li {
+            font-size: 1rem; /* 16px on desktop/laptop */
+        }
+    }
+
+    /* Make Tailwind text utilities follow our standard sizes inside .home-page */
+    .home-page .text-sm,
+    .home-page .text-base,
+    .home-page .text-lg,
+    .home-page .text-xl,
+    .home-page .text-2xl {
+        font-size: inherit;
+        line-height: inherit;
+    }
+
+    /* HEADINGS — same scale on all sections, responsive mobile/desktop */
+
+    .home-page h1,
+    .home-page h1.font-headline {
+        font-family: "Calibri", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-weight: 700;
+        line-height: 1.1;
+        /* ~32px on mobile → up to ~48px on large screens */
+        font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
+    }
+
+    .home-page h2,
+    .home-page h2.font-headline {
+        font-family: "Calibri", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-weight: 700;
+        line-height: 1.2;
+        /* ~26px → ~34px */
+        font-size: clamp(1.6rem, 1.2rem + 1.3vw, 2.1rem);
+    }
+
+    .home-page h3,
+    .home-page h3.font-headline {
+        font-family: "Calibri", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-weight: 600;
+        line-height: 1.3;
+        /* ~20px → ~24px */
+        font-size: clamp(1.2rem, 1rem + 0.8vw, 1.5rem);
+    }
+
+    /* ===================== YOUR EXISTING VISUAL EFFECTS (UNCHANGED) ===================== */
+
     /* Hero: soft pastel spots over the video (using your colors) */
     #hero {
         position: relative;
@@ -597,8 +663,6 @@
             radial-gradient(circle at 100% 0%, rgba(237, 245, 253, 0.9) 0%, transparent 55%);
     }
 
-    /* ===================== EXISTING EFFECTS (kept from your file) ===================== */
-
     /* HERO TEAL BACKGROUND GLOW (right side cloud) */
     .hero-spotlight {
         width: 42rem;
@@ -666,7 +730,6 @@
     }
 
     @keyframes avatarPulse {
-
         0%,
         100% {
             opacity: 0.8;
@@ -681,7 +744,6 @@
 
     /* pulse the teal shadow intensity */
     @keyframes shadowPulse {
-
         0%,
         100% {
             opacity: 0.38;
@@ -703,7 +765,6 @@
     }
 
     @keyframes floatY {
-
         0%,
         100% {
             transform: translateY(0);
@@ -724,7 +785,6 @@
 
     /* HERO BACKGROUND GLOW PULSE */
     @keyframes glowPulse {
-
         0%,
         100% {
             transform: scale(1) translateY(0);
@@ -811,6 +871,7 @@
     }
 </style>
 @endpush
+
 
 
 

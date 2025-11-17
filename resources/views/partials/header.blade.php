@@ -152,7 +152,7 @@
     data-mobile-sheet
     class="fixed inset-y-0 left-0 z-50 w-72 -translate-x-full transform bg-background shadow transition-transform duration-200"
   >
-    <div class="flex items-center justify-between border-b p-4">
+    <div class="flex items-center justify-between border-b p-4 bg-white">
       <a href="/" class="font-bold" data-mobile-close>Nuhash Gazi</a>
       <button type="button" class="rounded p-2 hover:bg-secondary" data-mobile-close aria-label="Close">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
