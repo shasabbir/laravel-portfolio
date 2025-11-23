@@ -26,12 +26,14 @@ class ContactController extends Controller
 
         $submission = ContactSubmission::create($data);
 
-        $recipient = new Address(
-            config('mail.contact.address'),
-            config('mail.contact.name')
-        );
+        if (config('mail.contact.enabled')) {
+            $recipient = new Address(
+                config('mail.contact.address'),
+                config('mail.contact.name')
+            );
 
-        Mail::to($recipient)->send(new ContactSubmissionMail($submission));
+            Mail::to($recipient)->send(new ContactSubmissionMail($submission));
+        }
 
         return Redirect::route('contact.show')->with('status','Message sent!');
     }
