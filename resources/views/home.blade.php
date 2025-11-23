@@ -90,8 +90,10 @@
         {{-- ACTUAL AVATAR (bigger circle) --}}
         <div
             class="avatar-float relative h-64 w-64 overflow-hidden rounded-full border-[4px] border-white bg-white/60 shadow-avatar md:h-72 md:w-72">
-            <img src="./storage/images/nuhash.jpg" alt="GAZI SALAH UDDIN NUHASH"
-                 class="h-full w-full object-cover" />
+           <img src="{{ asset('images/nuhash.jpg') }}" 
+     alt="GAZI SALAH UDDIN NUHASH"
+     class="h-full w-full object-cover" />
+
         </div>
     </div>
 </div>
