@@ -97,7 +97,7 @@
                                 {{-- Author / date --}}
                                 <div class="flex items-center gap-3">
                                     <img
-                                        src="{{ $authorImage }}"
+                                        src="{{ asset('storage/images/nuhash.jpg') }}"
                                         class="h-10 w-10 rounded-full ring-2 ring-background/90 ring-offset-2 ring-offset-card"
                                         alt="{{ $featured->author_name }}"
                                         loading="lazy"
