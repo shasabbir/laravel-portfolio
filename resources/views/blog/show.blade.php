@@ -21,7 +21,7 @@
         <a href="{{ route('blog.edit', $blog) }}" class="inline-flex items-center gap-2 rounded bg-blue-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
           <span>Edit</span>
         </a>
-        <form method="POST" action="{{ route('blog.destroy', $blog) }}" onsubmit="return confirm('Delete this blog post?');">
+        <form method="POST" action="{{ route('blog.destroy', $blog) }}" onsubmit="return confirm('Delete this blog post?');" class="inline-flex">
           @csrf
           @method('DELETE')
           <button type="submit" class="inline-flex items-center gap-2 rounded bg-red-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500">
