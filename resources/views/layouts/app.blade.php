@@ -11,10 +11,13 @@
 
     {{-- Optional: match the Next.js fonts you mentioned --}}
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Literata:wght@400;500;600&display=swap"
-        rel="stylesheet"
-    >
+  {{-- ✅ Inter font from Google --}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap"
+  rel="stylesheet"
+/>
 
     {{-- Tailwind / app assets (make sure Vite is set up in Laravel 12) --}}
     @vite(['resources/css/app.css','resources/js/app.js'])
@@ -22,8 +25,7 @@
     {{-- PAGE-LEVEL EXTRA STYLES --}}
     @stack('styles')
 </head>
-
-<body class="min-h-screen bg-background antialiased font-body text-foreground">
+<body class="min-h-screen bg-background antialiased text-foreground">
     <div class="relative flex min-h-dvh flex-col bg-background">
         {{-- Header --}}
         @include('partials.header')
