@@ -90,7 +90,7 @@
         {{-- ACTUAL AVATAR (bigger circle) --}}
         <div
             class="avatar-float relative h-64 w-64 overflow-hidden rounded-full border-[4px] border-white bg-white/60 shadow-avatar md:h-72 md:w-72">
-            <img src="./images/Nuhashvai.jpg" alt="GAZI SALAH UDDIN NUHASH"
+            <img src="./images/nuhash.jpg" alt="GAZI SALAH UDDIN NUHASH"
                  class="h-full w-full object-cover" />
         </div>
     </div>
@@ -521,11 +521,7 @@
         font-size: 16px;
     }
 
-    .home-page {
-        /* Word-style sans-serif font stack */
-        font-family: "Calibri", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        color: #0f172a;
-    }
+ 
 
     /* BODY TEXT — same size for all sections */
     .home-page p,
@@ -555,7 +551,7 @@
 
     .home-page h1,
     .home-page h1.font-headline {
-        font-family: "Calibri", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+       
         font-weight: 700;
         line-height: 1.1;
         /* ~32px on mobile → up to ~48px on large screens */
@@ -564,7 +560,7 @@
 
     .home-page h2,
     .home-page h2.font-headline {
-        font-family: "Calibri", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+       
         font-weight: 700;
         line-height: 1.2;
         /* ~26px → ~34px */
@@ -573,7 +569,7 @@
 
     .home-page h3,
     .home-page h3.font-headline {
-        font-family: "Calibri", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+       
         font-weight: 600;
         line-height: 1.3;
         /* ~20px → ~24px */
