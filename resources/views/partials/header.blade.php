@@ -97,14 +97,46 @@
 
            {{-- Small GIF badge (desktop only) --}}
       <div class="hidden items-center md:flex">
-        <div class="relative inline-flex h-9 w-14 items-center justify-center overflow-hidden rounded-full b bg-white/80  backdrop-blur">
-          <img
-            src="{{ asset('svg/Welcome.gif') }}"
-            alt="Welcome animation"
-            class="h-10 w-14 object-contain"
-          />
-        </div>
-      </div>
+  <div
+    class="relative inline-flex h-9 px-4 items-center justify-center overflow-hidden rounded-full bg-white/80 backdrop-blur"
+  >
+    <span class="welcome-letters text-xs font-semibold tracking-[0.25em] text-primary uppercase">
+      <span>W</span>
+      <span>e</span>
+      <span>l</span>
+      <span>c</span>
+      <span>o</span>
+      <span>m</span>
+      <span>e</span>
+    </span>
+  </div>
+</div>
+<style>
+.welcome-letters span {
+  display: inline-block;
+  animation: welcome-bounce 1.2s ease-in-out infinite;
+}
+
+/* Staggered delays for wave effect */
+.welcome-letters span:nth-child(1) { animation-delay: 0s; }
+.welcome-letters span:nth-child(2) { animation-delay: 0.1s; }
+.welcome-letters span:nth-child(3) { animation-delay: 0.2s; }
+.welcome-letters span:nth-child(4) { animation-delay: 0.3s; }
+.welcome-letters span:nth-child(5) { animation-delay: 0.4s; }
+.welcome-letters span:nth-child(6) { animation-delay: 0.5s; }
+.welcome-letters span:nth-child(7) { animation-delay: 0.6s; }
+
+@keyframes welcome-bounce {
+  0%, 80%, 100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  40% {
+    transform: translateY(-3px);
+    opacity: 1;
+  }
+}
+</style>
       </div>
 
       @auth

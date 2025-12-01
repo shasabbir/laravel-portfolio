@@ -8,8 +8,6 @@
     <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,.15),transparent_60%)]"></div>
 
     <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-        {{-- header --}}
-
         {{-- content card --}}
         <div class="mx-auto w-full max-w-6xl rounded-2xl border border-gray-200 bg-white p-6 shadow-xl backdrop-blur-sm md:p-10 lg:p-12 animate-[fadeIn_0.5s_ease-out]">
             <div class="grid gap-10 md:grid-cols-2 md:gap-12">
@@ -21,11 +19,13 @@
                     </p>
 
                     <ul class="space-y-8">
+                        {{-- LOCATION --}}
                         <li class="flex">
                             <div class="flex h-12 w-12 flex-none items-center justify-center rounded-lg bg-blue-900 text-gray-50">
+                                {{-- location pin icon --}}
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
+                                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round">
                                     <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
                                     <path
                                         d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z">
@@ -33,39 +33,40 @@
                                 </svg>
                             </div>
                             <div class="ml-4 py-3">
-                                <p class="mt-1 text-sm text-black">
-                                    Dhaka, Bangladesh
+                                <p class="mt-1 text-sm font-semibold text-black">
+                                    Center for Biotechnology &amp; Genomics
+                                </p>
+                                <p class="text-sm text-black">
+                                    Texas Tech University, Canton &amp; Main Experimental Sciences Building,<br>
+                                    Lubbock, TX 79409
                                 </p>
                             </div>
                         </li>
 
+                        {{-- EMAIL ONLY (no phone) --}}
                         <li class="flex">
                             <div class="flex h-12 w-12 flex-none items-center justify-center rounded-lg bg-blue-900 text-gray-50">
+                                {{-- email / envelope icon (replaces phone icon) --}}
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path
-                                        d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2">
-                                    </path>
-                                    <path d="M15 7a2 2 0 0 1 2 2"></path>
-                                    <path d="M15 3a6 6 0 0 1 6 6"></path>
+                                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                                     stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="5" width="18" height="14" rx="2" ry="2"></rect>
+                                    <path d="M3 7l9 6l9-6"></path>
                                 </svg>
                             </div>
                             <div class="ml-4 py-3">
                                 <p class="mt-1 text-sm text-black">
-                                    Mobile: +1 (123) 456-7890
-                                </p>
-                                <p class="text-sm text-black">
-                                    Email: hello@example.com
+                                    Email: gazi.nuhash@ttu.edu
                                 </p>
                             </div>
                         </li>
 
+                        {{-- AVAILABILITY / HOURS (unchanged) --}}
                         <li class="flex">
                             <div class="flex h-12 w-12 flex-none items-center justify-center rounded-lg bg-blue-900 text-gray-50">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round">
+                                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                                     stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path>
                                     <path d="M12 7v5l3 3"></path>
                                 </svg>
@@ -81,6 +82,7 @@
                         </li>
                     </ul>
 
+                    {{-- MAP UPDATED TO TTU --}}
                     <div class="mt-10">
                         <div class="overflow-hidden rounded-xl border border-gray-200 shadow-sm">
                             <iframe
@@ -89,16 +91,16 @@
                                 loading="lazy"
                                 allowfullscreen
                                 referrerpolicy="no-referrer-when-downgrade"
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.9025903274237!2d90.399452!3d23.750904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b2c2dc2b9f%3A0xXXXXXXXXXXXXXXX!2sDhaka%2C%20Bangladesh!5e0!3m2!1sen!2sbd!4v0000000000000">
+                                src="https://www.google.com/maps?q=Center+for+Biotechnology+and+Genomics+Texas+Tech+University+Lubbock+TX+79409&output=embed">
                             </iframe>
                         </div>
                         <p class="mt-3 text-xs text-black">
-                            Approximate location
+                            Center for Biotechnology &amp; Genomics, Texas Tech University
                         </p>
                     </div>
                 </div>
 
-                <!-- RIGHT SIDE FORM -->
+                <!-- RIGHT SIDE FORM (unchanged) -->
                 <div class="rounded-xl border border-gray-200 bg-white p-6 shadow-lg md:p-8 lg:p-10">
                     <h2 class="mb-6 text-2xl font-bold text-black">
                         Send a Message
