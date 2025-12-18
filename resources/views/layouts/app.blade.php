@@ -9,15 +9,13 @@
 
     <title>@yield('title', 'Scientist Site')</title>
 
-    {{-- Optional: match the Next.js fonts you mentioned --}}
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  {{-- ✅ Inter font from Google --}}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap"
-  rel="stylesheet"
-/>
+        {{-- Google Fonts for Inter (body) + Literata (headline) --}}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Literata:opsz,wght@7..72,700;800&display=swap"
+            rel="stylesheet"
+        />
 
     {{-- Tailwind / app assets (make sure Vite is set up in Laravel 12) --}}
     @vite(['resources/css/app.css','resources/js/app.js'])
