@@ -58,7 +58,7 @@
    
 
       <div class="hidden gap-2 md:flex">
-        <a href="https://orcid.org/" target="_blank" aria-label="ORCID"
+        <a href="https://orcid.org/0009-0006-4002-7445" target="_blank" aria-label="ORCID"
            class="inline-flex h-9 w-9 items-center justify-center rounded hover:bg-secondary"
            title="ORCID">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 256 256" fill="currentColor">
@@ -67,7 +67,7 @@
           </svg>
         </a>
 
-        <a href="https://scholar.google.com/" target="_blank" aria-label="Google Scholar"
+        <a href="https://scholar.google.com/citations?user=bE4Q3KgAAAAJ&hl=en" target="_blank" aria-label="Google Scholar"
            class="inline-flex h-9 w-9 items-center justify-center rounded hover:bg-secondary"
            title="Google Scholar">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none"
@@ -77,7 +77,7 @@
           </svg>
         </a>
 
-        <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn"
+        <a href="https://www.linkedin.com/in/gazinuhash/" target="_blank" aria-label="LinkedIn"
            class="inline-flex h-9 w-9 items-center justify-center rounded hover:bg-secondary"
            title="LinkedIn">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
@@ -85,15 +85,7 @@
           </svg>
         </a>
 
-        <a href="/blog/rss.xml" aria-label="RSS"
-           class="inline-flex h-9 w-9 items-center justify-center rounded hover:bg-secondary"
-           title="RSS">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M6.18 17.82a2.18 2.18 0 11-4.36 0 2.18 2.18 0 014.36 0z" />
-            <path d="M2 10a12 12 0 0112 12h-3A9 9 0 002 13v-3z" />
-            <path d="M2 4a18 18 0 0118 18h-3A15 15 0 002 7V4z" />
-          </svg>
-        </a>
+       
 
            {{-- Small GIF badge (desktop only) --}}
       <div class="hidden items-center md:flex">

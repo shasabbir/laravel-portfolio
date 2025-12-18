@@ -231,8 +231,7 @@
           <span class="font-medium">M.S. in Biotechnology</span>, Texas Tech University, USA (Aug 2025–Present).
         </p>
         <p>
-          <span class="font-medium">B.Sc. in Biochemistry &amp; Biotechnology</span>, North South University, Bangladesh (2018–2022), cum laude; CGPA 3.51/4.00.
-          Undergraduate project: mutational analysis of SARS-CoV-2 genomes (Nepal).
+          <span class="font-medium">B.Sc. in Biochemistry &amp; Biotechnology</span>, North South University, Bangladesh (2018–2022), cum laude; project: mutational analysis of SARS-CoV-2 genomes (Nepal).
         </p>
       </div>
     </div>

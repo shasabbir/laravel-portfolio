@@ -34,7 +34,7 @@
                 {{-- LEFT CONTENT: NAME + TAGLINE + DESCRIPTION + CTA BUTTONS --}}
                 <div class="z-10 reveal delay-0">
                     {{-- Main name / title --}}
-                    <h1 class="font-headline text-5xl font-bold tracking-tight text-foreground md:text-6xl lg:text-6xl">
+                    <h1 class="font-headline uppercase text-5xl font-bold tracking-tight text-foreground md:text-6xl lg:text-6xl">
                         GAZI SALAH UDDIN NUHASH
                     </h1>
 

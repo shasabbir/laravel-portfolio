@@ -95,7 +95,7 @@
       <div class="mt-8 flex flex-wrap justify-center gap-6 md:gap-8">
         <a href="https://orcid.org/" target="_blank" class="flex items-center gap-2 text-muted-foreground transition-colors hover:text-primary">ORCID</a>
         <a href="https://scholar.google.com/" target="_blank" class="flex items-center gap-2 text-muted-foreground transition-colors hover:text-primary">Google Scholar</a>
-        <a href="https://www.linkedin.com/" target="_blank" class="flex items-center gap-2 text-muted-foreground transition-colors hover:text-primary">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/gazinuhash/" target="_blank" class="flex items-center gap-2 text-muted-foreground transition-colors hover:text-primary">LinkedIn</a>
         <a href="/contact" class="flex items-center gap-2 text-muted-foreground transition-colors hover:text-primary">Email</a>
       </div>
     </div>
