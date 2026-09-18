@@ -1,533 +1,234 @@
-{{-- Use the main layout template "layouts.app" so header/footer etc. are shared --}}
 @extends('layouts.app')
 
-{{-- Set the <title> of this page to "About" --}}
-@section('title', 'About')
+@section('title', 'About | Gazi Salah Uddin Nuhash')
 
-{{-- Main page content starts here --}}
+@push('styles')
+<style>
+  .about-resume { --showcase-ink: #12313b; }
+  .about-resume .showcase-mesh { background-image: radial-gradient(circle, rgba(17, 113, 126, .25) 1px, transparent 1.5px); background-size: 24px 24px; }
+  .about-resume .showcase-card { transition: transform .25s ease, box-shadow .25s ease; }
+  .about-resume .showcase-card:hover { transform: translateY(-5px); box-shadow: 0 20px 45px rgba(9, 75, 88, .13); }
+  .about-resume .showcase-icon { display: inline-flex; align-items: center; justify-content: center; width: 3.25rem; height: 3.25rem; border-radius: 1rem; background: hsl(var(--secondary)); color: hsl(var(--primary)); }
+  .about-resume .showcase-icon svg { width: 1.65rem; height: 1.65rem; }
+  .about-resume.motion-ready .about-reveal { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s cubic-bezier(.2,.8,.2,1); }
+  .about-resume.motion-ready .about-reveal.is-visible { opacity: 1; transform: translateY(0); }
+  .about-resume.motion-ready .showcase-card.about-reveal.is-visible:hover { transform: translateY(-5px); }
+  @media (prefers-reduced-motion: reduce) { .about-resume .showcase-card, .about-resume.motion-ready .about-reveal { opacity: 1; transform: none; transition: none; } }
+</style>
+@endpush
+
 @section('content')
-<div class="about-page relative container mx-auto max-w-5xl px-4 py-12 md:px-6 md:py-20">
-  {{-- ^ Wrapper for the whole About page content with max width and padding --}}
-
-  {{-- =======================
-       HEADER (TITLE + TAGLINE)
-      ======================= --}}
-  <header class="relative text-center reveal delay-0">
-    {{-- Soft blurred gradient "halo" behind the title --}}
-    <div class="pointer-events-none absolute inset-x-0 -top-10 -z-10 mx-auto h-64 max-w-3xl rounded-full bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 blur-3xl"></div>
-
-    {{-- Main heading with your full name --}}
-    <h1 class="font-headline text-4xl font-bold tracking-tight md:text-5xl">
-      About GAZI SALAH UDDIN NUHASH
-    </h1>
-
-    {{-- Short tagline describing your domains and focus --}}
-    <p class="mt-4 text-lg text-muted-foreground">
-      Genomics • Proteomics • Biotechnology — focused on neurodegenerative disease research.
-    </p>
-  </header>
-
-  {{-- =========================================
-       TOP GRID: PHOTO (LEFT) + BIO + 3 CARDS
-      ========================================= --}}
-  <div class="mt-12 grid grid-cols-1 gap-12 md:grid-cols-3">
-    {{-- LEFT COLUMN: AVATAR + CV BUTTON --}}
-    <div class="reveal delay-100">
-      {{-- Avatar wrapper with glow and floating animation --}}
-      <div class="about-avatar-wrap relative mx-auto max-w-sm">
-        {{-- Colored glow behind the avatar image --}}
-        <div class="about-avatar-glow"></div>
-
-        {{-- Actual avatar container with border and background --}}
-        <div class="about-avatar-float overflow-hidden rounded-2xl border border-border/70 bg-background/80 shadow-xl">
-          {{-- Avatar image itself --}}
-          <img
-            src="https://i.postimg.cc/50FkXX3x/nuhash.jpg"
-            alt="GAZI SALAH UDDIN NUHASH"
-            class="h-full w-full object-cover"
-          />
+<div class="about-resume overflow-hidden">
+  <svg xmlns="http://www.w3.org/2000/svg" class="absolute h-0 w-0" aria-hidden="true">
+    <symbol id="research-dna" viewBox="0 0 24 24"><path d="M4 2c0 8 16 12 16 20M20 2C20 10 4 14 4 22M6 6h12M5 12h14M6 18h12"/></symbol>
+    <symbol id="research-brain" viewBox="0 0 24 24"><path d="M12 5a3 3 0 0 0-5.8-1 4 4 0 0 0-2.1 6.3A4 4 0 0 0 5 18a3 3 0 0 0 7 1V5Zm0 0a3 3 0 0 1 5.8-1 4 4 0 0 1 2.1 6.3A4 4 0 0 1 19 18a3 3 0 0 1-7 1V5Z"/></symbol>
+    <symbol id="research-molecule" viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="17" cy="5" r="2"/><circle cx="19" cy="18" r="2"/><circle cx="11" cy="14" r="2"/><path d="m7 12 2 1m3-1 4-6m-3 9 4 2"/></symbol>
+    <symbol id="research-flask" viewBox="0 0 24 24"><path d="M9 2h6m-5 0v7L4 19a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3L14 9V2M7 16h10"/></symbol>
+    <symbol id="research-code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5m8-10 5 5-5 5M14 4l-4 16"/></symbol>
+  </svg>
+  <section class="relative isolate border-b border-border/60 bg-gradient-to-br from-secondary/70 via-background to-background">
+    <div class="pointer-events-none absolute -right-20 top-0 h-80 w-80 rounded-full bg-primary/10 blur-3xl"></div>
+    <div class="container relative mx-auto grid max-w-6xl gap-7 px-5 py-10 md:grid-cols-[1.05fr_.95fr] md:items-start md:gap-9 md:px-8 md:py-14">
+      <div>
+        <p class="mb-5 text-xs font-bold uppercase tracking-[0.24em] text-primary">Researcher · Biotechnology &amp; Genomics</p>
+        <h1 class="font-headline max-w-3xl text-4xl leading-tight text-foreground sm:text-5xl">From molecular clues to meaningful discovery.</h1>
+        <p class="mt-4 max-w-2xl text-xl font-medium text-foreground/80">Exploring the molecular signatures of Alzheimer’s disease.</p>
+        <p class="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">I work across genomics, neuroscience and bioinformatics to study neurodegeneration. My experience spans omics analysis, computational drug discovery and laboratory research.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="{{ asset('resume-gazi-salah-uddin-nuhash.pdf') }}" download="Gazi_Salah_Uddin_Nuhash_Resume.pdf" class="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+            Download résumé <span aria-hidden="true">↗</span>
+          </a>
+          <a href="#focus-title" class="inline-flex items-center rounded-full border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground transition hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Explore the research</a>
+        </div>
+        <p class="mt-4 text-sm text-muted-foreground">Based in Lubbock, Texas · Texas Tech University</p>
+      </div>
+      <div class="mx-auto w-full max-w-lg md:pt-1">
+        <div class="flex min-h-64 overflow-hidden rounded-[1.75rem] border border-border/70 bg-background shadow-xl shadow-primary/10 sm:min-h-80">
+          <img src="{{ asset('images/nuhash.jpg') }}" alt="Gazi Salah Uddin Nuhash" class="w-2/5 shrink-0 object-cover object-center" loading="lazy" />
+          <div class="flex flex-col justify-center p-5 sm:p-8"><p class="text-xs font-bold uppercase tracking-[.14em] text-primary">Behind the research</p><p class="mt-4 font-headline text-xl sm:text-2xl">Gazi Salah Uddin Nuhash</p><p class="mt-4 text-sm leading-6 text-muted-foreground">Biotechnology &amp; genomics researcher</p></div>
         </div>
       </div>
-
-      {{-- Download CV button (full width on the card) --}}
-      <a
-        href="/cv.pdf" {{-- Path to your CV file --}}
-        download="Gazi_Salah_Uddin_Nuhash_CV.pdf" {{-- Filename suggestion for download --}}
-        class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition hover:-translate-y-0.5 hover:shadow-xl"
-      >
-        {{-- Small download icon on the left --}}
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-          <polyline points="7 10 12 15 17 10" />
-          <line x1="12" y1="15" x2="12" y2="3" />
-        </svg>
-
-        {{-- Button label --}}
-        <span>Download CV</span>
-      </a>
     </div>
+  </section>
 
-    {{-- RIGHT SIDE: BIOGRAPHY + 3 SMALL INFO CARDS --}}
-    <div class="md:col-span-2 reveal delay-200">
-      {{-- ====================
-           BIOGRAPHY CARD
-          ==================== --}}
-      <div class="rounded-2xl border border-border/70 bg-card/60 shadow-sm backdrop-blur">
-        {{-- Card header with title "Biography" --}}
-        <div class="border-b border-border/60 p-6">
-          <h2 class="font-headline text-2xl text-primary">Biography</h2>
+  <section aria-label="Research identity" class="border-b border-border/60 bg-background/80">
+    <div class="mx-auto grid max-w-6xl gap-2 px-5 py-4 md:grid-cols-3 md:gap-5 md:px-8">
+      <div class="flex items-center gap-4 py-2"><span class="showcase-icon"><svg class="fill-none stroke-current stroke-[1.6]" aria-hidden="true"><use href="#research-brain"/></svg></span><div><p class="text-xs font-bold uppercase tracking-widest text-primary">Question</p><p class="font-semibold">What drives neurodegeneration?</p></div></div>
+      <div class="flex items-center gap-4 py-2"><span class="showcase-icon"><svg class="fill-none stroke-current stroke-[1.6]" aria-hidden="true"><use href="#research-dna"/></svg></span><div><p class="text-xs font-bold uppercase tracking-widest text-primary">Lens</p><p class="font-semibold">Genomics &amp; bioinformatics</p></div></div>
+      <div class="flex items-center gap-4 py-2"><span class="showcase-icon"><svg class="fill-none stroke-current stroke-[1.6]" aria-hidden="true"><use href="#research-molecule"/></svg></span><div><p class="text-xs font-bold uppercase tracking-widest text-primary">Approach</p><p class="font-semibold">From data to discovery</p></div></div>
+    </div>
+  </section>
+
+  <div class="container mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-14">
+    <section aria-labelledby="focus-title" class="grid gap-6 border-b border-border/70 pb-12 md:grid-cols-[16rem_1fr]">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary">01 / Focus</p>
+        <h2 id="focus-title" class="mt-3 font-headline text-3xl">Inside the research</h2>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div class="showcase-card overflow-hidden rounded-[1.75rem] border border-border/70 bg-card shadow-sm sm:row-span-2">
+          <img src="{{ asset('images/neurodegeneration-illustration.png') }}" alt="Illustration of a brain with connected neural pathways" class="block h-auto w-full" loading="lazy" />
+          <div class="p-6">
+            <span class="showcase-icon mb-4"><svg class="fill-none stroke-current stroke-[1.6]" aria-hidden="true"><use href="#research-brain"/></svg></span>
+            <h3 class="font-semibold">Neurodegeneration</h3>
+            <p class="mt-2 text-sm leading-6 text-muted-foreground">Alzheimer’s disease, amyloid-β pathology, tau dysregulation and neuroinflammation.</p>
+          </div>
         </div>
-
-        {{-- Card body: 3 paragraphs of bio text --}}
-        <div class="space-y-4 p-6 pt-4 text-base leading-relaxed text-muted-foreground">
-          <p>
-            Researcher specializing in Alzheimer&apos;s disease and other tauopathies with
-            hands-on expertise in computer-aided drug design, molecular dynamics, and wet-lab workflows.
-            Experienced in identifying kinase targets and evaluating drug–target interactions using
-            GROMACS/VMD and cheminformatics pipelines.
-          </p>
-          <p>
-            Strong academic foundation (B.Sc. Biochemistry &amp; Biotechnology, cum laude; currently M.S.
-            in Biotechnology) with a track record in NGS projects and collaborative, mentor-style lab work.
-          </p>
-          <p>
-            Seeking roles where rigorous science, data-driven decision-making, and cross-disciplinary teamwork
-            translate into therapies with real patient impact.
-          </p>
+        <div class="showcase-card relative overflow-hidden rounded-[1.75rem] border border-border/70 bg-card p-6 shadow-sm">
+          <span class="showcase-mesh absolute right-0 top-0 h-32 w-32 opacity-40" aria-hidden="true"></span>
+          <span class="showcase-icon mb-5"><svg class="fill-none stroke-current stroke-[1.6]" aria-hidden="true"><use href="#research-dna"/></svg></span>
+          <h3 class="font-semibold">Omics &amp; bioinformatics</h3>
+          <p class="mt-2 text-sm leading-6 text-muted-foreground">Gene expression, protein abundance, molecular biomarkers and reproducible data analysis.</p>
+        </div>
+        <div class="showcase-card relative overflow-hidden rounded-[1.75rem] border border-border/70 bg-card p-6 shadow-sm">
+          <span class="absolute right-5 top-3 text-7xl text-primary/10" aria-hidden="true">✳</span>
+          <span class="showcase-icon mb-5"><svg class="fill-none stroke-current stroke-[1.6]" aria-hidden="true"><use href="#research-molecule"/></svg></span>
+          <h3 class="font-semibold">Drug discovery</h3>
+          <p class="mt-2 text-sm leading-6 text-muted-foreground">Virtual screening, cheminformatics and molecular dynamics for therapeutic research.</p>
         </div>
       </div>
+    </section>
 
-      {{-- ==================================
-           3 SMALL CARDS: SKILLS / COMPETENCIES / SPEAKING
-          ================================== --}}
-      <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
-        {{-- CARD 1: Research Skills --}}
-        <div class="rounded-2xl border border-border/70 bg-card/60 p-4 shadow-sm reveal delay-200">
-          <div class="flex items-center justify-between pb-2">
-            {{-- Card title --}}
-            <h3 class="text-sm font-medium">Research Skills</h3>
+    <section aria-labelledby="experience-title" class="grid gap-6 border-b border-border/70 py-12 md:grid-cols-[16rem_1fr]">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary">02 / Experience</p>
+        <h2 id="experience-title" class="mt-3 font-headline text-3xl">Research &amp; work</h2>
+      </div>
+      <div class="space-y-6">
+        <article class="border-l-2 border-primary pl-5">
+          <p class="text-sm font-semibold text-primary">Sep 2026 – Present</p>
+          <h3 class="mt-1 text-xl font-semibold">Graduate Research Assistant</h3>
+          <p class="mt-1 text-sm text-muted-foreground">Center for Biotechnology and Genomics · Texas Tech University</p>
+          <p class="mt-3 leading-7 text-muted-foreground">Investigating molecular fingerprints of Alzheimer’s disease through genomic and biological datasets. Preparing quality-controlled analyses, pathway visualizations and figures for research presentations and manuscripts.</p>
+        </article>
+        <article class="border-l-2 border-border pl-5">
+          <p class="text-sm font-semibold text-primary">Jul 2024 – Feb 2026</p>
+          <h3 class="mt-1 text-xl font-semibold">Research Assistant &amp; Assistant Lab Manager</h3>
+          <p class="mt-1 text-sm text-muted-foreground">ABCD Laboratory · Bangladesh</p>
+          <p class="mt-3 leading-7 text-muted-foreground">Led computational drug discovery projects focused on neurodegenerative pathways. Studied tau kinase targets using virtual screening and molecular dynamics with GROMACS and VMD, while mentoring junior researchers and supporting laboratory operations.</p>
+        </article>
+        <article class="border-l-2 border-border pl-5">
+          <p class="text-sm font-semibold text-primary">Aug 2023 – Jun 2024</p>
+          <h3 class="mt-1 text-xl font-semibold">Junior Research Collaborator</h3>
+          <p class="mt-1 text-sm text-muted-foreground">ABCD Laboratory · Bangladesh</p>
+          <p class="mt-3 leading-7 text-muted-foreground">Explored natural products, therapeutic protein targets and computer-aided drug design methods.</p>
+        </article>
+        <article class="border-l-2 border-border pl-5">
+          <p class="text-sm font-semibold text-primary">Feb 2020 – Jun 2022</p>
+          <h3 class="mt-1 text-xl font-semibold">Research Intern</h3>
+          <p class="mt-1 text-sm text-muted-foreground">NSU Genome Research Institute · North South University</p>
+          <p class="mt-3 leading-7 text-muted-foreground">Worked on bacterial culture, antibiotic resistance and next-generation sequencing projects, including an analysis of SARS-CoV-2 genomes from Nepal.</p>
+        </article>
+        <p class="text-sm text-muted-foreground">Additional experience: Project Manager at Wholesome Alive (2022–2023), Laboratory Assistant at North South University (2019–2020), and Student Assistant at Texas Tech University (2026).</p>
+      </div>
+    </section>
 
-            {{-- Small flask icon to represent lab skills --}}
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M10 2v7.31L5.17 17a4 4 0 0 0 3.4 6h7.86a4 4 0 0 0 3.4-6L15 9.31V2" />
-              <path d="M8.5 2h7" />
-              <path d="M7 16h10" />
-            </svg>
-          </div>
+    <section aria-labelledby="education-title" class="grid gap-6 border-b border-border/70 py-12 md:grid-cols-[16rem_1fr]">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary">03 / Education</p>
+        <h2 id="education-title" class="mt-3 font-headline text-3xl">Academic path</h2>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <article class="showcase-card rounded-[1.75rem] border border-border/70 bg-card p-6 shadow-sm">
+          <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#a6192e] text-lg font-black tracking-tighter text-white" aria-label="Texas Tech University initials">TTU</div>
+          <p class="text-sm font-semibold text-primary">2025 – Present</p>
+          <h3 class="mt-3 text-xl font-semibold">M.S. in Biotechnology</h3>
+          <p class="mt-1 text-muted-foreground">Texas Tech University · Lubbock, Texas</p>
+          <p class="mt-4 text-sm leading-6 text-muted-foreground">Life sciences research concentration · Current GPA 4.00 / 4.00</p>
+        </article>
+        <article class="showcase-card rounded-[1.75rem] border border-border/70 bg-card p-6 shadow-sm">
+          <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#123f7a] text-lg font-black tracking-tighter text-white" aria-label="North South University initials">NSU</div>
+          <p class="text-sm font-semibold text-primary">2018 – 2022</p>
+          <h3 class="mt-3 text-xl font-semibold">B.S. in Biochemistry &amp; Biotechnology</h3>
+          <p class="mt-1 text-muted-foreground">North South University · Dhaka, Bangladesh</p>
+          <p class="mt-4 text-sm leading-6 text-muted-foreground">Graduated cum laude, top 5% of class · CGPA 3.51 / 4.00</p>
+        </article>
+      </div>
+    </section>
 
-          {{-- List of specific research skill areas --}}
-          <ul class="list-disc list-inside text-sm text-muted-foreground">
-            <li>Alzheimer&apos;s / Tauopathies</li>
-            <li>CADD &amp; MD (GROMACS)</li>
-            <li>Drug Design &amp; Discovery</li>
-            <li>NGS &amp; Data Analysis</li>
+    <section aria-labelledby="skills-title" class="grid gap-6 border-b border-border/70 py-12 md:grid-cols-[16rem_1fr]">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary">04 / Capabilities</p>
+        <h2 id="skills-title" class="mt-3 font-headline text-3xl">Methods &amp; tools</h2>
+      </div>
+      <div class="grid gap-5 sm:grid-cols-2">
+        <div class="showcase-card rounded-[1.75rem] bg-[#103542] p-7 text-white">
+          <span class="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-teal-300/20 text-teal-100"><svg class="h-6 w-6 fill-none stroke-current stroke-[1.6]" aria-hidden="true"><use href="#research-flask"/></svg></span>
+          <h3 class="font-semibold">Laboratory</h3>
+          <p class="mt-2 leading-7 text-slate-200">NGS, PCR, RT-qPCR, ELISA, Western blot, DNA/RNA extraction, mammalian and bacterial cell culture, CRISPR-Cas9 systems, immunofluorescence, mouse handling and aseptic surgery.</p>
+        </div>
+        <div class="showcase-card rounded-[1.75rem] bg-[#103542] p-7 text-white">
+          <span class="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-teal-300/20 text-teal-100"><svg class="h-6 w-6 fill-none stroke-current stroke-[1.6]" aria-hidden="true"><use href="#research-code"/></svg></span>
+          <h3 class="font-semibold">Computational</h3>
+          <p class="mt-2 leading-7 text-slate-200">Python, R, C/C++, GROMACS, NAMD, VMD, AutoDock Vina, PyMOL, Gaussian, genome annotation and data mining.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="work-title" class="grid gap-6 border-b border-border/70 py-12 md:grid-cols-[16rem_1fr]">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary">05 / Scientific work</p>
+        <h2 id="work-title" class="mt-3 font-headline text-3xl">Manuscripts</h2>
+      </div>
+      <div class="space-y-4">
+        <div class="rounded-2xl border border-border/70 p-5"><span class="text-xs font-bold uppercase tracking-wider text-primary">In preparation</span><h3 class="mt-2 font-semibold">Molecular Fingerprints in Natural Products to Address Alzheimer’s Disease – A Computational Approach</h3><p class="mt-1 text-sm text-muted-foreground">Nuhash GSU, Crasto CJ</p></div>
+        <div class="rounded-2xl border border-border/70 p-5"><span class="text-xs font-bold uppercase tracking-wider text-primary">Submitted</span><h3 class="mt-2 font-semibold">Lamellarins – An Updated Review of Sources, Synthesis, Pharmacology, Pharmacokinetics and Toxicity</h3><p class="mt-1 text-sm text-muted-foreground">Nuhash GSU, Junaid M</p></div>
+        <div class="rounded-2xl border border-border/70 p-5"><span class="text-xs font-bold uppercase tracking-wider text-primary">In review</span><h3 class="mt-2 font-semibold">Revivify studies on inflammatory stress and immune cell activation</h3><p class="mt-1 text-sm text-muted-foreground">Co-author on two manuscripts</p></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="recognition-title" class="grid gap-6 py-12 md:grid-cols-[16rem_1fr]">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary">06 / Recognition</p>
+        <h2 id="recognition-title" class="mt-3 font-headline text-3xl">Selected highlights</h2>
+      </div>
+      <div class="grid gap-6 sm:grid-cols-2">
+        <div>
+          <h3 class="font-semibold">Honors</h3>
+          <ul class="mt-3 space-y-3 text-sm leading-6 text-muted-foreground">
+            <li>Graduate School Competitive Tuition Scholarship · Texas Tech University, 2025–2026</li>
+            <li>Full tuition scholarship · North South University, 2018</li>
+            <li>KL-YES Exchange Scholar · U.S. Department of State, 2013–2014</li>
           </ul>
         </div>
-
-        {{-- CARD 2: Core Competencies --}}
-        <div class="rounded-2xl border border-border/70 bg-card/60 p-4 shadow-sm reveal delay-250">
-          <div class="flex items-center justify-between pb-2">
-            {{-- Card title --}}
-            <h3 class="text-sm font-medium">Core Competencies</h3>
-
-            {{-- Users/team icon for soft skills --}}
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-              <circle cx="9" cy="7" r="4" />
-              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-            </svg>
-          </div>
-
-          {{-- List of key competencies --}}
-          <ul class="list-disc list-inside text-sm text-muted-foreground">
-            <li>Project Management</li>
-            <li>Leadership &amp; Mentorship</li>
-            <li>Scientific Communication</li>
+        <div>
+          <h3 class="font-semibold">Conferences &amp; training</h3>
+          <ul class="mt-3 space-y-3 text-sm leading-6 text-muted-foreground">
+            <li>Alzheimer’s Association International Conference · 2024 &amp; 2025</li>
+            <li>Next-Generation Pathogen Sequencing · CHRF, 2025</li>
+            <li>Aseptic Surgery and Working with Mice in Research · CITI Program, 2026</li>
           </ul>
         </div>
-
-        {{-- CARD 3: Public Speaking --}}
-        <div class="rounded-2xl border border-border/70 bg-card/60 p-4 shadow-sm reveal delay-300">
-          <div class="flex items-center justify-between pb-2">
-            {{-- Card title --}}
-            <h3 class="text-sm font-medium">Public Speaking</h3>
-
-            {{-- Presentation/screen icon --}}
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2 3h20v14H2z" />
-              <path d="M12 17v4" />
-              <path d="M8 21h8" />
-              <path d="M7 9h3" />
-              <path d="M7 13h6" />
-            </svg>
-          </div>
-
-          {{-- Short highlight text --}}
-          <div class="text-sm font-medium">Conference-ready Presenter</div>
-
-          {{-- Extra detail about speaking experience --}}
-          <p class="text-xs text-muted-foreground">
-            Experience includes AAIC 2024/2025 and lab seminars.
-          </p>
-        </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  {{-- ======================================
-       RESEARCH PHILOSOPHY + ACADEMIC BACKGROUND
-      ====================================== --}}
-  <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2">
-    {{-- CARD: Research Philosophy --}}
-    <div class="rounded-2xl border border-border/60 bg-accent/20 p-6 shadow-sm backdrop-blur reveal delay-200">
-      <h3 class="flex items-center gap-2 font-headline text-2xl text-primary">
-        {{-- Lightbulb icon for ideas/vision --}}
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="11" r="4" />
-          <path d="M8 15a4 4 0 0 0 8 0" />
-          <path d="M9 18h6" />
-          <path d="M10 22h4" />
-        </svg>
-        {{-- Card title --}}
-        <span>Research Philosophy</span>
-      </h3>
-
-      {{-- Paragraphs describing your approach to research --}}
-      <div class="mt-4 space-y-4 text-base text-muted-foreground">
-        <p>
-          I pursue hypothesis-driven discovery at the interface of neurobiology and computation:
-          target identification (e.g., tau kinases/GSK3β), in silico screening, and validation with
-          reproducible experiments.
-        </p>
-        <p>
-          Collaboration and mentorship are central—aligning wet-lab rigor with modern bioinformatics
-          to accelerate translational outcomes.
-        </p>
-      </div>
-    </div>
-
-    {{-- CARD: Academic Background --}}
-    <div class="rounded-2xl border border-border/60 bg-accent/20 p-6 shadow-sm backdrop-blur reveal delay-300">
-      <h3 class="flex items-center gap-2 font-headline text-2xl text-primary">
-        {{-- Graduation cap icon for education --}}
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 10L12 3 2 10l10 7 10-7z" />
-          <path d="M6 12v5c0 .4.2.8.6 1l5.4 3.2L17.4 18c.4-.2.6-.6.6-1v-5" />
-        </svg>
-        {{-- Card title --}}
-        <span>Academic Background</span>
-      </h3>
-
-      {{-- Degrees and short descriptions --}}
-      <div class="mt-4 space-y-4 text-base text-muted-foreground">
-        <p>
-          <span class="font-medium">M.S. in Biotechnology</span>, Texas Tech University, USA (Aug 2025–Present).
-        </p>
-        <p>
-          <span class="font-medium">B.Sc. in Biochemistry &amp; Biotechnology</span>, North South University, Bangladesh (2018–2022), cum laude; project: mutational analysis of SARS-CoV-2 genomes (Nepal).
-        </p>
-      </div>
-    </div>
-  </div>
-
-  {{-- =====================================
-       HONORS / AWARDS + CERTIFICATIONS / TRAINING
-      ===================================== --}}
-  <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2">
-    {{-- CARD: Honors, Awards & Scholarships --}}
-    <div class="rounded-2xl border border-border/70 bg-card/60 p-6 shadow-sm backdrop-blur reveal delay-200">
-      <h3 class="flex items-center gap-2 font-headline text-2xl text-primary">
-        {{-- Award/medal icon --}}
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="8" r="4" />
-          <path d="M8.5 12.5L7 22l5-3 5 3-1.5-9.5" />
-        </svg>
-        {{-- Card title --}}
-        <span>Honors, Awards &amp; Scholarships</span>
-      </h3>
-
-      {{-- Bullet list of achievements --}}
-      <ul class="mt-4 list-disc list-inside space-y-2 text-sm text-muted-foreground">
-        <li>Scholar, KL-YES Exchange Program (Texas) — U.S. Dept. of State (2013–2014)</li>
-        <li>Full Tuition Scholarship — North South University (2018)</li>
-        <li>Merit Scholarship — Board of Intermediate &amp; Secondary Education (2017)</li>
-        <li>Winner, Environmental Presentation — 2nd International Nature Summit (2016)</li>
-        <li>Quarter-Finalist, Asian English Olympics (BINUS University, Indonesia) (2016)</li>
-      </ul>
-    </div>
-
-    {{-- CARD: Certifications & Training --}}
-    <div class="rounded-2xl border border-border/70 bg-card/60 p-6 shadow-sm backdrop-blur reveal delay-300">
-      <h3 class="flex items-center gap-2 font-headline text-2xl text-primary">
-        {{-- DNA-style icon for scientific training --}}
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 4c4 0 8 4 8 8s4 8 8 8" />
-          <path d="M4 20c4 0 8-4 8-8s4-8 8-8" />
-          <path d="M8 6h8" />
-          <path d="M8 18h8" />
-          <path d="M7 9h2" />
-          <path d="M15 15h2" />
-        </svg>
-        {{-- Card title --}}
-        <span>Certifications &amp; Training</span>
-      </h3>
-
-      {{-- Bullet list of conferences and trainings --}}
-      <ul class="mt-4 list-disc list-inside space-y-2 text-sm text-muted-foreground">
-        <li>AAIC 2025 — Toronto, Canada</li>
-        <li>AAIC 2024 — Philadelphia, USA</li>
-        <li>Hands-on: Next-Generation Pathogen Sequencing — CHRF (2025)</li>
-        <li>Hands-on: Computer-Aided Drug Design — ABCD Laboratory (2023)</li>
-        <li>AI Tools for Academic Research — ABCD Laboratory (2024)</li>
-        <li>Bioinformatics for Biotechnological Research — NIB (2021)</li>
-      </ul>
-    </div>
-  </div>
-
-  {{-- =====================================
-       CAREER ASPIRATIONS TIMELINE
-      ===================================== --}}
-  <div class="mt-16 rounded-2xl border border-border/70 bg-card/60 shadow-sm backdrop-blur reveal delay-200">
-    {{-- Timeline header --}}
-    <div class="border-b border-border/60 px-6 py-6">
-      <h3 class="flex items-center gap-3 font-headline text-2xl text-primary">
-        {{-- Milestone / upward arrow icon --}}
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 22V8" />
-          <path d="M8 12l4-4 4 4" />
-          <path d="M3 3h18v4H3z" />
-        </svg>
-        {{-- Section title --}}
-        <span>Career Aspirations</span>
-      </h3>
-      {{-- Short description under the title --}}
-      <p class="mt-1 text-sm text-muted-foreground">
-        A timeline of key milestones and achievements.
-      </p>
-    </div>
-
-    {{-- Timeline body --}}
-    <div class="px-6 pb-8 pt-4">
-      {{-- Left border line acts as the vertical timeline line --}}
-      <div class="relative ml-3 border-l-2 border-primary/60 pl-6">
-        {{-- TIMELINE ITEM: Present --}}
-        <div class="timeline-item group mb-8">
-          {{-- Glowing dot on the timeline (styled in CSS) --}}
-          <div class="timeline-dot"></div>
-
-          {{-- Year/period label --}}
-          <p class="text-sm font-semibold text-primary">Present</p>
-
-          {{-- Role/position title --}}
-          <h4 class="text-lg font-semibold text-foreground">M.S. Candidate, Biotechnology (TTU)</h4>
-
-          {{-- Short description of activities --}}
-          <p class="text-sm text-muted-foreground">
-            Advancing expertise in life sciences with a focus on neurodegeneration and data-driven therapeutics.
-          </p>
-        </div>
-
-        {{-- TIMELINE ITEM: 2024–2025 --}}
-        <div class="timeline-item group mb-8">
-          <div class="timeline-dot"></div>
-          <p class="text-sm font-semibold text-primary">2024–2025</p>
-          <h4 class="text-lg font-semibold text-foreground">Research Assistant, ABCD Laboratory</h4>
-          <p class="text-sm text-muted-foreground">
-            Led tauopathy projects; identified kinase targets; ran MD simulations to assess drug stability and efficacy.
-          </p>
-        </div>
-
-        {{-- TIMELINE ITEM: 2018–2022 --}}
-        <div class="timeline-item group">
-          <div class="timeline-dot"></div>
-          <p class="text-sm font-semibold text-primary">2018–2022</p>
-          <h4 class="text-lg font-semibold text-foreground">B.Sc., NSU (cum laude)</h4>
-          <p class="text-sm text-muted-foreground">
-            Built a strong foundation in genomics, proteomics, and bioinformatics; completed NGS-driven research project.
-          </p>
-        </div>
-      </div>
+    <div class="rounded-[2rem] bg-primary px-6 py-7 text-primary-foreground sm:flex sm:items-center sm:justify-between sm:gap-8 sm:px-10">
+      <div><h2 class="font-headline text-2xl sm:text-3xl">Explore the full résumé</h2><p class="mt-2 text-sm text-primary-foreground/80">Experience, technical skills, scientific work and references in one document.</p></div>
+      <a href="{{ asset('resume-gazi-salah-uddin-nuhash.pdf') }}" download="Gazi_Salah_Uddin_Nuhash_Resume.pdf" class="mt-6 inline-flex shrink-0 items-center rounded-full bg-background px-6 py-3 text-sm font-semibold text-foreground transition hover:opacity-90 sm:mt-0">Download PDF <span class="ml-2" aria-hidden="true">↗</span></a>
     </div>
   </div>
 </div>
 @endsection
 
-{{-- =====================
-     EXTRA PAGE STYLES
-    ===================== --}}
-@push('styles')
-<style>
-  /* Global background for the about page: soft radial gradients top and bottom */
-  .about-page::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: -1;
-    background:
-      radial-gradient(circle at top, rgba(59,130,246,0.12) 0%, transparent 55%),
-      radial-gradient(circle at bottom, rgba(45,212,191,0.10) 0%, transparent 60%);
-  }
-
-  /* Avatar container: provides size + relative positioning for glow */
-  .about-avatar-wrap {
-    position: relative;
-    max-width: 18rem;
-  }
-
-  /* Colored glowing background behind the avatar */
-  .about-avatar-glow {
-    position: absolute;
-    inset: 8%;
-    border-radius: 1.75rem;
-    background:
-      radial-gradient(circle at 0% 0%, rgba(59,130,246,0.4), transparent 60%),
-      radial-gradient(circle at 100% 100%, rgba(45,212,191,0.4), transparent 60%);
-    filter: blur(24px);
-    opacity: 0.85;
-    z-index: -1;
-    animation: avatarGlow 8s ease-in-out infinite alternate;
-  }
-
-  /* Floating animation applied to the avatar card */
-  .about-avatar-float {
-    animation: avatarFloat 5s ease-in-out infinite;
-    will-change: transform;
-  }
-
-  /* Animation: subtle pulsing glow effect around avatar */
-  @keyframes avatarGlow {
-    0% {
-      transform: scale(1);
-      opacity: 0.8;
-    }
-    50% {
-      transform: scale(1.03);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(0.98);
-      opacity: 0.75;
-    }
-  }
-
-  /* Animation: avatar moves slightly up and down to feel alive */
-  @keyframes avatarFloat {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-
-  /* Base state for reveal-on-scroll elements:
-     - Slightly transparent
-     - Slightly moved down and scaled */
-  .reveal {
-    opacity: 0;
-    transform: translateY(28px) scale(.98);
-    transition:
-      opacity .7s cubic-bezier(.16, 1, .3, 1),
-      transform .7s cubic-bezier(.16, 1, .3, 1);
-    will-change: opacity, transform;
-  }
-
-  /* When .visible is added by JS, element becomes fully visible */
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-
-  /* Delay utilities for staggered reveal animation */
-  .reveal.delay-0   { transition-delay: 0ms; }
-  .reveal.delay-100 { transition-delay: 100ms; }
-  .reveal.delay-150 { transition-delay: 150ms; }
-  .reveal.delay-200 { transition-delay: 200ms; }
-  .reveal.delay-250 { transition-delay: 250ms; }
-  .reveal.delay-300 { transition-delay: 300ms; }
-  .reveal.delay-400 { transition-delay: 400ms; }
-
-  /* Timeline item base: used to align text nicely with the vertical line */
-  .timeline-item {
-    position: relative;
-    padding-left: 0.5rem;
-  }
-
-  /* On hover, make the text of the timeline item highlight with primary color */
-  .timeline-item:hover p,
-  .timeline-item:hover h4 {
-    color: hsl(var(--primary));
-  }
-
-  /* Circular glowing dot on the left of each timeline item */
-  .timeline-dot {
-    position: absolute;
-    left: -1.65rem;
-    top: 0.45rem;
-    width: 1.1rem;
-    height: 1.1rem;
-    border-radius: 9999px;
-    background: radial-gradient(circle at 30% 30%, #ffffff, #38bdf8);
-    box-shadow:
-      0 0 0 4px rgba(56,189,248,0.35),
-      0 10px 20px rgba(15,23,42,0.35);
-    animation: dotPulse 3s ease-in-out infinite;
-  }
-
-  /* Pulse animation for timeline dots (scale + shadow changes) */
-  @keyframes dotPulse {
-    0%, 100% {
-      transform: scale(1);
-      box-shadow:
-        0 0 0 4px rgba(56,189,248,0.35),
-        0 10px 20px rgba(15,23,42,0.35);
-    }
-    50% {
-      transform: scale(1.06);
-      box-shadow:
-        0 0 0 6px rgba(56,189,248,0.20),
-        0 16px 30px rgba(15,23,42,0.45);
-    }
-  }
-</style>
-@endpush
-
-{{-- =====================
-     EXTRA PAGE SCRIPTS
-    ===================== --}}
 @push('scripts')
 <script>
-  // Run this once the DOM is fully loaded
-  document.addEventListener('DOMContentLoaded', () => {
-    // Select all elements that should reveal on scroll
-    const els = document.querySelectorAll('.reveal');
+  (() => {
+    const page = document.querySelector('.about-resume');
+    if (!page || !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    // Create an IntersectionObserver to watch when elements enter the viewport
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        // If element is visible on screen
-        if (entry.isIntersecting) {
-          // Add the .visible class (triggers CSS animation)
-          entry.target.classList.add('visible');
-          // Stop observing this element (so animation only runs once)
-          obs.unobserve(entry.target);
-        }
+    const items = page.querySelectorAll('section[aria-labelledby], .showcase-card, section article, .container > div:last-child');
+    items.forEach(item => item.classList.add('about-reveal'));
+    page.classList.add('motion-ready');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
       });
-    }, { threshold: 0.15 }); // 0.15 = start animation when 15% of element is visible
+    }, { threshold: 0.08, rootMargin: '0px 0px -5% 0px' });
 
-    // Attach the observer to each .reveal element
-    els.forEach((el) => obs.observe(el));
-  });
+    items.forEach(item => observer.observe(item));
+  })();
 </script>
 @endpush
