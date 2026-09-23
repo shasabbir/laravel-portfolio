@@ -13,7 +13,7 @@ class AboutMediaController extends Controller
 {
     public function edit()
     {
-        return view('admin.about-media', ['media' => AboutMedia::find(1)]);
+        return redirect()->to(route('about').'#edit-portrait');
     }
 
     public function update(Request $request)

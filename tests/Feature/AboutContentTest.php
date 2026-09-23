@@ -49,7 +49,7 @@ class AboutContentTest extends TestCase
     public function test_admin_can_edit_add_reorder_and_remove_content(): void
     {
         $this->actingAs(User::factory()->create());
-        $this->get('/admin/about-content')->assertOk()->assertSee('Graduate Research Assistant');
+        $this->get('/admin/about-content')->assertRedirect(route('about').'#edit-experiences');
         $content = AboutContent::findOrFail(1);
         $experiences = array_reverse($content->experiences);
         $experiences[0]['title'] = 'Updated research role';
@@ -58,7 +58,7 @@ class AboutContentTest extends TestCase
         $educations[0]['badge'] = 'UNI';
         $educations[0]['color'] = '#112233';
         $this->put('/admin/about-content', compact('experiences', 'educations') + ['additional_experience' => 'Updated note'])
-            ->assertRedirect(route('admin.about-content.edit'))->assertSessionHasNoErrors();
+            ->assertRedirect(route('about'))->assertSessionHasNoErrors();
         $updated = $content->fresh();
         $this->assertCount(5, $updated->experiences);
         $this->assertCount(1, $updated->educations);
@@ -81,6 +81,6 @@ class AboutContentTest extends TestCase
             'educations' => [['title' => 'Degree', 'period' => '2026', 'organization' => 'University', 'color' => 'red;display:none']],
         ])->assertSessionHasErrors(['experiences.0.title', 'educations.0.color']);
         $this->assertSame($before, AboutContent::findOrFail(1)->toArray());
-        $this->get('/admin/about-content')->assertOk()->assertSee('Example');
+        $this->get('/admin/about-content')->assertRedirect(route('about').'#edit-experiences');
     }
 }

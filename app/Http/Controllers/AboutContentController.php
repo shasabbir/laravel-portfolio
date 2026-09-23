@@ -14,7 +14,7 @@ class AboutContentController extends Controller
 
     public function edit()
     {
-        return view('admin.about-content', ['content' => AboutContent::findOrFail(1)]);
+        return redirect()->to(route('about').'#edit-experiences');
     }
 
     public function update(Request $request)
@@ -46,6 +46,6 @@ class AboutContentController extends Controller
         if ($selected) {
             return redirect()->to(route('about').'#edit-'.$selected)->with('status', 'About page content updated.');
         }
-        return redirect()->route('admin.about-content.edit')->with('status', 'About page content updated.');
+        return redirect()->route('about')->with('status', 'About page content updated.');
     }
 }

@@ -40,7 +40,7 @@ class AboutMediaTest extends TestCase
     {
         Storage::fake('local');
         $this->actingAs(User::factory()->create());
-        $this->get('/admin/about-media')->assertOk();
+        $this->get('/admin/about-media')->assertRedirect(route('about').'#edit-portrait');
         $this->put('/admin/about-media', [
             'portrait' => UploadedFile::fake()->createWithContent('portrait.jpg', file_get_contents(public_path('images/nuhash.jpg'))),
             'research' => UploadedFile::fake()->createWithContent('research.png', file_get_contents(public_path('images/neurodegeneration-illustration.png'))),

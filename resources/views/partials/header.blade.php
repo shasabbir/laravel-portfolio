@@ -17,10 +17,6 @@
           ['href' => route('blog.index'), 'label' => 'Blog', 'is' => 'blog*'],
           ['href' => route('contact.show'), 'label' => 'Contact', 'is' => 'contact'],
         ];
-        if (auth()->check()) {
-          $nav[] = ['href' => route('admin.about-content.edit'), 'label' => 'About content', 'is' => 'admin/about-content'];
-          $nav[] = ['href' => route('admin.about-media.edit'), 'label' => 'About media', 'is' => 'admin/about-media'];
-        }
       @endphp
 
       @foreach ($nav as $link)
