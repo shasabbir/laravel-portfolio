@@ -5,6 +5,12 @@
 @push('styles')
 <style>
   .about-resume { --showcase-ink: #12313b; }
+  .about-resume details[open][data-inline-edit] > summary { display: none; }
+  .about-resume:has(#edit-experiences[open]) [data-display="experiences"],
+  .about-resume:has(#edit-educations[open]) [data-display="educations"],
+  .about-resume:has(#edit-portrait[open]) [data-display="portrait"],
+  .about-resume:has(#edit-research[open]) [data-display="research"],
+  .about-resume:has(#edit-resume[open]) [data-display="resume"] { display: none; }
   .about-resume .showcase-mesh { background-image: radial-gradient(circle, rgba(17, 113, 126, .25) 1px, transparent 1.5px); background-size: 24px 24px; }
   .about-resume .showcase-card { transition: transform .25s ease, box-shadow .25s ease; }
   .about-resume .showcase-card:hover { transform: translateY(-5px); box-shadow: 0 20px 45px rgba(9, 75, 88, .13); }
@@ -18,6 +24,11 @@
 @endpush
 
 @section('content')
+@auth
+@if(session('status'))
+<div role="status" class="container mx-auto max-w-6xl px-5 py-4 text-primary">{{ session('status') }}</div>
+@endif
+@endauth
 <div class="about-resume overflow-hidden">
   <svg xmlns="http://www.w3.org/2000/svg" class="absolute h-0 w-0" aria-hidden="true">
     <symbol id="research-dna" viewBox="0 0 24 24"><path d="M4 2c0 8 16 12 16 20M20 2C20 10 4 14 4 22M6 6h12M5 12h14M6 18h12"/></symbol>
@@ -35,16 +46,18 @@
         <p class="mt-4 max-w-2xl text-xl font-medium text-foreground/80">Exploring the molecular signatures of Alzheimer’s disease.</p>
         <p class="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">I work across genomics, neuroscience and bioinformatics to study neurodegeneration. My experience spans omics analysis, computational drug discovery and laboratory research.</p>
         <div class="mt-6 flex flex-wrap gap-3">
-          <a href="{{ asset('resume-gazi-salah-uddin-nuhash.pdf') }}" download="Gazi_Salah_Uddin_Nuhash_Resume.pdf" class="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+          <a data-display="resume" href="{{ route('about.media', 'resume') }}" download="Gazi_Salah_Uddin_Nuhash_Resume.pdf" class="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
             Download résumé <span aria-hidden="true">↗</span>
           </a>
           <a href="#focus-title" class="inline-flex items-center rounded-full border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground transition hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Explore the research</a>
         </div>
+        @include('about.inline-media', ['field' => 'resume', 'label' => 'Edit resume PDF'])
         <p class="mt-4 text-sm text-muted-foreground">Based in Lubbock, Texas · Texas Tech University</p>
       </div>
       <div class="mx-auto w-full max-w-lg md:pt-1">
-        <div class="flex min-h-64 overflow-hidden rounded-[1.75rem] border border-border/70 bg-background shadow-xl shadow-primary/10 sm:min-h-80">
-          <img src="{{ asset('images/nuhash.jpg') }}" alt="Gazi Salah Uddin Nuhash" class="w-2/5 shrink-0 object-cover object-center" loading="lazy" />
+        @include('about.inline-media', ['field' => 'portrait', 'label' => 'Edit profile image'])
+        <div data-display="portrait" class="flex min-h-64 overflow-hidden rounded-[1.75rem] border border-border/70 bg-background shadow-xl shadow-primary/10 sm:min-h-80">
+          <img src="{{ route('about.media', 'portrait') }}" alt="Gazi Salah Uddin Nuhash" class="w-2/5 shrink-0 object-cover object-center" loading="lazy" />
           <div class="flex flex-col justify-center p-5 sm:p-8"><p class="text-xs font-bold uppercase tracking-[.14em] text-primary">Behind the research</p><p class="mt-4 font-headline text-xl sm:text-2xl">Gazi Salah Uddin Nuhash</p><p class="mt-4 text-sm leading-6 text-muted-foreground">Biotechnology &amp; genomics researcher</p></div>
         </div>
       </div>
@@ -67,7 +80,8 @@
       </div>
       <div class="grid gap-4 sm:grid-cols-2">
         <div class="showcase-card overflow-hidden rounded-[1.75rem] border border-border/70 bg-card shadow-sm sm:row-span-2">
-          <img src="{{ asset('images/neurodegeneration-illustration.png') }}" alt="Illustration of a brain with connected neural pathways" class="block h-auto w-full" loading="lazy" />
+          @include('about.inline-media', ['field' => 'research', 'label' => 'Edit research image'])
+          <img data-display="research" src="{{ route('about.media', 'research') }}" alt="Illustration of a brain with connected neural pathways" class="block h-auto w-full" loading="lazy" />
           <div class="p-6">
             <span class="showcase-icon mb-4"><svg class="fill-none stroke-current stroke-[1.6]" aria-hidden="true"><use href="#research-brain"/></svg></span>
             <h3 class="font-semibold">Neurodegeneration</h3>
@@ -95,31 +109,18 @@
         <h2 id="experience-title" class="mt-3 font-headline text-3xl">Research &amp; work</h2>
       </div>
       <div class="space-y-6">
-        <article class="border-l-2 border-primary pl-5">
-          <p class="text-sm font-semibold text-primary">Sep 2026 – Present</p>
-          <h3 class="mt-1 text-xl font-semibold">Graduate Research Assistant</h3>
-          <p class="mt-1 text-sm text-muted-foreground">Center for Biotechnology and Genomics · Texas Tech University</p>
-          <p class="mt-3 leading-7 text-muted-foreground">Investigating molecular fingerprints of Alzheimer’s disease through genomic and biological datasets. Preparing quality-controlled analyses, pathway visualizations and figures for research presentations and manuscripts.</p>
+        @include('about.inline-content', ['section' => 'experiences'])
+        <div data-display="experiences" class="space-y-6">
+        @foreach($content->experiences as $entry)
+        <article class="border-l-2 {{ $loop->first ? 'border-primary' : 'border-border' }} pl-5">
+          <p class="text-sm font-semibold text-primary">{{ $entry['period'] }}</p>
+          <h3 class="mt-1 text-xl font-semibold">{{ $entry['title'] }}</h3>
+          <p class="mt-1 text-sm text-muted-foreground">{{ $entry['organization'] }}</p>
+          @if(!empty($entry['description']))<p class="mt-3 whitespace-pre-line leading-7 text-muted-foreground">{{ $entry['description'] }}</p>@endif
         </article>
-        <article class="border-l-2 border-border pl-5">
-          <p class="text-sm font-semibold text-primary">Jul 2024 – Feb 2026</p>
-          <h3 class="mt-1 text-xl font-semibold">Research Assistant &amp; Assistant Lab Manager</h3>
-          <p class="mt-1 text-sm text-muted-foreground">ABCD Laboratory · Bangladesh</p>
-          <p class="mt-3 leading-7 text-muted-foreground">Led computational drug discovery projects focused on neurodegenerative pathways. Studied tau kinase targets using virtual screening and molecular dynamics with GROMACS and VMD, while mentoring junior researchers and supporting laboratory operations.</p>
-        </article>
-        <article class="border-l-2 border-border pl-5">
-          <p class="text-sm font-semibold text-primary">Aug 2023 – Jun 2024</p>
-          <h3 class="mt-1 text-xl font-semibold">Junior Research Collaborator</h3>
-          <p class="mt-1 text-sm text-muted-foreground">ABCD Laboratory · Bangladesh</p>
-          <p class="mt-3 leading-7 text-muted-foreground">Explored natural products, therapeutic protein targets and computer-aided drug design methods.</p>
-        </article>
-        <article class="border-l-2 border-border pl-5">
-          <p class="text-sm font-semibold text-primary">Feb 2020 – Jun 2022</p>
-          <h3 class="mt-1 text-xl font-semibold">Research Intern</h3>
-          <p class="mt-1 text-sm text-muted-foreground">NSU Genome Research Institute · North South University</p>
-          <p class="mt-3 leading-7 text-muted-foreground">Worked on bacterial culture, antibiotic resistance and next-generation sequencing projects, including an analysis of SARS-CoV-2 genomes from Nepal.</p>
-        </article>
-        <p class="text-sm text-muted-foreground">Additional experience: Project Manager at Wholesome Alive (2022–2023), Laboratory Assistant at North South University (2019–2020), and Student Assistant at Texas Tech University (2026).</p>
+        @endforeach
+        @if($content->additional_experience)<p class="whitespace-pre-line text-sm text-muted-foreground">{{ $content->additional_experience }}</p>@endif
+        </div>
       </div>
     </section>
 
@@ -128,21 +129,19 @@
         <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary">03 / Education</p>
         <h2 id="education-title" class="mt-3 font-headline text-3xl">Academic path</h2>
       </div>
-      <div class="grid gap-4 sm:grid-cols-2">
+      <div>
+        @include('about.inline-content', ['section' => 'educations'])
+        <div data-display="educations" class="grid gap-4 sm:grid-cols-2">
+        @foreach($content->educations as $entry)
         <article class="showcase-card rounded-[1.75rem] border border-border/70 bg-card p-6 shadow-sm">
-          <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#a6192e] text-lg font-black tracking-tighter text-white" aria-label="Texas Tech University initials">TTU</div>
-          <p class="text-sm font-semibold text-primary">2025 – Present</p>
-          <h3 class="mt-3 text-xl font-semibold">M.S. in Biotechnology</h3>
-          <p class="mt-1 text-muted-foreground">Texas Tech University · Lubbock, Texas</p>
-          <p class="mt-4 text-sm leading-6 text-muted-foreground">Life sciences research concentration · Current GPA 4.00 / 4.00</p>
+          @if(!empty($entry['badge']))<div class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl text-lg font-black tracking-tighter text-white" style="background-color: {{ $entry['color'] }}">{{ $entry['badge'] }}</div>@endif
+          <p class="text-sm font-semibold text-primary">{{ $entry['period'] }}</p>
+          <h3 class="mt-3 text-xl font-semibold">{{ $entry['title'] }}</h3>
+          <p class="mt-1 text-muted-foreground">{{ $entry['organization'] }}</p>
+          @if(!empty($entry['description']))<p class="mt-4 whitespace-pre-line text-sm leading-6 text-muted-foreground">{{ $entry['description'] }}</p>@endif
         </article>
-        <article class="showcase-card rounded-[1.75rem] border border-border/70 bg-card p-6 shadow-sm">
-          <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#123f7a] text-lg font-black tracking-tighter text-white" aria-label="North South University initials">NSU</div>
-          <p class="text-sm font-semibold text-primary">2018 – 2022</p>
-          <h3 class="mt-3 text-xl font-semibold">B.S. in Biochemistry &amp; Biotechnology</h3>
-          <p class="mt-1 text-muted-foreground">North South University · Dhaka, Bangladesh</p>
-          <p class="mt-4 text-sm leading-6 text-muted-foreground">Graduated cum laude, top 5% of class · CGPA 3.51 / 4.00</p>
-        </article>
+        @endforeach
+      </div>
       </div>
     </section>
 
@@ -204,7 +203,7 @@
 
     <div class="rounded-[2rem] bg-primary px-6 py-7 text-primary-foreground sm:flex sm:items-center sm:justify-between sm:gap-8 sm:px-10">
       <div><h2 class="font-headline text-2xl sm:text-3xl">Explore the full résumé</h2><p class="mt-2 text-sm text-primary-foreground/80">Experience, technical skills, scientific work and references in one document.</p></div>
-      <a href="{{ asset('resume-gazi-salah-uddin-nuhash.pdf') }}" download="Gazi_Salah_Uddin_Nuhash_Resume.pdf" class="mt-6 inline-flex shrink-0 items-center rounded-full bg-background px-6 py-3 text-sm font-semibold text-foreground transition hover:opacity-90 sm:mt-0">Download PDF <span class="ml-2" aria-hidden="true">↗</span></a>
+      <a data-display="resume" href="{{ route('about.media', 'resume') }}" download="Gazi_Salah_Uddin_Nuhash_Resume.pdf" class="mt-6 inline-flex shrink-0 items-center rounded-full bg-background px-6 py-3 text-sm font-semibold text-foreground transition hover:opacity-90 sm:mt-0">Download PDF <span class="ml-2" aria-hidden="true">↗</span></a>
     </div>
   </div>
 </div>
@@ -232,3 +231,7 @@
   })();
 </script>
 @endpush
+
+@auth
+@include('admin.partials.about-editor-script')
+@endauth

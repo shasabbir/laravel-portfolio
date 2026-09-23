@@ -5,6 +5,8 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AboutMediaController;
+use App\Http\Controllers\AboutContentController;
 
 Route::view('/', 'home')->name('home');
 
@@ -33,8 +35,13 @@ Route::put('/publications/{publication}', [PublicationController::class, 'update
 Route::delete('/publications/{publication}', [PublicationController::class, 'destroy'])->name('publications.destroy');
 
 // Static pages
-Route::view('/about', 'about')->name('about');
+Route::get('/about', [AboutContentController::class, 'show'])->name('about');
+Route::get('/about/media/{kind}', [AboutMediaController::class, 'show'])->whereIn('kind', ['portrait', 'research', 'resume'])->name('about.media');
+Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/about-content', [AboutContentController::class, 'edit'])->name('about-content.edit');
+    Route::put('/about-content', [AboutContentController::class, 'update'])->name('about-content.update');
+    Route::get('/about-media', [AboutMediaController::class, 'edit'])->name('about-media.edit');
+    Route::put('/about-media', [AboutMediaController::class, 'update'])->name('about-media.update');
+});
 Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
-
-
