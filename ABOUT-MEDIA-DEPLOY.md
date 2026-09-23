@@ -1,5 +1,7 @@
 # About media deployment
 
+Methods & tools, Manuscripts and Selected highlights also support inline editing, adding, removing and reordering entries. Highlight groups use one item per line. The additional content migration preserves the original content without changing existing research, education or media. Run `php artisan migrate --force` and deploy the rebuilt assets for this update.
+
 Signed-in administrators edit directly on `/about`: expand the Edit control beside each image, résumé, Research & work or Academic path, then save. Section saves preserve the other section. Cancel discards unsaved changes. These controls are hidden from visitors.
 
 Research & work and Academic path are managed directly on `/about`. The previous `/admin/about-content` and `/admin/about-media` URLs redirect to the relevant About editor; their save endpoints remain active. The content migration preserves the original four experience entries, two education entries and additional experience note. Entries can be added, removed and reordered before saving. Back up the `about_content` table along with media metadata. Run migrations before serving the updated About page.

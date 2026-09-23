@@ -6,6 +6,9 @@
 <style>
   .about-resume { --showcase-ink: #12313b; }
   .about-resume details[open][data-inline-edit] > summary { display: none; }
+  .about-resume:has(#edit-methods[open]) [data-display="methods"],
+  .about-resume:has(#edit-manuscripts[open]) [data-display="manuscripts"],
+  .about-resume:has(#edit-highlights[open]) [data-display="highlights"],
   .about-resume:has(#edit-experiences[open]) [data-display="experiences"],
   .about-resume:has(#edit-educations[open]) [data-display="educations"],
   .about-resume:has(#edit-portrait[open]) [data-display="portrait"],
@@ -150,16 +153,16 @@
         <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary">04 / Capabilities</p>
         <h2 id="skills-title" class="mt-3 font-headline text-3xl">Methods &amp; tools</h2>
       </div>
-      <div class="grid gap-5 sm:grid-cols-2">
-        <div class="showcase-card rounded-[1.75rem] bg-[#103542] p-7 text-white">
-          <span class="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-teal-300/20 text-teal-100"><svg class="h-6 w-6 fill-none stroke-current stroke-[1.6]" aria-hidden="true"><use href="#research-flask"/></svg></span>
-          <h3 class="font-semibold">Laboratory</h3>
-          <p class="mt-2 leading-7 text-slate-200">NGS, PCR, RT-qPCR, ELISA, Western blot, DNA/RNA extraction, mammalian and bacterial cell culture, CRISPR-Cas9 systems, immunofluorescence, mouse handling and aseptic surgery.</p>
-        </div>
-        <div class="showcase-card rounded-[1.75rem] bg-[#103542] p-7 text-white">
-          <span class="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-teal-300/20 text-teal-100"><svg class="h-6 w-6 fill-none stroke-current stroke-[1.6]" aria-hidden="true"><use href="#research-code"/></svg></span>
-          <h3 class="font-semibold">Computational</h3>
-          <p class="mt-2 leading-7 text-slate-200">Python, R, C/C++, GROMACS, NAMD, VMD, AutoDock Vina, PyMOL, Gaussian, genome annotation and data mining.</p>
+      <div>
+        @include('about.inline-content', ['section' => 'methods'])
+        <div data-display="methods" class="grid gap-5 sm:grid-cols-2">
+          @foreach($content->methods ?? [] as $entry)
+          <div class="showcase-card rounded-[1.75rem] bg-[#103542] p-7 text-white">
+            <span class="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-teal-300/20 text-teal-100"><svg class="h-6 w-6 fill-none stroke-current stroke-[1.6]" aria-hidden="true"><use href="#research-{{ $entry['icon'] }}"/></svg></span>
+            <h3 class="font-semibold">{{ $entry['title'] }}</h3>
+            <p class="mt-2 whitespace-pre-line leading-7 text-slate-200">{{ $entry['description'] }}</p>
+          </div>
+          @endforeach
         </div>
       </div>
     </section>
@@ -169,10 +172,17 @@
         <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary">05 / Scientific work</p>
         <h2 id="work-title" class="mt-3 font-headline text-3xl">Manuscripts</h2>
       </div>
-      <div class="space-y-4">
-        <div class="rounded-2xl border border-border/70 p-5"><span class="text-xs font-bold uppercase tracking-wider text-primary">In preparation</span><h3 class="mt-2 font-semibold">Molecular Fingerprints in Natural Products to Address Alzheimer’s Disease – A Computational Approach</h3><p class="mt-1 text-sm text-muted-foreground">Nuhash GSU, Crasto CJ</p></div>
-        <div class="rounded-2xl border border-border/70 p-5"><span class="text-xs font-bold uppercase tracking-wider text-primary">Submitted</span><h3 class="mt-2 font-semibold">Lamellarins – An Updated Review of Sources, Synthesis, Pharmacology, Pharmacokinetics and Toxicity</h3><p class="mt-1 text-sm text-muted-foreground">Nuhash GSU, Junaid M</p></div>
-        <div class="rounded-2xl border border-border/70 p-5"><span class="text-xs font-bold uppercase tracking-wider text-primary">In review</span><h3 class="mt-2 font-semibold">Revivify studies on inflammatory stress and immune cell activation</h3><p class="mt-1 text-sm text-muted-foreground">Co-author on two manuscripts</p></div>
+      <div>
+        @include('about.inline-content', ['section' => 'manuscripts'])
+        <div data-display="manuscripts" class="space-y-4">
+          @foreach($content->manuscripts ?? [] as $entry)
+          <div class="rounded-2xl border border-border/70 p-5">
+            <span class="text-xs font-bold uppercase tracking-wider text-primary">{{ $entry['status'] }}</span>
+            <h3 class="mt-2 font-semibold">{{ $entry['title'] }}</h3>
+            <p class="mt-1 text-sm text-muted-foreground">{{ $entry['authors'] }}</p>
+          </div>
+          @endforeach
+        </div>
       </div>
     </section>
 
@@ -181,22 +191,19 @@
         <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary">06 / Recognition</p>
         <h2 id="recognition-title" class="mt-3 font-headline text-3xl">Selected highlights</h2>
       </div>
-      <div class="grid gap-6 sm:grid-cols-2">
-        <div>
-          <h3 class="font-semibold">Honors</h3>
-          <ul class="mt-3 space-y-3 text-sm leading-6 text-muted-foreground">
-            <li>Graduate School Competitive Tuition Scholarship · Texas Tech University, 2025–2026</li>
-            <li>Full tuition scholarship · North South University, 2018</li>
-            <li>KL-YES Exchange Scholar · U.S. Department of State, 2013–2014</li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="font-semibold">Conferences &amp; training</h3>
-          <ul class="mt-3 space-y-3 text-sm leading-6 text-muted-foreground">
-            <li>Alzheimer’s Association International Conference · 2024 &amp; 2025</li>
-            <li>Next-Generation Pathogen Sequencing · CHRF, 2025</li>
-            <li>Aseptic Surgery and Working with Mice in Research · CITI Program, 2026</li>
-          </ul>
+      <div>
+        @include('about.inline-content', ['section' => 'highlights'])
+        <div data-display="highlights" class="grid gap-6 sm:grid-cols-2">
+          @foreach($content->highlights ?? [] as $entry)
+          <div>
+            <h3 class="font-semibold">{{ $entry['title'] }}</h3>
+            <ul class="mt-3 space-y-3 text-sm leading-6 text-muted-foreground">
+              @foreach(preg_split('/\R/u', $entry['description']) as $highlight)
+                @if(trim($highlight) !== '')<li>{{ $highlight }}</li>@endif
+              @endforeach
+            </ul>
+          </div>
+          @endforeach
         </div>
       </div>
     </section>
