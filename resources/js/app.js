@@ -1,4 +1,5 @@
 import './bootstrap';
+import './home-editor';
 
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -1,0 +1,621 @@
+{
+  "home_1": {
+    "type": "image",
+    "default": "",
+    "label": "Research card: neuroscience icon",
+    "group": "home"
+  },
+  "home_2": {
+    "type": "image",
+    "default": "",
+    "label": "Research card: drug design icon",
+    "group": "home"
+  },
+  "home_3": {
+    "type": "image",
+    "default": "",
+    "label": "Research card: NGS icon",
+    "group": "home"
+  },
+  "home_4": {
+    "type": "image",
+    "default": "",
+    "label": "About button arrow",
+    "group": "home"
+  },
+  "home_5": {
+    "type": "image",
+    "default": "",
+    "label": "Expertise: neuroscience icon",
+    "group": "home"
+  },
+  "home_6": {
+    "type": "image",
+    "default": "",
+    "label": "Expertise: drug design icon",
+    "group": "home"
+  },
+  "home_7": {
+    "type": "image",
+    "default": "",
+    "label": "Expertise: data analysis icon",
+    "group": "home"
+  },
+  "home_8": {
+    "type": "image",
+    "default": "",
+    "label": "Membership link arrow",
+    "group": "home"
+  },
+  "home_11": {
+    "type": "image",
+    "default": "",
+    "label": "Email icon",
+    "group": "home"
+  },
+  "home_12": {
+    "type": "video",
+    "default": "https://media.istockphoto.com/id/1494372561/video/soft-background-animation-abstract-blurred-and-beautiful-clean-and-shiny-motion-design-the.mp4?s=mp4-640x640-is&k=20&c=o8TfyL_c12J3qKRK3RPjTRDrSxJ0bvnt9a5wjH45SdU=",
+    "label": "Hero background video",
+    "group": "home"
+  },
+  "home_13": {
+    "type": "video",
+    "default": "https://cdnl.iconscout.com/lottie/premium/preview-watermark/background-animation-gif-download-7501792.mp4",
+    "label": "Portrait background video",
+    "group": "home"
+  },
+  "home_14": {
+    "type": "image",
+    "default": "/images/nuhash.jpg",
+    "label": "Hero portrait",
+    "group": "home"
+  },
+  "home_15": {
+    "type": "image",
+    "default": "/svg/Robot-Bot.gif",
+    "label": "About animation",
+    "group": "home"
+  },
+  "home_16": {
+    "type": "video",
+    "default": "https://cdn.pixabay.com/video/2024/04/20/208773_large.mp4",
+    "label": "About section video",
+    "group": "home"
+  },
+  "home_17": {
+    "type": "url",
+    "default": "https://istaart.alz.org/home",
+    "label": "Membership button URL",
+    "group": "home"
+  },
+  "home_18": {
+    "type": "image",
+    "default": "https://static.prod01.ue1.p.pcomm.net/istaartcommunity/content/images/ISTAART-RGB-White%20(1).png",
+    "label": "Membership logo",
+    "group": "home"
+  },
+  "home_19": {
+    "type": "url",
+    "default": "https://istaart.alz.org/home",
+    "label": "Membership explore URL",
+    "group": "home"
+  },
+  "home_23": {
+    "type": "text",
+    "default": "GAZI SALAH UDDIN NUHASH",
+    "label": "Hero name",
+    "group": "home"
+  },
+  "home_24": {
+    "type": "text",
+    "default": "Life Sciences Researcher",
+    "label": "Hero role",
+    "group": "home"
+  },
+  "home_25": {
+    "type": "text",
+    "default": "Driven, ambitious and self-motivated researcher with a strong background in Alzheimer's Disease, drug design and discovery, and next-generation sequencing.",
+    "label": "Introduction paragraph",
+    "group": "home"
+  },
+  "home_26": {
+    "type": "text",
+    "default": "View Publications",
+    "label": "View Publications",
+    "group": "home"
+  },
+  "home_27": {
+    "type": "text",
+    "default": "Get in Touch",
+    "label": "Get in Touch",
+    "group": "home"
+  },
+  "home_29": {
+    "type": "text",
+    "default": "Neurodegeneration & Tauopathies",
+    "label": "Research card 1 title",
+    "group": "home"
+  },
+  "home_30": {
+    "type": "text",
+    "default": "Specializing in Alzheimer's disease and tauopathies, with a focus on disease mechanisms, kinase targets and translational impact.",
+    "label": "Research card 1 paragraph",
+    "group": "home"
+  },
+  "home_32": {
+    "type": "text",
+    "default": "Drug Design & Molecular Dynamics",
+    "label": "Research card 2 title",
+    "group": "home"
+  },
+  "home_33": {
+    "type": "text",
+    "default": "Hands-on experience in computer-aided drug design, docking and MD simulations (GROMACS/VMD), linked with wet-lab validation.",
+    "label": "Research card 2 paragraph",
+    "group": "home"
+  },
+  "home_35": {
+    "type": "text",
+    "default": "NGS & Scientific Communication",
+    "label": "Research card 3 title",
+    "group": "home"
+  },
+  "home_36": {
+    "type": "text",
+    "default": "Strong background in NGS projects, data analysis and conference-ready communication, including AAIC 2024/2025 presentations.",
+    "label": "Research card 3 paragraph",
+    "group": "home"
+  },
+  "home_37": {
+    "type": "text",
+    "default": "A Passion for Discovery",
+    "label": "A Passion for Discovery",
+    "group": "home"
+  },
+  "home_38": {
+    "type": "text",
+    "default": "Academically distinguished life sciences graduate with exceptional leadership abilities, adept at public speaking, teamwork, and effective communication. Looking to pursue further opportunities and make a difference within my field and harness my potential.",
+    "label": "About paragraph",
+    "group": "home"
+  },
+  "home_40": {
+    "type": "text",
+    "default": "Areas of Expertise",
+    "label": "Areas of Expertise",
+    "group": "home"
+  },
+  "home_41": {
+    "type": "text",
+    "default": "Specializing in fields that advance our understanding of complex diseases and therapeutic interventions.",
+    "label": "Expertise introduction",
+    "group": "home"
+  },
+  "home_43": {
+    "type": "text",
+    "default": "Alzheimer's Disease",
+    "label": "Alzheimer's Disease",
+    "group": "home"
+  },
+  "home_44": {
+    "type": "text",
+    "default": "Strong background in researching and understanding Alzheimer's Disease.",
+    "label": "Neuroscience paragraph",
+    "group": "home"
+  },
+  "home_46": {
+    "type": "text",
+    "default": "Drug Design & Discovery",
+    "label": "Drug Design & Discovery",
+    "group": "home"
+  },
+  "home_47": {
+    "type": "text",
+    "default": "Experienced in the design and discovery of novel therapeutic drugs.",
+    "label": "Drug discovery paragraph",
+    "group": "home"
+  },
+  "home_49": {
+    "type": "text",
+    "default": "NGS & Data Analysis",
+    "label": "NGS & Data Analysis",
+    "group": "home"
+  },
+  "home_50": {
+    "type": "text",
+    "default": "Adept at next-generation sequencing and analyzing complex biological data.",
+    "label": "Data analysis paragraph",
+    "group": "home"
+  },
+  "home_51": {
+    "type": "text",
+    "default": "Member Spotlight",
+    "label": "Member Spotlight",
+    "group": "home"
+  },
+  "home_52": {
+    "type": "text",
+    "default": "Member of",
+    "label": "Member of",
+    "group": "home"
+  },
+  "home_53": {
+    "type": "text",
+    "default": "ISTAART",
+    "label": "ISTAART",
+    "group": "home"
+  },
+  "home_54": {
+    "type": "text",
+    "default": "I’m an active member of the",
+    "label": "I’m an active member of the",
+    "group": "home"
+  },
+  "home_55": {
+    "type": "text",
+    "default": "International Society to Advance Alzheimer’s Research and Treatment (ISTAART)",
+    "label": "International Society to Advance Alzheimer’s Research and Treatment (ISTAART)",
+    "group": "home"
+  },
+  "home_56": {
+    "type": "text",
+    "default": ", a global professional community advancing research, collaboration, and knowledge-sharing in Alzheimer’s and dementia.",
+    "label": ", a global professional community advancing research, collaboration, and knowledge-sh",
+    "group": "home"
+  },
+  "home_57": {
+    "type": "text",
+    "default": "Access to cutting-edge research communities & PIA networks",
+    "label": "Access to cutting-edge research communities & PIA networks",
+    "group": "home"
+  },
+  "home_58": {
+    "type": "text",
+    "default": "Collaboration with global researchers & clinicians",
+    "label": "Collaboration with global researchers & clinicians",
+    "group": "home"
+  },
+  "home_59": {
+    "type": "text",
+    "default": "Ongoing training, events & annual AAIC engagement",
+    "label": "Ongoing training, events & annual AAIC engagement",
+    "group": "home"
+  },
+  "home_60": {
+    "type": "text",
+    "default": "Commitment to evidence-based, translational impact",
+    "label": "Commitment to evidence-based, translational impact",
+    "group": "home"
+  },
+  "home_61": {
+    "type": "text",
+    "default": "View ISTAART Community",
+    "label": "View ISTAART Community",
+    "group": "home"
+  },
+  "home_62": {
+    "type": "text",
+    "default": "Verified Membership",
+    "label": "Verified Membership",
+    "group": "home"
+  },
+  "home_63": {
+    "type": "text",
+    "default": "Global",
+    "label": "Global",
+    "group": "home"
+  },
+  "home_64": {
+    "type": "text",
+    "default": "Community",
+    "label": "Community",
+    "group": "home"
+  },
+  "home_65": {
+    "type": "text",
+    "default": "Alzheimer’s",
+    "label": "Alzheimer’s",
+    "group": "home"
+  },
+  "home_66": {
+    "type": "text",
+    "default": "Focus",
+    "label": "Focus",
+    "group": "home"
+  },
+  "home_67": {
+    "type": "text",
+    "default": "PIA",
+    "label": "PIA",
+    "group": "home"
+  },
+  "home_68": {
+    "type": "text",
+    "default": "Networks",
+    "label": "Networks",
+    "group": "home"
+  },
+  "home_70": {
+    "type": "text",
+    "default": "Stay Connected & Verify",
+    "label": "Stay Connected & Verify",
+    "group": "home"
+  },
+  "home_71": {
+    "type": "text",
+    "default": "iD",
+    "label": "iD",
+    "group": "home"
+  },
+  "home_72": {
+    "type": "text",
+    "default": "ORCID",
+    "label": "ORCID",
+    "group": "home"
+  },
+  "home_74": {
+    "type": "text",
+    "default": "Google Scholar",
+    "label": "Google Scholar",
+    "group": "home"
+  },
+  "home_76": {
+    "type": "text",
+    "default": "LinkedIn",
+    "label": "LinkedIn",
+    "group": "home"
+  },
+  "home_78": {
+    "type": "text",
+    "default": "Email",
+    "label": "Email",
+    "group": "home"
+  },
+  "header_1": {
+    "type": "image",
+    "default": "",
+    "label": "ORCID logo",
+    "group": "header"
+  },
+  "header_2": {
+    "type": "image",
+    "default": "",
+    "label": "Google Scholar logo",
+    "group": "header"
+  },
+  "header_3": {
+    "type": "image",
+    "default": "",
+    "label": "LinkedIn logo",
+    "group": "header"
+  },
+  "header_4": {
+    "type": "image",
+    "default": "",
+    "label": "Mobile menu icon",
+    "group": "header"
+  },
+  "header_5": {
+    "type": "image",
+    "default": "",
+    "label": "Mobile close icon",
+    "group": "header"
+  },
+  "header_9": {
+    "type": "url",
+    "default": "https://orcid.org/0009-0006-4002-7445",
+    "label": "ORCID profile URL",
+    "group": "header"
+  },
+  "header_10": {
+    "type": "url",
+    "default": "https://scholar.google.com/citations?user=bE4Q3KgAAAAJ&hl=en",
+    "label": "Google Scholar profile URL",
+    "group": "header"
+  },
+  "header_11": {
+    "type": "url",
+    "default": "https://www.linkedin.com/in/gazinuhash/",
+    "label": "LinkedIn profile URL",
+    "group": "header"
+  },
+  "header_15": {
+    "type": "text",
+    "default": "Nuhash Gazi",
+    "label": "Site name",
+    "group": "header"
+  },
+  "header_17": {
+    "type": "text",
+    "default": "iD",
+    "label": "iD",
+    "group": "header"
+  },
+  "header_27": {
+    "type": "text",
+    "default": "Log out",
+    "label": "Log out",
+    "group": "header"
+  },
+  "header_28": {
+    "type": "text",
+    "default": "Log in",
+    "label": "Log in",
+    "group": "header"
+  },
+  "header_33": {
+    "type": "text",
+    "default": "iD",
+    "label": "iD",
+    "group": "header"
+  },
+  "header_36": {
+    "type": "text",
+    "default": "Log out",
+    "label": "Log out",
+    "group": "header"
+  },
+  "header_37": {
+    "type": "text",
+    "default": "Log in",
+    "label": "Log in",
+    "group": "header"
+  },
+  "footer_1": {
+    "type": "text",
+    "default": "Privacy Policy",
+    "label": "Privacy Policy",
+    "group": "footer"
+  },
+  "footer_2": {
+    "type": "text",
+    "default": "Terms of Service",
+    "label": "Terms of Service",
+    "group": "footer"
+  },
+  "brand_logo": {
+    "type": "image",
+    "default": "",
+    "label": "Site brand logo (header and mobile menu)",
+    "group": "header"
+  },
+  "welcome_text": {
+    "type": "text",
+    "default": "Welcome",
+    "label": "welcome text",
+    "group": "header"
+  },
+  "about_button_text": {
+    "type": "text",
+    "default": "Learn More About Me",
+    "label": "about button text",
+    "group": "home"
+  },
+  "membership_explore_text": {
+    "type": "text",
+    "default": "Explore ISTAART",
+    "label": "membership explore text",
+    "group": "home"
+  },
+  "footer_copyright": {
+    "type": "text",
+    "default": "GAZI SALAH UDDIN NUHASH. All Rights Reserved.",
+    "label": "footer copyright",
+    "group": "footer"
+  },
+  "publications_button_url": {
+    "type": "url",
+    "default": "/publications",
+    "label": "Publications button URL",
+    "group": "home"
+  },
+  "contact_button_url": {
+    "type": "url",
+    "default": "/contact",
+    "label": "Contact and email URL",
+    "group": "home"
+  },
+  "about_button_url": {
+    "type": "url",
+    "default": "/about",
+    "label": "About button URL",
+    "group": "home"
+  },
+  "portrait_alt": {
+    "type": "text",
+    "default": "GAZI SALAH UDDIN NUHASH",
+    "label": "Portrait description",
+    "group": "home"
+  },
+  "animation_alt": {
+    "type": "text",
+    "default": "Scientist animation",
+    "label": "Animation description",
+    "group": "home"
+  },
+  "membership_logo_alt": {
+    "type": "text",
+    "default": "ISTAART — International Society to Advance Alzheimer’s Research and Treatment",
+    "label": "Membership logo description",
+    "group": "home"
+  },
+  "privacy_url": {
+    "type": "url",
+    "default": "/privacy",
+    "label": "Privacy policy URL",
+    "group": "footer"
+  },
+  "terms_url": {
+    "type": "url",
+    "default": "/terms",
+    "label": "Terms of service URL",
+    "group": "footer"
+  },
+  "membership_heading": {
+    "type": "text",
+    "default": "Member of ISTAART",
+    "label": "Membership heading",
+    "group": "home",
+    "parts": [
+      "home_52",
+      "home_53"
+    ]
+  },
+  "membership_paragraph": {
+    "type": "text",
+    "default": "I’m an active member of the **International Society to Advance Alzheimer’s Research and Treatment (ISTAART)**, a global professional community advancing research, collaboration, and knowledge-sharing in Alzheimer’s and dementia.",
+    "label": "Membership paragraph",
+    "group": "home",
+    "parts": [
+      "home_54",
+      "home_55",
+      "home_56"
+    ]
+  },
+  "membership_community": {
+    "type": "text",
+    "default": "Global Community",
+    "label": "Community tile",
+    "group": "home",
+    "parts": [
+      "home_63",
+      "home_64"
+    ],
+    "join": " "
+  },
+  "membership_focus": {
+    "type": "text",
+    "default": "Alzheimer’s Focus",
+    "label": "Focus tile",
+    "group": "home",
+    "parts": [
+      "home_65",
+      "home_66"
+    ],
+    "join": " "
+  },
+  "membership_networks": {
+    "type": "text",
+    "default": "PIA Networks",
+    "label": "Networks tile",
+    "group": "home",
+    "parts": [
+      "home_67",
+      "home_68"
+    ],
+    "join": " "
+  },
+  "membership_benefits": {
+    "type": "text",
+    "default": "Access to cutting-edge research communities & PIA networks\nCollaboration with global researchers & clinicians\nOngoing training, events & annual AAIC engagement\nCommitment to evidence-based, translational impact",
+    "label": "Membership highlights — one per line",
+    "group": "home",
+    "parts": [
+      "home_57",
+      "home_58",
+      "home_59",
+      "home_60"
+    ],
+    "join": "\n"
+  }
+}

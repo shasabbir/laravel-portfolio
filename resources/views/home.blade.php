@@ -11,13 +11,14 @@
 
         {{-- ================= HERO ================= --}}
         <section id="hero" class="relative w-full overflow-hidden bg-background py-20 md:py-32">
+            @include('home.inline-editor', ['section' => 'hero'])
             {{-- Hero section: full-width top section with video background and intro content --}}
 
             {{-- FULLSCREEN BACKGROUND VIDEO --}}
             <div class="hero-video-wrapper pointer-events-none absolute inset-0 -z-20">
                 {{-- Background video element covering entire hero --}}
                 <video class="hero-video h-full w-full object-cover"
-                    src="https://media.istockphoto.com/id/1494372561/video/soft-background-animation-abstract-blurred-and-beautiful-clean-and-shiny-motion-design-the.mp4?s=mp4-640x640-is&k=20&c=o8TfyL_c12J3qKRK3RPjTRDrSxJ0bvnt9a5wjH45SdU="
+                    src="{{ $siteContent->value('home_12') }}"
                     autoplay muted loop playsinline></video>
 
                 {{-- OVERLAY ON TOP OF VIDEO TO MAKE TEXT READABLE --}}
@@ -34,35 +35,24 @@
                 {{-- LEFT CONTENT: NAME + TAGLINE + DESCRIPTION + CTA BUTTONS --}}
                 <div class="z-10 reveal delay-0">
                     {{-- Main name / title --}}
-                    <h1 class="font-headline uppercase text-5xl font-bold tracking-tight text-foreground md:text-6xl lg:text-6xl">
-                        GAZI SALAH UDDIN NUHASH
-                    </h1>
+                    <h1 class="font-headline uppercase text-5xl font-bold tracking-tight text-foreground md:text-6xl lg:text-6xl">{!! $siteContent->formatted('home_23') !!}</h1>
 
                     {{-- Sub-heading / role line with gradient text --}}
                     <p
-                        class="mt-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-2xl font-semibold text-transparent">
-                        Life Sciences Researcher
-                    </p>
+                        class="mt-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-2xl font-semibold text-transparent">{!! $siteContent->formatted('home_24') !!}</p>
 
                     {{-- Short description paragraph --}}
-                    <p class="mx-auto mt-6 max-w-prose text-lg leading-relaxed text-muted-foreground md:mx-0">
-                        Driven, ambitious and self-motivated researcher with a strong background in Alzheimer's Disease,
-                        drug design and discovery, and next-generation sequencing.
-                    </p>
+                    <p class="mx-auto mt-6 max-w-prose text-lg leading-relaxed text-muted-foreground md:mx-0">{!! $siteContent->formatted('home_25') !!}</p>
 
                     {{-- Hero call-to-action buttons --}}
                     <div class="mt-8 flex justify-center gap-4 md:justify-start">
                         {{-- Button linking to publications page --}}
-                        <a href="{{ route('publications.index') }}"
-                            class="inline-flex items-center gap-2 rounded bg-primary px-5 py-3 text-base font-semibold text-primary-foreground shadow transition hover:opacity-90">
-                            View Publications
-                        </a>
+                        <a href="{{ $siteContent->value('publications_button_url') }}"
+                            class="inline-flex items-center gap-2 rounded bg-primary px-5 py-3 text-base font-semibold text-primary-foreground shadow transition hover:opacity-90">{!! $siteContent->formatted('home_26') !!}</a>
 
                         {{-- Button linking to contact page --}}
-                        <a href="{{ route('contact.show') }}"
-                            class="inline-flex items-center gap-2 rounded border border-border px-5 py-3 text-base font-semibold transition hover:bg-accent/10">
-                            Get in Touch
-                        </a>
+                        <a href="{{ $siteContent->value('contact_button_url') }}"
+                            class="inline-flex items-center gap-2 rounded border border-border px-5 py-3 text-base font-semibold transition hover:bg-accent/10">{!! $siteContent->formatted('home_27') !!}</a>
                     </div>
                 </div>
 
@@ -76,7 +66,7 @@
                             class="relative h-72 w-72 rounded-full md:h-80 md:w-80 overflow-hidden bg-white/90 shadow-[0_24px_70px_rgba(15,23,42,0.14)]">
                             {{-- Subtle looping video inside circular background --}}
                             <video class="h-full w-full object-cover opacity-35 mix-blend-screen"
-                                src="https://cdnl.iconscout.com/lottie/premium/preview-watermark/background-animation-gif-download-7501792.mp4"
+                                src="{{ $siteContent->value('home_13') }}"
                                 autoplay muted loop playsinline>
                             </video>
 
@@ -102,7 +92,7 @@
                         {{-- ACTUAL AVATAR (circular image with floating animation) --}}
                         <div
                             class="avatar-float relative h-64 w-64 overflow-hidden rounded-full border-[4px] border-white bg-white/60 shadow-avatar md:h-72 md:w-72">
-                            <img src="{{ asset('storage/images/nuhash.jpg') }}" alt="GAZI SALAH UDDIN NUHASH"
+                            <img src="{{ $siteContent->value('home_14') }}" alt="{{ $siteContent->value('portrait_alt') }}"
                                 class="h-full w-full object-cover" />
                         </div>
                     </div>
@@ -115,6 +105,7 @@
 
         {{-- ================= 3 INFO CARDS ================= --}}
         <section class="relative overflow-hidden bg-white py-16 text-slate-800">
+            @include('home.inline-editor', ['section' => 'research'])
             {{-- Section with three high-level capability cards --}}
 
             {{-- soft blobs in the background --}}
@@ -136,22 +127,17 @@
                         <div
                             class="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-sky-500 text-white shadow-lg shadow-sky-500/40 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-sky-500/60">
                             {{-- brain icon --}}
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-10 w-10">
+                            @if($siteContent->value('home_1'))<img src="{{ $siteContent->value('home_1') }}" alt="" class="h-10 w-10 object-contain" />@else<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-10 w-10">
                                 <path fill="currentColor"
                                     d="M9 2a3 3 0 0 0-3 3v.2A3 3 0 0 0 3 8a3 3 0 0 0 1.1 2.3A3 3 0 0 0 4 12a3 3 0 0 0 2 2.82V15a3 3 0 0 0 3 3h.5A2.5 2.5 0 0 0 12 20.5V5a3 3 0 0 0-3-3Zm6 0a3 3 0 0 1 3 3v.2A3 3 0 0 1 21 8a3 3 0 0 1-1.1 2.3A3 3 0 0 1 20 12a3 3 0 0 1-2 2.82V15a3 3 0 0 1-3 3h-.5A2.5 2.5 0 0 1 12 20.5V5a3 3 0 0 1 3-3Z" />
-                            </svg>
+                            </svg>@endif
                         </div>
 
                         {{-- Card title --}}
-                        <h3 class="text-lg font-semibold text-slate-900">
-                            Neurodegeneration &amp; Tauopathies
-                        </h3>
+                        <h3 class="text-lg font-semibold text-slate-900">{!! $siteContent->formatted('home_29') !!}</h3>
 
                         {{-- Card description --}}
-                        <p class="mt-3 max-w-xs text-sm leading-relaxed text-slate-500">
-                            Specializing in Alzheimer&apos;s disease and tauopathies, with a focus on disease mechanisms,
-                            kinase targets and translational impact.
-                        </p>
+                        <p class="mt-3 max-w-xs text-sm leading-relaxed text-slate-500">{!! $siteContent->formatted('home_30') !!}</p>
                     </div>
 
                     {{-- Card 2: CADD, MD & Drug Design --}}
@@ -160,22 +146,17 @@
                         <div
                             class="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-emerald-500 text-white shadow-lg shadow-emerald-500/40 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-emerald-500/60">
                             {{-- flask / chemistry icon --}}
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-10 w-10">
+                            @if($siteContent->value('home_2'))<img src="{{ $siteContent->value('home_2') }}" alt="" class="h-10 w-10 object-contain" />@else<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-10 w-10">
                                 <path fill="currentColor"
                                     d="M10 2v7.3L5.2 17A4 4 0 0 0 8.6 23h6.8A4 4 0 0 0 18.8 17L14 9.3V2h-4Zm-1.5 0h7v2h-7v-2Z" />
-                            </svg>
+                            </svg>@endif
                         </div>
 
                         {{-- Card title --}}
-                        <h3 class="text-lg font-semibold text-slate-900">
-                            Drug Design &amp; Molecular Dynamics
-                        </h3>
+                        <h3 class="text-lg font-semibold text-slate-900">{!! $siteContent->formatted('home_32') !!}</h3>
 
                         {{-- Card description --}}
-                        <p class="mt-3 max-w-xs text-sm leading-relaxed text-slate-500">
-                            Hands-on experience in computer-aided drug design, docking and MD simulations
-                            (GROMACS/VMD), linked with wet-lab validation.
-                        </p>
+                        <p class="mt-3 max-w-xs text-sm leading-relaxed text-slate-500">{!! $siteContent->formatted('home_33') !!}</p>
                     </div>
 
                     {{-- Card 3: NGS, Data & Communication --}}
@@ -184,22 +165,17 @@
                         <div
                             class="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-indigo-500 text-white shadow-lg shadow-indigo-500/40 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-indigo-500/60">
                             {{-- DNA / data icon --}}
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-10 w-10">
+                            @if($siteContent->value('home_3'))<img src="{{ $siteContent->value('home_3') }}" alt="" class="h-10 w-10 object-contain" />@else<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-10 w-10">
                                 <path fill="currentColor"
                                     d="M4 4c4 0 8 4 8 8s4 8 8 8M4 20c4 0 8-4 8-8s4-8 8-8M8 6h8M8 18h8M7 9h2M15 15h2" />
-                            </svg>
+                            </svg>@endif
                         </div>
 
                         {{-- Card title --}}
-                        <h3 class="text-lg font-semibold text-slate-900">
-                            NGS &amp; Scientific Communication
-                        </h3>
+                        <h3 class="text-lg font-semibold text-slate-900">{!! $siteContent->formatted('home_35') !!}</h3>
 
                         {{-- Card description --}}
-                        <p class="mt-3 max-w-xs text-sm leading-relaxed text-slate-500">
-                            Strong background in NGS projects, data analysis and conference-ready
-                            communication, including AAIC 2024/2025 presentations.
-                        </p>
+                        <p class="mt-3 max-w-xs text-sm leading-relaxed text-slate-500">{!! $siteContent->formatted('home_36') !!}</p>
                     </div>
 
                 </div>
@@ -209,6 +185,7 @@
 
         {{-- ================= ABOUT / VIDEO SPLIT ================= --}}
         <section id="about-snippet" class="relative overflow-hidden">
+            @include('home.inline-editor', ['section' => 'about-snippet'])
             {{-- Section combining about text on left with a video on right --}}
 
             {{-- subtle background spot --}}
@@ -225,27 +202,23 @@
                 <div class="mx-0 flex items-center justify-center pt-8 md:mx-10 ">
                     <div class="max-w-xl text-center md:text-left reveal delay-0">
                         {{-- Section heading --}}
-                        <h2 class="font-headline text-3xl font-bold md:text-4xl">A Passion for Discovery</h2>
+                        <h2 class="font-headline text-3xl font-bold md:text-4xl">{!! $siteContent->formatted('home_37') !!}</h2>
 
                         {{-- Short bio paragraph --}}
-                        <p class="px-4 md:px-0  mt-4 text-lg leading-relaxed">
-                            Academically distinguished life sciences graduate with exceptional leadership abilities,
-                            adept at public speaking, teamwork, and effective communication. Looking to pursue further
-                            opportunities and make a difference within my field and harness my potential.
-                        </p>
+                        <p class="px-4 md:px-0  mt-4 text-lg leading-relaxed">{!! $siteContent->formatted('home_38') !!}</p>
 
                         {{-- Row: "Learn More" button + animated scientist GIF --}}
                         <div class="mt-6 flex  items-center  gap-6">
                             {{-- Button leading to full About page --}}
-                            <a href="{{ route('about') }}"
+                            <a href="{{ $siteContent->value('about_button_url') }}"
                                 class="mt-8 inline-flex items-center gap-2 rounded border border-border bg-background ml-5 md:ml-0 px-5 py-3 text-base font-semibold transition hover:bg-accent/10">
-                                Learn More About Me
+                                {!! $siteContent->formatted('about_button_text') !!}
                                 {{-- Arrow icon inside button --}}
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                @if($siteContent->value('home_4'))<img src="{{ $siteContent->value('home_4') }}" alt="" class="h-5 w-5 object-contain" />@else<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M5 12h14"></path>
                                     <path d="M12 5l7 7-7 7"></path>
-                                </svg>
+                                </svg>@endif
                             </a>
 
                             {{-- SCIENTIST GIF UNDER THE TEXT --}}
@@ -258,7 +231,7 @@
                                 {{-- circular "chip" background containing GIF --}}
                                 <div
                                     class="relative flex md:h-60 md:w-60 items-center justify-center rounded-full  bg-white/70  backdrop-blur">
-                                    <img src="{{ asset('svg/Robot-Bot.gif') }}" alt="Scientist animation"
+                                    <img src="{{ $siteContent->value('home_15') }}" alt="{{ $siteContent->value('animation_alt') }}"
                                         class="h-40 w-40 object-contain" />
                                 </div>
                             </div>
@@ -270,7 +243,7 @@
                 <div class="relative min-h-[300px] w-full md:min-h-0">
                     <div class="h-full w-full reveal delay-200">
                         {{-- Full-height video on the right side --}}
-                        <video src="https://cdn.pixabay.com/video/2024/04/20/208773_large.mp4" autoplay loop muted
+                        <video src="{{ $siteContent->value('home_16') }}" autoplay loop muted
                             playsinline class="h-full w-full object-cover"></video>
                         {{-- Semi-transparent overlay tint --}}
                         <div class="absolute inset-0 bg-primary/20"></div>
@@ -281,6 +254,7 @@
 
         {{-- ================= EXPERTISE ================= --}}
         <section id="expertise" class="relative w-full overflow-hidden py-16 md:py-24">
+            @include('home.inline-editor', ['section' => 'expertise'])
             {{-- Section describing "Areas of Expertise" --}}
 
             {{-- background spots --}}
@@ -296,11 +270,8 @@
             <div class="container mx-auto px-4 md:px-6">
                 {{-- Section heading and intro text --}}
                 <div class="text-center reveal delay-0">
-                    <h2 class="font-headline text-3xl font-bold md:text-4xl">Areas of Expertise</h2>
-                    <p class="mx-auto mt-4 max-w-3xl text-center text-muted-foreground">
-                        Specializing in fields that advance our understanding of complex diseases and therapeutic
-                        interventions.
-                    </p>
+                    <h2 class="font-headline text-3xl font-bold md:text-4xl">{!! $siteContent->formatted('home_40') !!}</h2>
+                    <p class="mx-auto mt-4 max-w-3xl text-center text-muted-foreground">{!! $siteContent->formatted('home_41') !!}</p>
                 </div>
 
                 {{-- 3 columns of expertise cards --}}
@@ -309,38 +280,34 @@
                     {{-- Expertise card 1 --}}
                     <div class="flex flex-col items-center text-center reveal delay-0">
                         {{-- Icon for Alzheimer’s / brain --}}
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-primary" fill="none"
+                        @if($siteContent->value('home_5'))<img src="{{ $siteContent->value('home_5') }}" alt="" class="h-10 w-10 text-primary object-contain" />@else<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-primary" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                             stroke-linejoin="round">
                             <path d="M9 2v6l-2 3a7 7 0 1 0 10 0l-2-3V2" />
                             <path d="M12 2v6" />
-                        </svg>
-                        <h3 class="mt-4 font-headline text-2xl font-bold">Alzheimer's Disease</h3>
-                        <p class="mt-2 max-w-xs text-muted-foreground">
-                            Strong background in researching and understanding Alzheimer's Disease.
-                        </p>
+                        </svg>@endif
+                        <h3 class="mt-4 font-headline text-2xl font-bold">{!! $siteContent->formatted('home_43') !!}</h3>
+                        <p class="mt-2 max-w-xs text-muted-foreground">{!! $siteContent->formatted('home_44') !!}</p>
                     </div>
 
                     {{-- Expertise card 2 --}}
                     <div class="flex flex-col items-center text-center reveal delay-150">
                         {{-- Icon for drug design / flask --}}
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-primary" fill="none"
+                        @if($siteContent->value('home_6'))<img src="{{ $siteContent->value('home_6') }}" alt="" class="h-10 w-10 text-primary object-contain" />@else<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-primary" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                             stroke-linejoin="round">
                             <path d="M10 2v8.3L3.2 20a2 2 0 0 0 1.7 3h14.2a2 2 0 0 0 1.7-3L14 10.3V2" />
                             <path d="M8.5 2h7" />
                             <path d="M7 16h10" />
-                        </svg>
-                        <h3 class="mt-4 font-headline text-2xl font-bold">Drug Design &amp; Discovery</h3>
-                        <p class="mt-2 max-w-xs text-muted-foreground">
-                            Experienced in the design and discovery of novel therapeutic drugs.
-                        </p>
+                        </svg>@endif
+                        <h3 class="mt-4 font-headline text-2xl font-bold">{!! $siteContent->formatted('home_46') !!}</h3>
+                        <p class="mt-2 max-w-xs text-muted-foreground">{!! $siteContent->formatted('home_47') !!}</p>
                     </div>
 
                     {{-- Expertise card 3 --}}
                     <div class="flex flex-col items-center text-center reveal delay-300">
                         {{-- SVG icon for NGS & Data Analysis (imported earlier) --}}
-                        <svg
+                        @if($siteContent->value('home_7'))<img src="{{ $siteContent->value('home_7') }}" alt="" class="h-10 w-10 object-contain" />@else<svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 2048 2048"
                             class="h-10 w-10"
@@ -359,12 +326,10 @@
                                     <path class="fil5" d="m1618.17 1445.14 140.21 140.21 33.21 33.22-33.21 33.22L1618.17 1792z"/>
                                 </g>
                             </g>
-                        </svg>
+                        </svg>@endif
 
-                        <h3 class="mt-4 font-headline text-2xl font-bold">NGS &amp; Data Analysis</h3>
-                        <p class="mt-2 max-w-xs text-muted-foreground">
-                            Adept at next-generation sequencing and analyzing complex biological data.
-                        </p>
+                        <h3 class="mt-4 font-headline text-2xl font-bold">{!! $siteContent->formatted('home_49') !!}</h3>
+                        <p class="mt-2 max-w-xs text-muted-foreground">{!! $siteContent->formatted('home_50') !!}</p>
                     </div>
                 </div>
             </div>
@@ -372,6 +337,7 @@
 
         {{-- ================= ISTAART MEMBERSHIP (NEW SECTION) ================= --}}
         <section id="membership" class="relative overflow-hidden bg-background md:py-16">
+            @include('home.inline-editor', ['section' => 'membership'])
             {{-- Section highlighting ISTAART membership --}}
 
             {{-- Soft animated background blobs --}}
@@ -403,62 +369,34 @@
                                     <span
                                         class="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-3 py-1 text-sm font-medium">
                                         <span class="inline-block h-2 w-2 animate-ping rounded-full bg-primary"></span>
-                                        <span class="inline-block h-2 w-2 rounded-full bg-primary"></span>
-                                        Member Spotlight
-                                    </span>
+                                        <span class="inline-block h-2 w-2 rounded-full bg-primary"></span>{!! $siteContent->formatted('home_51') !!}</span>
 
                                     {{-- Section heading with highlighted ISTAART word --}}
-                                    <h2 class="mt-4 font-headline text-3xl font-bold md:text-4xl">
-                                        Member of
-                                        <span
-                                            class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">ISTAART</span>
+                                    <h2 class="mt-4 font-headline text-3xl font-bold md:text-4xl">{!! $siteContent->formatted('membership_heading') !!}
                                     </h2>
 
                                     {{-- Description paragraph about ISTAART membership --}}
-                                    <p class="mt-4 text-lg leading-relaxed text-muted-foreground">
-                                        I’m an active member of the
-                                        <span class="font-semibold">
-                                            International Society to Advance Alzheimer’s Research and Treatment (ISTAART)
-                                        </span>,
-                                        a global professional community advancing research, collaboration, and
-                                        knowledge-sharing
-                                        in Alzheimer’s and dementia.
-                                    </p>
+                                    <p class="mt-4 text-lg leading-relaxed text-muted-foreground">{!! $siteContent->formatted('membership_paragraph') !!}</p>
 
                                     {{-- Bullet grid of membership benefits --}}
                                     <ul class="mt-6 grid gap-3 text-sm md:grid-cols-2">
-                                        <li class="flex items-center gap-2">
-                                            <span class="inline-block h-1.5 w-1.5 rounded-full bg-primary"></span>
-                                            Access to cutting-edge research communities &amp; PIA networks
-                                        </li>
-                                        <li class="flex items-center gap-2">
-                                            <span class="inline-block h-1.5 w-1.5 rounded-full bg-primary"></span>
-                                            Collaboration with global researchers &amp; clinicians
-                                        </li>
-                                        <li class="flex items-center gap-2">
-                                            <span class="inline-block h-1.5 w-1.5 rounded-full bg-primary"></span>
-                                            Ongoing training, events &amp; annual AAIC engagement
-                                        </li>
-                                        <li class="flex items-center gap-2">
-                                            <span class="inline-block h-1.5 w-1.5 rounded-full bg-primary"></span>
-                                            Commitment to evidence-based, translational impact
-                                        </li>
+                                        @foreach(preg_split('/\R/', $siteContent->value('membership_benefits')) as $benefit)
+                                            @if(trim($benefit) !== '')
+                                            <li class="flex items-center gap-2"><span class="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-primary"></span><span>{!! \App\Models\HomeContent::formatText($benefit) !!}</span></li>
+                                            @endif
+                                        @endforeach
                                     </ul>
 
                                     {{-- CTA button + verification chip --}}
                                     <div class="mt-8 flex flex-wrap items-center gap-4">
                                         {{-- Button linking to ISTAART site --}}
-                                        <a href="https://istaart.alz.org/home" target="_blank" rel="noopener noreferrer"
-                                            class="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/30 transition hover:-translate-y-0.5 hover:shadow-xl">
-                                            View ISTAART Community
-                                        </a>
+                                        <a href="{{ $siteContent->value('home_17') }}" target="_blank" rel="noopener noreferrer"
+                                            class="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/30 transition hover:-translate-y-0.5 hover:shadow-xl">{!! $siteContent->formatted('home_61') !!}</a>
 
                                         {{-- Small badge showing "Verified Membership" --}}
                                         <div
                                             class="flex items-center gap-2 rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground">
-                                            <span class="inline-block h-2 w-2 rounded-full bg-green-500"></span>
-                                            Verified Membership
-                                        </div>
+                                            <span class="inline-block h-2 w-2 rounded-full bg-green-500"></span>{!! $siteContent->formatted('home_62') !!}</div>
                                     </div>
                                 </div>
 
@@ -475,8 +413,8 @@
                                         <div class="mx-auto flex aspect-[4/3] items-center justify-center">
                                             <div class="relative h-24 w-40 md:h-28 md:w-48">
                                                 {{-- ISTAART logo image --}}
-                                                <img src="https://static.prod01.ue1.p.pcomm.net/istaartcommunity/content/images/ISTAART-RGB-White%20(1).png"
-                                                    alt="ISTAART — International Society to Advance Alzheimer’s Research and Treatment"
+                                                <img src="{{ $siteContent->value('home_18') }}"
+                                                    alt="{{ $siteContent->value('membership_logo_alt') }}"
                                                     class="h-full w-full object-contain" loading="lazy"
                                                     decoding="async" />
                                             </div>
@@ -485,31 +423,28 @@
                                         {{-- Three mini-stat tiles under logo --}}
                                         <div class="mt-6 grid grid-cols-3 gap-3 text-center text-xs text-white/90">
                                             <div class="rounded-lg bg-white/10 px-3 py-2 ring-1 ring-white/10">
-                                                <p class="font-semibold text-white">Global</p>
-                                                <p>Community</p>
+                                                <p class="font-semibold text-white">{!! $siteContent->formatted('membership_community') !!}</p>
                                             </div>
                                             <div class="rounded-lg bg-white/10 px-3 py-2 ring-1 ring-white/10">
-                                                <p class="font-semibold text-white">Alzheimer’s</p>
-                                                <p>Focus</p>
+                                                <p class="font-semibold text-white">{!! $siteContent->formatted('membership_focus') !!}</p>
                                             </div>
                                             <div class="rounded-lg bg-white/10 px-3 py-2 ring-1 ring-white/10">
-                                                <p class="font-semibold text-white">PIA</p>
-                                                <p>Networks</p>
+                                                <p class="font-semibold text-white">{!! $siteContent->formatted('membership_networks') !!}</p>
                                             </div>
                                         </div>
 
                                         {{-- Link to explore ISTAART site --}}
                                         <div class="mt-6 text-center">
-                                            <a href="https://istaart.alz.org/home" target="_blank"
+                                            <a href="{{ $siteContent->value('home_19') }}" target="_blank"
                                                 rel="noopener noreferrer"
                                                 class="inline-flex items-center gap-1 rounded text-sm font-medium text-white underline-offset-4 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60">
-                                                Explore ISTAART
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                                                {!! $siteContent->formatted('membership_explore_text') !!}
+                                                @if($siteContent->value('home_8'))<img src="{{ $siteContent->value('home_8') }}" alt="" class="h-4 w-4 object-contain" />@else<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
                                                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
                                                     stroke-linecap="round" stroke-linejoin="round">
                                                     <path d="M5 12h14" />
                                                     <path d="M12 5l7 7-7 7" />
-                                                </svg>
+                                                </svg>@endif
                                             </a>
                                         </div>
                                     </div>
@@ -528,6 +463,7 @@
 
         {{-- ================= TRUST PANEL ================= --}}
         <section id="trust-panel" class="relative overflow-hidden bg-background py-16">
+            @include('home.inline-editor', ['section' => 'trust-panel'])
             {{-- Section for external profile links (ORCID, Google Scholar, LinkedIn, Email) --}}
 
             {{-- background spots --}}
@@ -540,48 +476,48 @@
 
             <div class="container mx-auto px-4 md:px-6 reveal delay-0">
                 {{-- Section heading --}}
-                <h2 class="text-center font-headline text-2xl font-bold">Stay Connected &amp; Verify</h2>
+                <h2 class="text-center font-headline text-2xl font-bold">{!! $siteContent->formatted('home_70') !!}</h2>
 
                 {{-- External link buttons --}}
                 <div class="mt-8 flex flex-wrap justify-center gap-6 text-muted-foreground md:gap-8">
                     {{-- ORCID link --}}
-                    <a href="https://orcid.org/" target="_blank" rel="noopener noreferrer"
+                    <a href="{{ $siteContent->value('header_9') }}" target="_blank" rel="noopener noreferrer"
                         class="flex items-center gap-2 transition-colors hover:text-primary">
-                        <span
-                            class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white">iD</span>
-                        <span class="font-medium">ORCID</span>
+                        @if($siteContent->value('header_1'))<img src="{{ $siteContent->value('header_1') }}" alt="" class="h-6 w-6 object-contain" />@else<span
+                            class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white">{!! $siteContent->formatted('home_71') !!}</span>@endif
+                        <span class="font-medium">{!! $siteContent->formatted('home_72') !!}</span>
                     </a>
 
                     {{-- Google Scholar link --}}
-                    <a href="https://scholar.google.com/" target="_blank" rel="noopener noreferrer"
+                    <a href="{{ $siteContent->value('header_10') }}" target="_blank" rel="noopener noreferrer"
                         class="flex items-center gap-2 transition-colors hover:text-primary">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        @if($siteContent->value('header_2'))<img src="{{ $siteContent->value('header_2') }}" alt="" class="h-6 w-6 object-contain" />@else<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M3 11l9-7 9 7-9 7-9-7z" />
                             <path d="M9 22v-7l6-4" />
-                        </svg>
-                        <span class="font-medium">Google Scholar</span>
+                        </svg>@endif
+                        <span class="font-medium">{!! $siteContent->formatted('home_74') !!}</span>
                     </a>
 
                     {{-- LinkedIn link --}}
-                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"
+                    <a href="{{ $siteContent->value('header_11') }}" target="_blank" rel="noopener noreferrer"
                         class="flex items-center gap-2 transition-colors hover:text-primary">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        @if($siteContent->value('header_3'))<img src="{{ $siteContent->value('header_3') }}" alt="" class="h-6 w-6 object-contain" />@else<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                             <path
                                 d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12H3zM9 8.98h3.8v1.64h.05c.53-.95 1.82-1.95 3.74-1.95 4 0 4.74 2.63 4.74 6.06v7.25h-4v-6.43c0-1.53-.03-3.5-2.13-3.5-2.13 0-2.45 1.66-2.45 3.38v6.55H9z" />
-                        </svg>
-                        <span class="font-medium">LinkedIn</span>
+                        </svg>@endif
+                        <span class="font-medium">{!! $siteContent->formatted('home_76') !!}</span>
                     </a>
 
                     {{-- Email/contact link to contact page --}}
-                    <a href="{{ route('contact.show') }}"
+                    <a href="{{ $siteContent->value('contact_button_url') }}"
                         class="flex items-center gap-2 transition-colors hover:text-primary">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        @if($siteContent->value('home_11'))<img src="{{ $siteContent->value('home_11') }}" alt="" class="h-6 w-6 object-contain" />@else<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M4 4h16v16H4z" />
                             <path d="M22 6l-10 7L2 6" />
-                        </svg>
-                        <span class="font-medium">Email</span>
+                        </svg>@endif
+                        <span class="font-medium">{!! $siteContent->formatted('home_78') !!}</span>
                     </a>
                 </div>
             </div>
@@ -948,6 +884,12 @@
 @push('scripts')
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            const openEditor = () => {
+                const editor = document.getElementById(location.hash.slice(1));
+                if (editor?.matches('details[data-inline-edit]')) editor.open = true;
+            };
+            openEditor();
+            window.addEventListener('hashchange', openEditor);
             // IntersectionObserver to reveal elements with .reveal class when they enter the viewport
             const els = document.querySelectorAll('.reveal');
 

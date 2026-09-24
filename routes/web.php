@@ -9,6 +9,7 @@ use App\Http\Controllers\AboutMediaController;
 use App\Http\Controllers\AboutContentController;
 
 Route::view('/', 'home')->name('home');
+Route::get('/home/media/{key}', [\App\Http\Controllers\HomeContentController::class, 'media'])->name('home.media');
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
@@ -38,6 +39,8 @@ Route::delete('/publications/{publication}', [PublicationController::class, 'des
 Route::get('/about', [AboutContentController::class, 'show'])->name('about');
 Route::get('/about/media/{kind}', [AboutMediaController::class, 'show'])->whereIn('kind', ['portrait', 'research', 'resume'])->name('about.media');
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/home-content', [\App\Http\Controllers\HomeContentController::class, 'edit'])->name('home-content.edit');
+    Route::put('/home-content', [\App\Http\Controllers\HomeContentController::class, 'update'])->name('home-content.update');
     Route::get('/about-content', [AboutContentController::class, 'edit'])->name('about-content.edit');
     Route::put('/about-content', [AboutContentController::class, 'update'])->name('about-content.update');
     Route::get('/about-media', [AboutMediaController::class, 'edit'])->name('about-media.edit');

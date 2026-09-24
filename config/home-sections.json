@@ -1,0 +1,132 @@
+{
+  "hero": {
+    "label": "Hero introduction, portrait & videos",
+    "fields": [
+      "home_12",
+      "home_23",
+      "home_24",
+      "home_25",
+      "publications_button_url",
+      "home_26",
+      "contact_button_url",
+      "home_27",
+      "home_13",
+      "home_14",
+      "portrait_alt"
+    ]
+  },
+  "research": {
+    "label": "Research cards & icons",
+    "fields": [
+      "home_1",
+      "home_29",
+      "home_30",
+      "home_2",
+      "home_32",
+      "home_33",
+      "home_3",
+      "home_35",
+      "home_36"
+    ]
+  },
+  "about-snippet": {
+    "label": "About preview, animation & video",
+    "fields": [
+      "home_37",
+      "home_38",
+      "about_button_url",
+      "about_button_text",
+      "home_4",
+      "home_15",
+      "animation_alt",
+      "home_16"
+    ]
+  },
+  "expertise": {
+    "label": "Areas of expertise",
+    "fields": [
+      "home_40",
+      "home_41",
+      "home_5",
+      "home_43",
+      "home_44",
+      "home_6",
+      "home_46",
+      "home_47",
+      "home_7",
+      "home_49",
+      "home_50"
+    ]
+  },
+  "membership": {
+    "label": "Membership & logo",
+    "fields": [
+      "home_51",
+      "membership_heading",
+      "membership_paragraph",
+      "membership_benefits",
+      "home_17",
+      "home_61",
+      "home_62",
+      "home_18",
+      "membership_logo_alt",
+      "membership_community",
+      "membership_focus",
+      "membership_networks",
+      "home_19",
+      "membership_explore_text",
+      "home_8"
+    ]
+  },
+  "trust-panel": {
+    "label": "Social profiles & logos",
+    "fields": [
+      "home_70",
+      "header_9",
+      "header_1",
+      "home_71",
+      "home_72",
+      "header_10",
+      "header_2",
+      "home_74",
+      "header_11",
+      "header_3",
+      "home_76",
+      "contact_button_url",
+      "home_11",
+      "home_78"
+    ]
+  },
+  "header": {
+    "label": "Header, branding & social logos",
+    "fields": [
+      "header_1",
+      "header_2",
+      "header_3",
+      "header_4",
+      "header_5",
+      "header_9",
+      "header_10",
+      "header_11",
+      "header_15",
+      "header_17",
+      "header_27",
+      "header_28",
+      "header_33",
+      "header_36",
+      "header_37",
+      "brand_logo",
+      "welcome_text"
+    ]
+  },
+  "footer": {
+    "label": "Footer",
+    "fields": [
+      "footer_1",
+      "footer_2",
+      "footer_copyright",
+      "privacy_url",
+      "terms_url"
+    ]
+  }
+}
