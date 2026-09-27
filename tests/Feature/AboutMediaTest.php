@@ -13,6 +13,42 @@ class AboutMediaTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function test_all_icons_and_entry_images_can_be_uploaded_and_replaced(): void
+    {
+        Storage::fake('local');
+        $this->actingAs(User::factory()->create());
+        $keys = AboutMedia::imageKeys();
+        $this->assertGreaterThan(6, count($keys));
+        foreach ($keys as $key) {
+            $this->put('/admin/about-media', [
+                '_editor' => $key,
+                $key => UploadedFile::fake()->createWithContent('icon.jpg', file_get_contents(public_path('images/nuhash.jpg'))),
+            ])->assertSessionHasNoErrors()->assertRedirect(route('about').'#edit-'.$key);
+            $this->get(route('about.media', $key))->assertOk();
+            $this->get('/about')->assertOk()->assertSee(route('about.media', $key));
+        }
+        $original = AboutMedia::findOrFail(1)->images;
+        $key = $keys[0];
+        $this->put('/admin/about-media', [$key => UploadedFile::fake()->create('bad.txt', 1, 'text/plain')])
+            ->assertSessionHasErrors($key);
+        $this->assertSame($original, AboutMedia::findOrFail(1)->images);
+        $this->put('/admin/about-media', [$key => UploadedFile::fake()->createWithContent('new.jpg', file_get_contents(public_path('images/nuhash.jpg')))])
+            ->assertSessionHasNoErrors();
+        Storage::disk('local')->assertMissing($original[$key]);
+        $this->assertSame($original[$keys[1]], AboutMedia::findOrFail(1)->imagePath($keys[1]));
+        $content = \App\Models\AboutContent::findOrFail(1);
+        $entries = array_reverse($content->educations);
+        $imageKey = 'educations_'.$entries[0]['media_id'];
+        $path = AboutMedia::findOrFail(1)->imagePath($imageKey);
+        $this->put('/admin/about-content', ['section' => 'educations', 'educations' => $entries])->assertSessionHasNoErrors();
+        $this->assertSame($imageKey, 'educations_'.$content->fresh()->educations[0]['media_id']);
+        $this->assertSame($path, AboutMedia::findOrFail(1)->imagePath($imageKey));
+        auth()->logout();
+        $this->get('/about')->assertOk()->assertDontSee('Edit institution image');
+        $this->put('/admin/about-media', [])->assertRedirect('/login');
+        $this->get('/about/media/unknown-image')->assertNotFound();
+    }
+
     public function test_inline_upload_returns_to_about_and_keeps_other_media(): void
     {
         Storage::fake('local');

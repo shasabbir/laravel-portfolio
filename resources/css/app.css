@@ -3,6 +3,7 @@
 
 @import "tailwindcss";
 @import "./home-editor.css";
+@import "./media-picker.css";
 
 /* Tailwind v4 sources */
 @source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";

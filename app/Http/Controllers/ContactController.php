@@ -13,15 +13,15 @@ class ContactController extends Controller
 {
     public function show()
     {
-        return view('contact');
+        return view('contact', ['contactContent' => \App\Models\ContactContent::find(1) ?? new \App\Models\ContactContent]);
     }
 
     public function submit(Request $request)
     {
         $data = $request->validate([
-            'name' => ['required','string','min:2'],
-            'email' => ['required','email'],
-            'message' => ['required','string','min:10'],
+            'name' => ['required','string','min:2','max:255'],
+            'email' => ['required','email','max:255'],
+            'message' => ['required','string','max:10000'],
         ]);
 
         $submission = ContactSubmission::create($data);
@@ -35,6 +35,12 @@ class ContactController extends Controller
             Mail::to($recipient)->send(new ContactSubmissionMail($submission));
         }
 
-        return Redirect::route('contact.show')->with('status','Message sent!');
+        $content = \App\Models\ContactContent::find(1) ?? new \App\Models\ContactContent;
+        return Redirect::route('contact.show')->with('status', $content->value('success_message'));
+    }
+
+    public function inbox()
+    {
+        return view('admin.messages', ['messages' => ContactSubmission::latest('id')->paginate(20)]);
     }
 }

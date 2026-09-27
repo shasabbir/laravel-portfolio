@@ -149,8 +149,8 @@
                                 </a>
                             @endif
 
-                            @if ($pub->pdf)
-                                <a href="{{ $pub->pdf }}" target="_blank"
+                            @if ($pub->pdfUrl())
+                                <a href="{{ $pub->pdfUrl() }}" target="_blank" rel="noopener noreferrer"
                                    class="rounded-full border border-border px-3 py-1 text-xs font-medium hover:bg-accent/60">
                                     PDF
                                 </a>

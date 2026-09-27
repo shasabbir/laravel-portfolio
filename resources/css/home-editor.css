@@ -1,5 +1,10 @@
 ﻿.home-edit-content{display:contents}
 .home-editor-anchor{padding-top:12px;padding-bottom:16px}
+[data-about-input][contenteditable]{outline:1px dashed #5ba99a;outline-offset:5px;border-radius:3px;cursor:text;white-space:pre-wrap;min-width:24px;display:inline-block;max-width:100%}
+[data-about-input][contenteditable]:focus{outline:2px solid #0d9488;background:#0d94880c}
+.about-resume:has(.about-editor[open]) .showcase-card:hover{transform:none}
+.about-editor .editor-settings .editor-fields{grid-template-columns:minmax(0,1fr)}
+.about-editor [data-about-field] textarea{width:100%;padding:9px;border:1px solid #dce3e9;border-radius:7px;background:#f8fafc;color:#1e293b}
 .section-editor{font:400 13px/1.5 Inter,ui-sans-serif,system-ui,sans-serif;color:#334155;text-align:left;scroll-margin-top:90px}
 .section-editor summary{list-style:none;cursor:pointer}.section-editor summary::-webkit-details-marker{display:none}
 .editor-trigger{margin-left:auto;width:fit-content;padding:7px 13px;border:1px solid #cbded9;border-radius:8px;color:#0f766e;background:#ffffffed;font-size:12px;font-weight:600;box-shadow:0 2px 5px #0f172a08}

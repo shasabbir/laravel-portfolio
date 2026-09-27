@@ -30,6 +30,7 @@ Route::delete('/blog/{blog:slug}', [BlogController::class, 'destroy'])->name('bl
 // Publications routes
 Route::get('/publications', [PublicationController::class, 'index'])->name('publications.index');
 Route::get('/publications/create', [PublicationController::class, 'create'])->name('publications.create');
+Route::get('/publications/{publication}/pdf', [PublicationController::class, 'pdf'])->name('publications.pdf');
 Route::post('/publications', [PublicationController::class, 'store'])->name('publications.store');
 Route::get('/publications/{publication}/edit', [PublicationController::class, 'edit'])->name('publications.edit');
 Route::put('/publications/{publication}', [PublicationController::class, 'update'])->name('publications.update');
@@ -37,8 +38,10 @@ Route::delete('/publications/{publication}', [PublicationController::class, 'des
 
 // Static pages
 Route::get('/about', [AboutContentController::class, 'show'])->name('about');
-Route::get('/about/media/{kind}', [AboutMediaController::class, 'show'])->whereIn('kind', ['portrait', 'research', 'resume'])->name('about.media');
+Route::get('/about/media/{kind}', [AboutMediaController::class, 'show'])->where('kind', '[a-zA-Z0-9_-]+')->name('about.media');
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/messages', [ContactController::class, 'inbox'])->name('messages.index');
+    Route::put('/contact-content', [\App\Http\Controllers\ContactContentController::class, 'update'])->name('contact-content.update');
     Route::get('/home-content', [\App\Http\Controllers\HomeContentController::class, 'edit'])->name('home-content.edit');
     Route::put('/home-content', [\App\Http\Controllers\HomeContentController::class, 'update'])->name('home-content.update');
     Route::get('/about-content', [AboutContentController::class, 'edit'])->name('about-content.edit');
@@ -47,4 +50,5 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::put('/about-media', [AboutMediaController::class, 'update'])->name('about-media.update');
 });
 Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
+Route::get('/contact/media/{key}', [\App\Http\Controllers\ContactContentController::class, 'media'])->name('contact.media');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');

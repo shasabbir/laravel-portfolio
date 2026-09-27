@@ -18,6 +18,7 @@
           ['href' => route('blog.index'), 'label' => 'Blog', 'is' => 'blog*'],
           ['href' => route('contact.show'), 'label' => 'Contact', 'is' => 'contact'],
         ];
+        if (auth()->check()) $nav[] = ['href' => route('admin.messages.index'), 'label' => 'Messages', 'is' => 'admin/messages'];
       @endphp
 
       @foreach ($nav as $link)

@@ -39,6 +39,10 @@ class AboutExtraSectionsTest extends TestCase
             $this->from('/about')->put('/admin/about-content', ['section' => $section, $section => $entries])
                 ->assertSessionHasNoErrors()->assertRedirect(route('about').'#edit-'.$section);
             $after = $before->fresh();
+            if ($section === 'methods') {
+                $this->assertTrue(\Illuminate\Support\Str::isUuid($after->methods[array_key_last($entries)]['media_id']));
+                $entries[array_key_last($entries)]['media_id'] = $after->methods[array_key_last($entries)]['media_id'];
+            }
             $this->assertSame($entries, $after->$section);
             foreach (array_diff(array_keys(AboutContent::SECTIONS), [$section]) as $other) {
                 $this->assertSame($before->$other, $after->$other);

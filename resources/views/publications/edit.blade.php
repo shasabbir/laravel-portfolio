@@ -56,8 +56,8 @@
                     <input type="file" name="pdf" accept=".pdf"
                         class="w-full rounded border border-input bg-background px-3 py-2" />
                     <p class="mt-1 text-xs text-muted-foreground">Upload a PDF file (max 10MB)</p>
-                    @if ($publication->pdf)
-                        <p class="mt-2 text-xs text-muted-foreground">Current: <a href="{{ $publication->pdf }}"
+                    @if ($publication->pdfUrl())
+                        <p class="mt-2 text-xs text-muted-foreground">Current: <a href="{{ $publication->pdfUrl() }}"
                                 target="_blank" class="text-primary hover:underline">View PDF</a></p>
                     @endif
                 </div>

@@ -11,7 +11,7 @@ class PublicationController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except(['index']);
+        $this->middleware('auth')->except(['index', 'pdf']);
     }
 
     public function index()
@@ -42,7 +42,8 @@ class PublicationController extends Controller
         // Handle PDF file upload
         if ($request->hasFile('pdf')) {
             $pdfPath = $request->file('pdf')->store('publications', 'public');
-            $data['pdf'] = \Storage::disk('public')->url($pdfPath);
+            if (!$pdfPath) throw new \RuntimeException('Unable to store PDF.');
+            $data['pdf'] = $pdfPath;
         }
 
         $publication = Publication::create($data);
@@ -71,7 +72,10 @@ class PublicationController extends Controller
         // Handle PDF file upload
         if ($request->hasFile('pdf')) {
             $pdfPath = $request->file('pdf')->store('publications', 'public');
-            $data['pdf'] = \Storage::disk('public')->url($pdfPath);
+            if (!$pdfPath) throw new \RuntimeException('Unable to store PDF.');
+            $data['pdf'] = $pdfPath;
+        } else {
+            unset($data['pdf']);
         }
 
         $publication->update($data);
@@ -82,5 +86,16 @@ class PublicationController extends Controller
     {
         $publication->delete();
         return Redirect::route('publications.index')->with('status', 'Publication deleted');
+    }
+
+    public function pdf(Publication $publication)
+    {
+        $path = $publication->pdfPath();
+        abort_unless($path && Storage::disk('public')->exists($path), 404, 'PDF file not found. Please upload the PDF again.');
+        return response()->file(Storage::disk('public')->path($path), [
+            'Content-Type' => 'application/pdf',
+            'Content-Disposition' => 'inline; filename="publication-'.$publication->id.'.pdf"',
+            'X-Content-Type-Options' => 'nosniff',
+        ]);
     }
 }

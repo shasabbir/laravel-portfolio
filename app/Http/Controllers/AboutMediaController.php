@@ -18,16 +18,20 @@ class AboutMediaController extends Controller
 
     public function update(Request $request)
     {
-        $request->validate([
+        $imageKeys = AboutMedia::imageKeys();
+        $fields = [...array_keys(AboutMedia::DEFAULTS), ...$imageKeys];
+        $rules = [
             'portrait' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
             'research' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
             'resume' => ['nullable', 'file', 'mimes:pdf', 'max:10240'],
-        ]);
+        ];
+        foreach ($imageKeys as $key) $rules[$key] = ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120'];
+        $request->validate($rules);
 
         $paths = [];
         $oldPaths = [];
         try {
-            foreach (array_keys(AboutMedia::DEFAULTS) as $field) {
+            foreach ($fields as $field) {
                 if ($request->hasFile($field)) {
                     $path = $request->file($field)->store('about', 'local');
                     if ($path === false) {
@@ -40,12 +44,19 @@ class AboutMediaController extends Controller
                 DB::transaction(function () use ($paths, &$oldPaths) {
                     AboutMedia::firstOrCreate(['id' => 1]);
                     $media = AboutMedia::whereKey(1)->lockForUpdate()->firstOrFail();
+                    $images = $media->images ?? [];
                     foreach ($paths as $field => $path) {
+                        if (!array_key_exists($field, AboutMedia::DEFAULTS)) {
+                            if (!empty($images[$field])) $oldPaths[] = $images[$field];
+                            $images[$field] = $path;
+                            continue;
+                        }
                         if ($media->$field) {
                             $oldPaths[] = $media->$field;
                         }
                         $media->$field = $path;
                     }
+                    $media->images = $images;
                     $media->save();
                 });
             }
@@ -56,7 +67,7 @@ class AboutMediaController extends Controller
 
         Storage::disk('local')->delete($oldPaths);
 
-        $redirect = in_array($request->input('_editor'), array_keys(AboutMedia::DEFAULTS), true)
+        $redirect = in_array($request->input('_editor'), $fields, true)
             ? redirect()->to(route('about').'#edit-'.$request->input('_editor')) : back();
 
         return $redirect->with('status', $paths ? 'About page media updated.' : 'No new files selected. Existing files kept.');
@@ -64,9 +75,10 @@ class AboutMediaController extends Controller
 
     public function show(string $kind)
     {
-        abort_unless(array_key_exists($kind, AboutMedia::DEFAULTS), 404);
+        abort_unless(array_key_exists($kind, AboutMedia::DEFAULTS) || in_array($kind, AboutMedia::imageKeys(), true), 404);
         $media = AboutMedia::find(1);
-        $stored = $media?->$kind;
+        $stored = array_key_exists($kind, AboutMedia::DEFAULTS) ? $media?->$kind : $media?->imagePath($kind);
+        abort_unless($stored || array_key_exists($kind, AboutMedia::DEFAULTS), 404);
         $path = $stored
             ? Storage::disk('local')->path($stored)
             : public_path(AboutMedia::DEFAULTS[$kind]);

@@ -11,6 +11,7 @@
     </label>
   @endif
   @if($section === 'methods')
+    <input type="hidden" data-field="media_id" name="{{ $section }}[{{ $index }}][media_id]" value="{{ $entry['media_id'] ?? '' }}">
     <label class="block text-sm font-semibold">Icon
       <select data-field="icon" name="{{ $section }}[{{ $index }}][icon]" class="mt-1 block w-full rounded border border-border bg-background p-3 font-normal">
         @foreach(['flask' => 'Laboratory', 'code' => 'Computational', 'brain' => 'Brain', 'dna' => 'DNA', 'molecule' => 'Molecule'] as $value => $label)

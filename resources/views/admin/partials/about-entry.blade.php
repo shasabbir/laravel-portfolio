@@ -9,6 +9,7 @@
     <textarea data-field="description" name="{{ $section }}[{{ $index }}][description]" rows="4" maxlength="5000" class="mt-1 block w-full rounded border border-border bg-background p-3 font-normal">{{ $entry['description'] ?? '' }}</textarea>
   </label>
   @if($section === 'educations')
+    <input type="hidden" data-field="media_id" name="{{ $section }}[{{ $index }}][media_id]" value="{{ $entry['media_id'] ?? '' }}">
     <label class="block text-sm font-semibold">Institution initials (optional)
       <input data-field="badge" name="{{ $section }}[{{ $index }}][badge]" value="{{ $entry['badge'] ?? '' }}" maxlength="10" class="mt-1 block w-full rounded border border-border bg-background p-3 font-normal" />
     </label>

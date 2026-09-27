@@ -1,5 +1,5 @@
 ﻿document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.section-editor').forEach(editor => {
+    document.querySelectorAll('.section-editor:not(.about-editor)').forEach(editor => {
         const section = editor.closest('section, footer');
         const targets = section ? [...section.querySelectorAll('[data-home-text]')] : [];
         const bindings = targets.map(target => ({
