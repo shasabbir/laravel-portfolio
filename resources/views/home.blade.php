@@ -12,6 +12,7 @@
         {{-- ================= HERO ================= --}}
         <section id="hero" class="relative w-full overflow-hidden bg-background py-20 md:py-32">
             @include('home.inline-editor', ['section' => 'hero'])
+            <div class="home-edit-content">
             {{-- Hero section: full-width top section with video background and intro content --}}
 
             {{-- FULLSCREEN BACKGROUND VIDEO --}}
@@ -35,24 +36,24 @@
                 {{-- LEFT CONTENT: NAME + TAGLINE + DESCRIPTION + CTA BUTTONS --}}
                 <div class="z-10 reveal delay-0">
                     {{-- Main name / title --}}
-                    <h1 class="font-headline uppercase text-5xl font-bold tracking-tight text-foreground md:text-6xl lg:text-6xl">{!! $siteContent->formatted('home_23') !!}</h1>
+                    <h1 class="font-headline uppercase text-5xl font-bold tracking-tight text-foreground md:text-6xl lg:text-6xl"><span data-home-text="home_23">{!! $siteContent->formatted('home_23') !!}</span></h1>
 
                     {{-- Sub-heading / role line with gradient text --}}
                     <p
-                        class="mt-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-2xl font-semibold text-transparent">{!! $siteContent->formatted('home_24') !!}</p>
+                        class="mt-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-2xl font-semibold text-transparent"><span data-home-text="home_24">{!! $siteContent->formatted('home_24') !!}</span></p>
 
                     {{-- Short description paragraph --}}
-                    <p class="mx-auto mt-6 max-w-prose text-lg leading-relaxed text-muted-foreground md:mx-0">{!! $siteContent->formatted('home_25') !!}</p>
+                    <p class="mx-auto mt-6 max-w-prose text-lg leading-relaxed text-muted-foreground md:mx-0"><span data-home-text="home_25">{!! $siteContent->formatted('home_25') !!}</span></p>
 
                     {{-- Hero call-to-action buttons --}}
                     <div class="mt-8 flex justify-center gap-4 md:justify-start">
                         {{-- Button linking to publications page --}}
                         <a href="{{ $siteContent->value('publications_button_url') }}"
-                            class="inline-flex items-center gap-2 rounded bg-primary px-5 py-3 text-base font-semibold text-primary-foreground shadow transition hover:opacity-90">{!! $siteContent->formatted('home_26') !!}</a>
+                            class="inline-flex items-center gap-2 rounded bg-primary px-5 py-3 text-base font-semibold text-primary-foreground shadow transition hover:opacity-90"><span data-home-text="home_26">{!! $siteContent->formatted('home_26') !!}</span></a>
 
                         {{-- Button linking to contact page --}}
                         <a href="{{ $siteContent->value('contact_button_url') }}"
-                            class="inline-flex items-center gap-2 rounded border border-border px-5 py-3 text-base font-semibold transition hover:bg-accent/10">{!! $siteContent->formatted('home_27') !!}</a>
+                            class="inline-flex items-center gap-2 rounded border border-border px-5 py-3 text-base font-semibold transition hover:bg-accent/10"><span data-home-text="home_27">{!! $siteContent->formatted('home_27') !!}</span></a>
                     </div>
                 </div>
 
@@ -99,6 +100,7 @@
                 </div>
 
             </div>
+            </div>
         </section>
 
 
@@ -106,6 +108,7 @@
         {{-- ================= 3 INFO CARDS ================= --}}
         <section class="relative overflow-hidden bg-white py-16 text-slate-800">
             @include('home.inline-editor', ['section' => 'research'])
+            <div class="home-edit-content">
             {{-- Section with three high-level capability cards --}}
 
             {{-- soft blobs in the background --}}
@@ -134,10 +137,10 @@
                         </div>
 
                         {{-- Card title --}}
-                        <h3 class="text-lg font-semibold text-slate-900">{!! $siteContent->formatted('home_29') !!}</h3>
+                        <h3 class="text-lg font-semibold text-slate-900"><span data-home-text="home_29">{!! $siteContent->formatted('home_29') !!}</span></h3>
 
                         {{-- Card description --}}
-                        <p class="mt-3 max-w-xs text-sm leading-relaxed text-slate-500">{!! $siteContent->formatted('home_30') !!}</p>
+                        <p class="mt-3 max-w-xs text-sm leading-relaxed text-slate-500"><span data-home-text="home_30">{!! $siteContent->formatted('home_30') !!}</span></p>
                     </div>
 
                     {{-- Card 2: CADD, MD & Drug Design --}}
@@ -153,10 +156,10 @@
                         </div>
 
                         {{-- Card title --}}
-                        <h3 class="text-lg font-semibold text-slate-900">{!! $siteContent->formatted('home_32') !!}</h3>
+                        <h3 class="text-lg font-semibold text-slate-900"><span data-home-text="home_32">{!! $siteContent->formatted('home_32') !!}</span></h3>
 
                         {{-- Card description --}}
-                        <p class="mt-3 max-w-xs text-sm leading-relaxed text-slate-500">{!! $siteContent->formatted('home_33') !!}</p>
+                        <p class="mt-3 max-w-xs text-sm leading-relaxed text-slate-500"><span data-home-text="home_33">{!! $siteContent->formatted('home_33') !!}</span></p>
                     </div>
 
                     {{-- Card 3: NGS, Data & Communication --}}
@@ -172,13 +175,14 @@
                         </div>
 
                         {{-- Card title --}}
-                        <h3 class="text-lg font-semibold text-slate-900">{!! $siteContent->formatted('home_35') !!}</h3>
+                        <h3 class="text-lg font-semibold text-slate-900"><span data-home-text="home_35">{!! $siteContent->formatted('home_35') !!}</span></h3>
 
                         {{-- Card description --}}
-                        <p class="mt-3 max-w-xs text-sm leading-relaxed text-slate-500">{!! $siteContent->formatted('home_36') !!}</p>
+                        <p class="mt-3 max-w-xs text-sm leading-relaxed text-slate-500"><span data-home-text="home_36">{!! $siteContent->formatted('home_36') !!}</span></p>
                     </div>
 
                 </div>
+            </div>
             </div>
         </section>
 
@@ -186,6 +190,7 @@
         {{-- ================= ABOUT / VIDEO SPLIT ================= --}}
         <section id="about-snippet" class="relative overflow-hidden">
             @include('home.inline-editor', ['section' => 'about-snippet'])
+            <div class="home-edit-content">
             {{-- Section combining about text on left with a video on right --}}
 
             {{-- subtle background spot --}}
@@ -202,17 +207,17 @@
                 <div class="mx-0 flex items-center justify-center pt-8 md:mx-10 ">
                     <div class="max-w-xl text-center md:text-left reveal delay-0">
                         {{-- Section heading --}}
-                        <h2 class="font-headline text-3xl font-bold md:text-4xl">{!! $siteContent->formatted('home_37') !!}</h2>
+                        <h2 class="font-headline text-3xl font-bold md:text-4xl"><span data-home-text="home_37">{!! $siteContent->formatted('home_37') !!}</span></h2>
 
                         {{-- Short bio paragraph --}}
-                        <p class="px-4 md:px-0  mt-4 text-lg leading-relaxed">{!! $siteContent->formatted('home_38') !!}</p>
+                        <p class="px-4 md:px-0  mt-4 text-lg leading-relaxed"><span data-home-text="home_38">{!! $siteContent->formatted('home_38') !!}</span></p>
 
                         {{-- Row: "Learn More" button + animated scientist GIF --}}
                         <div class="mt-6 flex  items-center  gap-6">
                             {{-- Button leading to full About page --}}
                             <a href="{{ $siteContent->value('about_button_url') }}"
                                 class="mt-8 inline-flex items-center gap-2 rounded border border-border bg-background ml-5 md:ml-0 px-5 py-3 text-base font-semibold transition hover:bg-accent/10">
-                                {!! $siteContent->formatted('about_button_text') !!}
+                                <span data-home-text="about_button_text">{!! $siteContent->formatted('about_button_text') !!}</span>
                                 {{-- Arrow icon inside button --}}
                                 @if($siteContent->value('home_4'))<img src="{{ $siteContent->value('home_4') }}" alt="" class="h-5 w-5 object-contain" />@else<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -250,11 +255,13 @@
                     </div>
                 </div>
             </div>
+            </div>
         </section>
 
         {{-- ================= EXPERTISE ================= --}}
         <section id="expertise" class="relative w-full overflow-hidden py-16 md:py-24">
             @include('home.inline-editor', ['section' => 'expertise'])
+            <div class="home-edit-content">
             {{-- Section describing "Areas of Expertise" --}}
 
             {{-- background spots --}}
@@ -270,8 +277,8 @@
             <div class="container mx-auto px-4 md:px-6">
                 {{-- Section heading and intro text --}}
                 <div class="text-center reveal delay-0">
-                    <h2 class="font-headline text-3xl font-bold md:text-4xl">{!! $siteContent->formatted('home_40') !!}</h2>
-                    <p class="mx-auto mt-4 max-w-3xl text-center text-muted-foreground">{!! $siteContent->formatted('home_41') !!}</p>
+                    <h2 class="font-headline text-3xl font-bold md:text-4xl"><span data-home-text="home_40">{!! $siteContent->formatted('home_40') !!}</span></h2>
+                    <p class="mx-auto mt-4 max-w-3xl text-center text-muted-foreground"><span data-home-text="home_41">{!! $siteContent->formatted('home_41') !!}</span></p>
                 </div>
 
                 {{-- 3 columns of expertise cards --}}
@@ -286,8 +293,8 @@
                             <path d="M9 2v6l-2 3a7 7 0 1 0 10 0l-2-3V2" />
                             <path d="M12 2v6" />
                         </svg>@endif
-                        <h3 class="mt-4 font-headline text-2xl font-bold">{!! $siteContent->formatted('home_43') !!}</h3>
-                        <p class="mt-2 max-w-xs text-muted-foreground">{!! $siteContent->formatted('home_44') !!}</p>
+                        <h3 class="mt-4 font-headline text-2xl font-bold"><span data-home-text="home_43">{!! $siteContent->formatted('home_43') !!}</span></h3>
+                        <p class="mt-2 max-w-xs text-muted-foreground"><span data-home-text="home_44">{!! $siteContent->formatted('home_44') !!}</span></p>
                     </div>
 
                     {{-- Expertise card 2 --}}
@@ -300,8 +307,8 @@
                             <path d="M8.5 2h7" />
                             <path d="M7 16h10" />
                         </svg>@endif
-                        <h3 class="mt-4 font-headline text-2xl font-bold">{!! $siteContent->formatted('home_46') !!}</h3>
-                        <p class="mt-2 max-w-xs text-muted-foreground">{!! $siteContent->formatted('home_47') !!}</p>
+                        <h3 class="mt-4 font-headline text-2xl font-bold"><span data-home-text="home_46">{!! $siteContent->formatted('home_46') !!}</span></h3>
+                        <p class="mt-2 max-w-xs text-muted-foreground"><span data-home-text="home_47">{!! $siteContent->formatted('home_47') !!}</span></p>
                     </div>
 
                     {{-- Expertise card 3 --}}
@@ -328,16 +335,18 @@
                             </g>
                         </svg>@endif
 
-                        <h3 class="mt-4 font-headline text-2xl font-bold">{!! $siteContent->formatted('home_49') !!}</h3>
-                        <p class="mt-2 max-w-xs text-muted-foreground">{!! $siteContent->formatted('home_50') !!}</p>
+                        <h3 class="mt-4 font-headline text-2xl font-bold"><span data-home-text="home_49">{!! $siteContent->formatted('home_49') !!}</span></h3>
+                        <p class="mt-2 max-w-xs text-muted-foreground"><span data-home-text="home_50">{!! $siteContent->formatted('home_50') !!}</span></p>
                     </div>
                 </div>
+            </div>
             </div>
         </section>
 
         {{-- ================= ISTAART MEMBERSHIP (NEW SECTION) ================= --}}
         <section id="membership" class="relative overflow-hidden bg-background md:py-16">
             @include('home.inline-editor', ['section' => 'membership'])
+            <div class="home-edit-content">
             {{-- Section highlighting ISTAART membership --}}
 
             {{-- Soft animated background blobs --}}
@@ -369,17 +378,17 @@
                                     <span
                                         class="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-3 py-1 text-sm font-medium">
                                         <span class="inline-block h-2 w-2 animate-ping rounded-full bg-primary"></span>
-                                        <span class="inline-block h-2 w-2 rounded-full bg-primary"></span>{!! $siteContent->formatted('home_51') !!}</span>
+                                        <span class="inline-block h-2 w-2 rounded-full bg-primary"></span><span data-home-text="home_51">{!! $siteContent->formatted('home_51') !!}</span></span>
 
                                     {{-- Section heading with highlighted ISTAART word --}}
-                                    <h2 class="mt-4 font-headline text-3xl font-bold md:text-4xl">{!! $siteContent->formatted('membership_heading') !!}
+                                    <h2 class="mt-4 font-headline text-3xl font-bold md:text-4xl"><span data-home-text="membership_heading">{!! $siteContent->formatted('membership_heading') !!}</span>
                                     </h2>
 
                                     {{-- Description paragraph about ISTAART membership --}}
-                                    <p class="mt-4 text-lg leading-relaxed text-muted-foreground">{!! $siteContent->formatted('membership_paragraph') !!}</p>
+                                    <p class="mt-4 text-lg leading-relaxed text-muted-foreground"><span data-home-text="membership_paragraph">{!! $siteContent->formatted('membership_paragraph') !!}</span></p>
 
                                     {{-- Bullet grid of membership benefits --}}
-                                    <ul class="mt-6 grid gap-3 text-sm md:grid-cols-2">
+                                    <ul data-membership-benefits class="mt-6 grid gap-3 text-sm md:grid-cols-2">
                                         @foreach(preg_split('/\R/', $siteContent->value('membership_benefits')) as $benefit)
                                             @if(trim($benefit) !== '')
                                             <li class="flex items-center gap-2"><span class="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-primary"></span><span>{!! \App\Models\HomeContent::formatText($benefit) !!}</span></li>
@@ -387,16 +396,18 @@
                                         @endforeach
                                     </ul>
 
+                                    @auth<button type="button" class="membership-edit-action" data-add-benefit>Add highlight</button>@endauth
                                     {{-- CTA button + verification chip --}}
                                     <div class="mt-8 flex flex-wrap items-center gap-4">
                                         {{-- Button linking to ISTAART site --}}
                                         <a href="{{ $siteContent->value('home_17') }}" target="_blank" rel="noopener noreferrer"
-                                            class="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/30 transition hover:-translate-y-0.5 hover:shadow-xl">{!! $siteContent->formatted('home_61') !!}</a>
+                                            class="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/30 transition hover:-translate-y-0.5 hover:shadow-xl"><span data-home-text="home_61">{!! $siteContent->formatted('home_61') !!}</span></a>
 
+                                        @auth<button type="button" class="membership-edit-action" data-membership-setting="home_17">Edit button link</button>@endauth
                                         {{-- Small badge showing "Verified Membership" --}}
                                         <div
                                             class="flex items-center gap-2 rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground">
-                                            <span class="inline-block h-2 w-2 rounded-full bg-green-500"></span>{!! $siteContent->formatted('home_62') !!}</div>
+                                            <span class="inline-block h-2 w-2 rounded-full bg-green-500"></span><span data-home-text="home_62">{!! $siteContent->formatted('home_62') !!}</span></div>
                                     </div>
                                 </div>
 
@@ -420,25 +431,27 @@
                                             </div>
                                         </div>
 
+                                        @auth<div class="text-center"><button type="button" class="membership-edit-action" data-membership-setting="home_18">Change logo</button></div>@endauth
                                         {{-- Three mini-stat tiles under logo --}}
                                         <div class="mt-6 grid grid-cols-3 gap-3 text-center text-xs text-white/90">
                                             <div class="rounded-lg bg-white/10 px-3 py-2 ring-1 ring-white/10">
-                                                <p class="font-semibold text-white">{!! $siteContent->formatted('membership_community') !!}</p>
+                                                <p class="font-semibold text-white"><span data-home-text="membership_community">{!! $siteContent->formatted('membership_community') !!}</span></p>
                                             </div>
                                             <div class="rounded-lg bg-white/10 px-3 py-2 ring-1 ring-white/10">
-                                                <p class="font-semibold text-white">{!! $siteContent->formatted('membership_focus') !!}</p>
+                                                <p class="font-semibold text-white"><span data-home-text="membership_focus">{!! $siteContent->formatted('membership_focus') !!}</span></p>
                                             </div>
                                             <div class="rounded-lg bg-white/10 px-3 py-2 ring-1 ring-white/10">
-                                                <p class="font-semibold text-white">{!! $siteContent->formatted('membership_networks') !!}</p>
+                                                <p class="font-semibold text-white"><span data-home-text="membership_networks">{!! $siteContent->formatted('membership_networks') !!}</span></p>
                                             </div>
                                         </div>
 
+                                        @auth<div class="text-center"><button type="button" class="membership-edit-action" data-membership-setting="home_19">Edit website link</button></div>@endauth
                                         {{-- Link to explore ISTAART site --}}
                                         <div class="mt-6 text-center">
                                             <a href="{{ $siteContent->value('home_19') }}" target="_blank"
                                                 rel="noopener noreferrer"
                                                 class="inline-flex items-center gap-1 rounded text-sm font-medium text-white underline-offset-4 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60">
-                                                {!! $siteContent->formatted('membership_explore_text') !!}
+                                                <span data-home-text="membership_explore_text">{!! $siteContent->formatted('membership_explore_text') !!}</span>
                                                 @if($siteContent->value('home_8'))<img src="{{ $siteContent->value('home_8') }}" alt="" class="h-4 w-4 object-contain" />@else<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
                                                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
                                                     stroke-linecap="round" stroke-linejoin="round">
@@ -459,11 +472,13 @@
                     </div>
                 </div>
             </div>
+            </div>
         </section>
 
         {{-- ================= TRUST PANEL ================= --}}
         <section id="trust-panel" class="relative overflow-hidden bg-background py-16">
             @include('home.inline-editor', ['section' => 'trust-panel'])
+            <div class="home-edit-content">
             {{-- Section for external profile links (ORCID, Google Scholar, LinkedIn, Email) --}}
 
             {{-- background spots --}}
@@ -476,7 +491,7 @@
 
             <div class="container mx-auto px-4 md:px-6 reveal delay-0">
                 {{-- Section heading --}}
-                <h2 class="text-center font-headline text-2xl font-bold">{!! $siteContent->formatted('home_70') !!}</h2>
+                <h2 class="text-center font-headline text-2xl font-bold"><span data-home-text="home_70">{!! $siteContent->formatted('home_70') !!}</span></h2>
 
                 {{-- External link buttons --}}
                 <div class="mt-8 flex flex-wrap justify-center gap-6 text-muted-foreground md:gap-8">
@@ -484,8 +499,8 @@
                     <a href="{{ $siteContent->value('header_9') }}" target="_blank" rel="noopener noreferrer"
                         class="flex items-center gap-2 transition-colors hover:text-primary">
                         @if($siteContent->value('header_1'))<img src="{{ $siteContent->value('header_1') }}" alt="" class="h-6 w-6 object-contain" />@else<span
-                            class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white">{!! $siteContent->formatted('home_71') !!}</span>@endif
-                        <span class="font-medium">{!! $siteContent->formatted('home_72') !!}</span>
+                            class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white"><span data-home-text="home_71">{!! $siteContent->formatted('home_71') !!}</span></span>@endif
+                        <span class="font-medium"><span data-home-text="home_72">{!! $siteContent->formatted('home_72') !!}</span></span>
                     </a>
 
                     {{-- Google Scholar link --}}
@@ -496,7 +511,7 @@
                             <path d="M3 11l9-7 9 7-9 7-9-7z" />
                             <path d="M9 22v-7l6-4" />
                         </svg>@endif
-                        <span class="font-medium">{!! $siteContent->formatted('home_74') !!}</span>
+                        <span class="font-medium"><span data-home-text="home_74">{!! $siteContent->formatted('home_74') !!}</span></span>
                     </a>
 
                     {{-- LinkedIn link --}}
@@ -506,7 +521,7 @@
                             <path
                                 d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12H3zM9 8.98h3.8v1.64h.05c.53-.95 1.82-1.95 3.74-1.95 4 0 4.74 2.63 4.74 6.06v7.25h-4v-6.43c0-1.53-.03-3.5-2.13-3.5-2.13 0-2.45 1.66-2.45 3.38v6.55H9z" />
                         </svg>@endif
-                        <span class="font-medium">{!! $siteContent->formatted('home_76') !!}</span>
+                        <span class="font-medium"><span data-home-text="home_76">{!! $siteContent->formatted('home_76') !!}</span></span>
                     </a>
 
                     {{-- Email/contact link to contact page --}}
@@ -517,9 +532,10 @@
                             <path d="M4 4h16v16H4z" />
                             <path d="M22 6l-10 7L2 6" />
                         </svg>@endif
-                        <span class="font-medium">{!! $siteContent->formatted('home_78') !!}</span>
+                        <span class="font-medium"><span data-home-text="home_78">{!! $siteContent->formatted('home_78') !!}</span></span>
                     </a>
                 </div>
+            </div>
             </div>
         </section>
 

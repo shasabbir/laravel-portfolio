@@ -13,6 +13,45 @@ class HomeContentTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function test_section_save_is_atomic_and_preserves_other_sections_and_uploads(): void
+    {
+        Storage::fake('local');
+        $this->actingAs(User::factory()->create());
+        Storage::disk('local')->put('home/portrait.jpg', 'existing');
+        HomeContent::create(['id' => 1, 'values' => [
+            'home_37' => 'Keep about heading',
+            'home_14' => '/home/media/home_14', 'home_14_file' => 'home/portrait.jpg',
+        ]]);
+        $content = HomeContent::findOrFail(1);
+        $values = [];
+        foreach (HomeContent::sections()['hero']['fields'] as $key) $values[$key] = $content->value($key);
+        $values['home_23'] = 'Updated name';
+        $values['home_24'] = 'Updated role';
+        $this->put('/admin/home-content', ['_editor' => 'hero', 'values' => $values])
+            ->assertSessionHasNoErrors()->assertRedirect(route('home').'#edit-hero');
+        $content->refresh();
+        $this->assertSame('Updated name', $content->value('home_23'));
+        $this->assertSame('Updated role', $content->value('home_24'));
+        $this->assertSame('Keep about heading', $content->value('home_37'));
+        Storage::disk('local')->assertExists('home/portrait.jpg');
+
+        $values['home_23'] = 'Must not save';
+        $values['publications_button_url'] = 'javascript:alert(1)';
+        $this->put('/admin/home-content', ['_editor' => 'hero', 'values' => $values])
+            ->assertSessionHasErrors('values.publications_button_url');
+        $this->assertSame('Updated name', $content->fresh()->value('home_23'));
+        $values['publications_button_url'] = '/publications';
+        $values['home_37'] = 'Wrong section';
+        $this->put('/admin/home-content', ['_editor' => 'hero', 'values' => $values])
+            ->assertSessionHasErrors('values');
+        unset($values['home_37']);
+        $this->put('/admin/home-content', [
+            '_editor' => 'hero', 'values' => $values, 'resets' => ['home_14' => 1],
+        ])->assertSessionHasNoErrors();
+        Storage::disk('local')->assertMissing('home/portrait.jpg');
+        $this->assertSame(HomeContent::fields()['home_14']['default'], $content->fresh()->value('home_14'));
+    }
+
     public function test_defaults_and_guest_authorization(): void
     {
         $this->get('/')->assertOk()->assertSee('Life Sciences Researcher')->assertDontSee('Edit homepage, images');
@@ -94,10 +133,10 @@ class HomeContentTest extends TestCase
         ]]);
         $this->actingAs(User::factory()->create());
         $this->get('/')->assertOk()->assertSee('I am part of <strong>My Society</strong>, a research community.', false)
-            ->assertSee('name="field" value="membership_paragraph"', false)
-            ->assertDontSee('name="field" value="home_54"', false)
-            ->assertDontSee('name="field" value="home_55"', false)
-            ->assertDontSee('name="field" value="home_56"', false);
+            ->assertSee('name="values[membership_paragraph]"', false)
+            ->assertDontSee('name="values[home_54]"', false)
+            ->assertDontSee('name="values[home_55]"', false)
+            ->assertDontSee('name="values[home_56]"', false);
         $this->put('/admin/home-content', [
             '_editor' => 'membership', 'field' => 'membership_paragraph',
             'value' => 'A complete **bold paragraph** with <img src=x onerror=alert(1)>.',
@@ -113,10 +152,10 @@ class HomeContentTest extends TestCase
     {
         $this->actingAs(User::factory()->create());
         $this->get('/')->assertOk()->assertSee('Global Community')
-            ->assertSee('name="field" value="membership_community"', false)
-            ->assertDontSee('name="field" value="home_63"', false)
-            ->assertDontSee('name="field" value="home_64"', false)
-            ->assertDontSee('name="field" value="home_57"', false);
+            ->assertSee('name="values[membership_community]"', false)
+            ->assertDontSee('name="values[home_63]"', false)
+            ->assertDontSee('name="values[home_64]"', false)
+            ->assertDontSee('name="values[home_57]"', false);
         $this->put('/admin/home-content', [
             'field' => 'membership_benefits', 'value' => "First highlight\nSecond **highlight**",
         ])->assertSessionHasNoErrors();

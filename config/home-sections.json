@@ -2,17 +2,17 @@
   "hero": {
     "label": "Hero introduction, portrait & videos",
     "fields": [
-      "home_12",
       "home_23",
       "home_24",
       "home_25",
-      "publications_button_url",
       "home_26",
-      "contact_button_url",
+      "publications_button_url",
       "home_27",
-      "home_13",
+      "contact_button_url",
       "home_14",
-      "portrait_alt"
+      "portrait_alt",
+      "home_12",
+      "home_13"
     ]
   },
   "research": {
