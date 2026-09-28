@@ -38,7 +38,8 @@
     </div>
     <div>
       <label class="mb-1 block text-sm">Or Upload New Image (optional)</label>
-      <input type="file" name="image" accept="image/*" class="w-full rounded border border-input bg-background px-3 py-2" />
+      <input type="file" name="image" accept="image/jpeg,image/png,image/webp" class="w-full rounded border border-input bg-background px-3 py-2" />
+      <p class="mt-1 text-xs text-muted-foreground">JPG, PNG, or WebP. Maximum size: 4 MB.</p>
       @error('image')<p class="text-sm text-destructive">{{ $message }}</p>@enderror
       @if($blog->image_url)
         <p class="mt-2 text-xs text-muted-foreground">Current: <a class="underline" href="{{ $blog->image_url }}" target="_blank">{{ $blog->image_url }}</a></p>

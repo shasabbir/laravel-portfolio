@@ -9,45 +9,46 @@
     @csrf
     <div>
       <label class="mb-1 block text-sm">Title</label>
-      <input name="title" class="w-full rounded border border-input bg-background px-3 py-2" required />
+      <input name="title" value="{{ old('title') }}" class="w-full rounded border border-input bg-background px-3 py-2" required />
       @error('title')<p class="text-sm text-destructive">{{ $message }}</p>@enderror
     </div>
     <div>
       <label class="mb-1 block text-sm">Excerpt</label>
-      <textarea name="excerpt" class="w-full rounded border border-input bg-background px-3 py-2" rows="3" required></textarea>
+      <textarea name="excerpt" class="w-full rounded border border-input bg-background px-3 py-2" rows="3" required>{{ old('excerpt') }}</textarea>
       @error('excerpt')<p class="text-sm text-destructive">{{ $message }}</p>@enderror
     </div>
     <div>
       <label class="mb-1 block text-sm">Content</label>
-      <textarea name="content" class="w-full rounded border border-input bg-background px-3 py-2" rows="8" required></textarea>
+      <textarea name="content" class="w-full rounded border border-input bg-background px-3 py-2" rows="8" required>{{ old('content') }}</textarea>
       @error('content')<p class="text-sm text-destructive">{{ $message }}</p>@enderror
     </div>
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
       <div>
         <label class="mb-1 block text-sm">Image URL</label>
-        <input name="image_url" class="w-full rounded border border-input bg-background px-3 py-2" />
+        <input name="image_url" value="{{ old('image_url') }}" class="w-full rounded border border-input bg-background px-3 py-2" />
         <p class="mt-1 text-xs text-muted-foreground">Provide a URL or upload a file below.</p>
         @error('image_url')<p class="text-sm text-destructive">{{ $message }}</p>@enderror
       </div>
       <div>
         <label class="mb-1 block text-sm">Image Hint</label>
-        <input name="image_hint" class="w-full rounded border border-input bg-background px-3 py-2" required />
+        <input name="image_hint" value="{{ old('image_hint') }}" class="w-full rounded border border-input bg-background px-3 py-2" required />
         @error('image_hint')<p class="text-sm text-destructive">{{ $message }}</p>@enderror
       </div>
     </div>
     <div>
       <label class="mb-1 block text-sm">Or Upload Image</label>
-      <input type="file" name="image" accept="image/*" class="w-full rounded border border-input bg-background px-3 py-2" />
+      <input type="file" name="image" accept="image/jpeg,image/png,image/webp" class="w-full rounded border border-input bg-background px-3 py-2" />
+      <p class="mt-1 text-xs text-muted-foreground">JPG, PNG, or WebP. Maximum size: 4 MB.</p>
       @error('image')<p class="text-sm text-destructive">{{ $message }}</p>@enderror
     </div>
     <div>
       <label class="mb-1 block text-sm">Tags (comma separated)</label>
-      <input name="tags" class="w-full rounded border border-input bg-background px-3 py-2" />
+      <input name="tags" value="{{ old('tags') }}" class="w-full rounded border border-input bg-background px-3 py-2" />
       @error('tags')<p class="text-sm text-destructive">{{ $message }}</p>@enderror
     </div>
     <div>
       <label class="mb-1 block text-sm">Slug (optional)</label>
-      <input name="slug" class="w-full rounded border border-input bg-background px-3 py-2" />
+      <input name="slug" value="{{ old('slug') }}" class="w-full rounded border border-input bg-background px-3 py-2" />
       @error('slug')<p class="text-sm text-destructive">{{ $message }}</p>@enderror
     </div>
     <div class="flex gap-3">

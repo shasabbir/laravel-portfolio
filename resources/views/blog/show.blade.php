@@ -11,7 +11,7 @@
     <h1 class="font-headline mb-2 text-4xl font-bold">{{ $blog->title }}</h1>
     <div class="mb-6 flex flex-col gap-4 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
       <div class="flex items-center gap-3">
-        <img src="/storage/images/nuhash.jpg" class="h-8 w-8 rounded-full" alt="{{ $blog->author_name }}" />
+        <img src="{{ $authorImage }}" class="h-8 w-8 rounded-full" alt="{{ $blog->author_name }}" />
         <span>{{ $blog->author_name }}</span>
         <span>•</span>
         <time datetime="{{ $blog->date?->toDateString() }}">{{ optional($blog->date)->format('M d, Y') }}</time>

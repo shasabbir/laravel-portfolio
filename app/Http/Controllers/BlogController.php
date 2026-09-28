@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Blog;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class BlogController extends Controller
 {
@@ -31,8 +33,9 @@ class BlogController extends Controller
 
     public function store(Request $request)
     {
+        $request->merge(['slug' => Str::slug($request->input('slug') ?: $request->input('title', ''))]);
         $data = $request->validate([
-            'title' => ['required', 'string', 'min:1'],
+            'title' => ['required', 'string', 'min:1', 'max:255'],
             'excerpt' => ['required', 'string', 'min:1'],
             'content' => ['required', 'string', 'min:1'],
             // Require at least one of image_url or image
@@ -40,7 +43,7 @@ class BlogController extends Controller
             'image' => ['nullable','image','mimes:jpg,jpeg,png,webp','max:4096','required_without:image_url'],
             'image_hint' => ['required', 'string'],
             'tags' => ['nullable', 'string'], // comma separated
-            'slug' => ['nullable', 'string'],
+            'slug' => ['required', 'string', 'max:255', Rule::unique('blogs', 'slug')],
         ]);
 
         $slug = $data['slug'] ?? str( $data['title'] )
@@ -80,15 +83,16 @@ class BlogController extends Controller
 
     public function update(Request $request, Blog $blog)
     {
+        $request->merge(['slug' => Str::slug($request->input('slug') ?: $blog->slug)]);
         $data = $request->validate([
-            'title' => ['required', 'string', 'min:1'],
+            'title' => ['required', 'string', 'min:1', 'max:255'],
             'excerpt' => ['required', 'string', 'min:1'],
             'content' => ['required', 'string', 'min:1'],
             'image_url' => ['nullable', 'string'],
             'image' => ['nullable','image','mimes:jpg,jpeg,png,webp','max:4096'],
             'image_hint' => ['required', 'string'],
             'tags' => ['nullable', 'string'], // comma separated
-            'slug' => ['nullable', 'string'],
+            'slug' => ['required', 'string', 'max:255', Rule::unique('blogs', 'slug')->ignore($blog)],
         ]);
 
         $slug = $data['slug'] ?? str( $data['title'] )
