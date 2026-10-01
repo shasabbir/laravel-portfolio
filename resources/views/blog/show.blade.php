@@ -7,7 +7,7 @@
   <article class="mx-auto max-w-3xl">
     @php($fallbackImage = asset('images/nuhash.jpg'))
     @php($authorImage = asset('images/nuhash.jpg'))
-    <img src="{{ $blog->image_url ?: $fallbackImage }}" alt="{{ $blog->title }}" class="mb-6 h-64 w-full rounded object-cover md:h-96" />
+    <img src="{{ $blog->image_url ?: $fallbackImage }}" alt="{{ $blog->title }}" class="mb-6 block h-auto max-w-full w-full rounded object-contain" />
     <h1 class="font-headline mb-2 text-4xl font-bold">{{ $blog->title }}</h1>
     <div class="mb-6 flex flex-col gap-4 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
       <div class="flex items-center gap-3">

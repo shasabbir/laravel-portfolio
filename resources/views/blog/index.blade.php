@@ -59,7 +59,7 @@
                                     alt="{{ $featured->title }}"
                                     loading="lazy"
                                     decoding="async"
-                                    class="block h-auto w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                                    class="block h-auto max-w-full w-full object-contain transition-transform duration-500 md:group-hover:scale-105"
                                 />
                             </div>
 
